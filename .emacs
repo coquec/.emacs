@@ -1,15 +1,62 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+;; Añade los repositorios de paquetes de MELPA.
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+   '("melpa" . "http://melpa.milkbox.net/packages/")
+   t))
 
-;; Show the column number in the status bar
+;; Pone el modo AsciiDoc al abrir los ficheros .adoc.
+(add-to-list
+  'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
+
+;; Deshabilita el sonido.
+(setq visible-bell t)
+
+;; Utiliza espacios en vez de tabuladores.
+(setq-default indent-tabs-mode nil)
+
+;; Muestra el número de columna en la barra de estado.
 (setq column-number-mode t)
 
-;; Use the buffer name as the frame tittle
+;; Usa el nombre del buffer como título del marco.
 (setq frame-title-format "%b")
+
+;; Fijamos la tabulación por defecto a cuatro espacios.
+(setq-default tab-width 4)
+
+;; Fijamos la tabulación del buffer actual a cuatro espacios.
+(setq tab-width 4)
+
+;; Mostramos el número de columna en la barra de estado.
+(setq column-number-mode t)
+
+;; Fijamos las paradas del tabulador cada 3 caracteres.
+(setq tab-stop-list (number-sequence 4 200 4))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (wombat)))
+ '(js-indent-level 3)
+ '(package-selected-packages (quote (adoc-mode markdown-mode))))
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
