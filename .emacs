@@ -8,4 +8,8 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;; Show the column number in the status bar
 (setq column-number-mode t)
+
+;; Use the buffer name as the frame tittle
+(setq frame-title-format "%b")
