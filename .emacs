@@ -41,6 +41,14 @@
 ;; Fijamos las paradas del tabulador cada 3 caracteres.
 (setq tab-stop-list (number-sequence 4 200 4))
 
+;; Habilitamos la historia de últimos ficheros abiertos.
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; Guardamos la historia de últimos ficheros abiertos cada 4 min.
+(run-at-time nil (* 5 60) 'recentf-save-list)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,7 +58,7 @@
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (wombat)))
  '(js-indent-level 3)
- '(package-selected-packages (quote (adoc-mode markdown-mode))))
+ '(package-selected-packages (quote (json-mode adoc-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -60,3 +68,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(defun unfill-paragraph (&optional region)
+      "Takes a multi-line paragraph and makes it into a single line of text."
+      (interactive (progn (barf-if-buffer-read-only) '(t)))
+      (let ((fill-column (point-max))
+            ;; This would override `fill-column' if it's an integer.
+            (emacs-lisp-docstring-fill-column t))
+        (fill-paragraph nil region)))
+
+;; Habilita el ido-mode
+(require 'ido)
+(ido-mode t)
