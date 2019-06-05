@@ -77,6 +77,10 @@
             (emacs-lisp-docstring-fill-column t))
         (fill-paragraph nil region)))
 
-;; Habilita el ido-mode
+;; Enable ido-mode
 (require 'ido)
 (ido-mode t)
+
+;; Enable line numbers in 
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
