@@ -84,3 +84,6 @@
 ;; Enable line numbers in 
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+;; Enable elpy for Python editing
+(elpy-enable)
