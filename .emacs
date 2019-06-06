@@ -4,14 +4,14 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; Añade los repositorios de paquetes de MELPA.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-    'package-archives
-    ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-    '("melpa" . "http://melpa.milkbox.net/packages/")
-    t))
+; Añade los repositorios de paquetes de MELPA.
+(require 'package)
+(add-to-list
+  'package-archives
+  ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+  '("melpa" . "http://melpa.milkbox.net/packages/")
+  t)
+(package-initialize)
 
 ;; Pone el modo AsciiDoc al abrir los ficheros .adoc.
 (add-to-list
@@ -86,8 +86,4 @@
   (global-display-line-numbers-mode))
 
 ;; Enable elpy for Python editing
-(use-package elpy
-  :ensure t
-  :defer t
-  :init
-  (advice-add 'python-mode :before 'elpy-enable))
+(elpy-enable)
