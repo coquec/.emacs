@@ -8,10 +8,10 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
-   'package-archives
-   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-   '("melpa" . "http://melpa.milkbox.net/packages/")
-   t))
+    'package-archives
+    ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+    '("melpa" . "http://melpa.milkbox.net/packages/")
+    t))
 
 ;; Pone el modo AsciiDoc al abrir los ficheros .adoc.
 (add-to-list
@@ -50,32 +50,32 @@
 (run-at-time nil (* 5 60) 'recentf-save-list)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
- '(js-indent-level 3)
- '(package-selected-packages (quote (json-mode adoc-mode terraform-mode markdown-mode))))
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  '(ansi-color-faces-vector
+    [default default default italic underline success warning error])
+  '(custom-enabled-themes (quote (wombat)))
+  '(js-indent-level 3)
+  '(package-selected-packages (quote (json-mode adoc-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  )
 
 (defun unfill-paragraph (&optional region)
-      "Takes a multi-line paragraph and makes it into a single line of text."
-      (interactive (progn (barf-if-buffer-read-only) '(t)))
-      (let ((fill-column (point-max))
-            ;; This would override `fill-column' if it's an integer.
-            (emacs-lisp-docstring-fill-column t))
-        (fill-paragraph nil region)))
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+    ;; This would override `fill-column' if it's an integer.
+    (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
 
 ;; Enable ido-mode
 (require 'ido)
@@ -86,4 +86,8 @@
   (global-display-line-numbers-mode))
 
 ;; Enable elpy for Python editing
-(elpy-enable)
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (advice-add 'python-mode :before 'elpy-enable))
