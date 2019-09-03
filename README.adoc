@@ -1,7 +1,16 @@
-= GNU Emacs shortcuts :tags: Publish :author: Coque Couto :email:
-coque.couto@gmail.com :date: September 2019 :revdate: 20190903
-:source-highlighter: pygments :toc: :toc-title: Índice :toclevels: 3
-:numbered: :appendix-caption: Apéndice :figure-caption: Figura
+= GNU Emacs shortcuts
+:tags: Publish
+:author: Coque Couto
+:email: coque.couto@gmail.com
+:date: September 2019
+:revdate: 20190903
+:source-highlighter: pygments
+:toc:
+:toc-title: Índice
+:toclevels: 3
+:numbered:
+:appendix-caption: Apéndice
+:figure-caption: Figura
 
 === Ayuda
 
