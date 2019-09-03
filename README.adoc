@@ -14,6 +14,7 @@
 
 === Ayuda
 
+[cols="15,85"]
 |===
 | C-h m | Muestra todas las combinaciones de teclado de los modos mayor y menor
 | C-h | (Tras una tecla de prefijo) Muestra las combinaciones disponibles con ese prefijo
@@ -21,12 +22,14 @@
 
 === Deshacer
 
+[cols="15,85"]
 |===
 | C-x C-u | Deshacer (undo)
 |===
 
 === Copiar, cortar y pegar
 
+[cols="15,85"]
 |===
 | C-y | Pegar (yank)
 | M-y | (Después de C-y). Sustituir el texto pegado por otro cortado previamente
@@ -37,12 +40,14 @@
 
 === Movimiento
 
+[cols="15,85"]
 |===
 | C-SPC | Poner la marca
 | C-u C-SPC | Ir a la marca
 | C-x C-x | Intercambiar el cursor y la marca
 |===
 
+[cols="15,85"]
 |===
 | M-r | Mueve el cursor al principio, mitad y final de la pantalla
 | M-g M-g | Ir a una línea específica
@@ -50,6 +55,7 @@
 | C-u C-x C-n | Deshabilita la orden anterior
 |===
 
+[cols="15,85"]
 |===
 | C-M-f | Ir al final del bloque
 | C-M-b | Ir al principio del bloque
@@ -61,6 +67,7 @@
 
 === Búsqueda
 
+[cols="15,85"]
 |===
 | M-x occur | Encuentra todas las líneas que tengan un texto
 | C-M-s | Buscar regexp
@@ -72,6 +79,7 @@
 
 === Registros
 
+[cols="15,85"]
 |===
 | C-x r ? | Ayuda de órdenes de registros/bookmarks
 | C-x r <SPC> _r_ | Guarda la posición en el registro _r_
@@ -86,6 +94,7 @@
 
 === Rectángulos
 
+[cols="15,85"]
 |===
 | C-x <SPC> | Conmuta el modo de marcado de rectángulo, mostrando la región-rectángulo y haciendo que las órdenes habituales de copiado y pegado funcionen sobre ella mientras la región esté activa. En este modo, C-x C-x alterna el cursor entre las cuatro esquinas del rectángulo
 | C-x r k | Corta la región-rectángulo
@@ -102,6 +111,7 @@
 
 === Repeticiones
 
+[cols="15,85"]
 |===
 | M-- | Argumento negativo para la siguiente orden
 | C-u - | Argumento negativo para la siguiente orden
@@ -114,8 +124,8 @@
 
 === Varios
 
+[cols="15,85"]
 |===
 | M-x subword-mode | Habilita que Emacs considere las mayúsculas como separadores de palabras
-
 | C-o | Inserta un retorno donde esté el cursor, sin moverlo
 |===
