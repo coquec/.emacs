@@ -1,23 +1,16 @@
-= GNU Emacs shortcuts
-:tags: Publish
-:author: Coque Couto
-:email: coque.couto@gmail.com
-:date: September 2019
-:revdate: 20190903
-:source-highlighter: pygments
-:toc:
-:toc-title: Índice
-:toclevels: 3
-:numbered:
-:appendix-caption: Apéndice
-:figure-caption: Figura
+= GNU Emacs shortcuts :tags: Publish :author: Coque Couto :email:
+coque.couto@gmail.com :date: September 2019 :revdate: 20190903
+:source-highlighter: pygments :toc: :toc-title: Índice :toclevels: 3
+:numbered: :appendix-caption: Apéndice :figure-caption: Figura
 
 === Ayuda
 
 [cols="15,85"]
 |===
-| C-h m | Muestra todas las combinaciones de teclado de los modos mayor y menor
-| C-h | (Tras una tecla de prefijo) Muestra las combinaciones disponibles con ese prefijo
+| C-h m | Muestra todas las combinaciones de teclado de los modos
+  mayor y menor
+| C-h | (Tras una tecla de prefijo) Muestra las combinaciones
+  disponibles con ese prefijo
 |===
 
 === Deshacer
@@ -32,10 +25,12 @@
 [cols="15,85"]
 |===
 | C-y | Pegar (yank)
-| M-y | (Después de C-y). Sustituir el texto pegado por otro cortado previamente
+| M-y | (Después de C-y). Sustituir el texto pegado por otro cortado
+  previamente
 | M-w | Copia el texto marcado
 | C-w | Corta el texto marcado
-| C-M-w | Seguir añadiendo lo siguiente que se corte al texto cortado previamente
+| C-M-w | Seguir añadiendo lo siguiente que se corte al texto cortado
+  previamente
 |===
 
 === Movimiento
@@ -51,7 +46,8 @@
 |===
 | M-r | Mueve el cursor al principio, mitad y final de la pantalla
 | M-g M-g | Ir a una línea específica
-| C-x C-n | Fijar la columna a la que se mueve el cursor cuando cambia de línea goal column)
+| C-x C-n | Fijar la columna a la que se mueve el cursor cuando cambia
+  de línea goal column)
 | C-u C-x C-n | Deshabilita la orden anterior
 |===
 
@@ -72,9 +68,12 @@
 | M-x occur | Encuentra todas las líneas que tengan un texto
 | C-M-s | Buscar regexp
 | M-c | (Al buscar) Conmuta la sensibilidad a las mayúsculas
-| M-e | (Al buscar) Permite editar la cadena de búsqueda. Terminar con RET
-| M-n | (Al buscar) Presenta la siguiente cadena en el histórico de búsquedas
-| M-p | (Al buscar) Presenta la anterior cadena en el histórico de búsquedas
+| M-e | (Al buscar) Permite editar la cadena de búsqueda. Terminar con
+  RET
+| M-n | (Al buscar) Presenta la siguiente cadena en el histórico de
+  búsquedas
+| M-p | (Al buscar) Presenta la anterior cadena en el histórico de
+  búsquedas
 |===
 
 === Registros
@@ -84,11 +83,17 @@
 | C-x r ? | Ayuda de órdenes de registros/bookmarks
 | C-x r <SPC> _r_ | Guarda la posición en el registro _r_
 | C-x r j _r_ | Salta a la posición guardada en el registro _r_
-| C-x r s _r_ | Guarda la región en el registro _r_ (con prefijo C-u, también la borra del buffer)
-| C-x r r _r_ | Guarda la región-rectángulo en el registro _r_ (con prefijo C-u, también la borra del buffer)
-| C-x r i _r_ | Inserta en el buffer el texto o el rectángulo del registro _r_ (con prefijo, deja el cursor al principio y pone la marca al final)
-| M-x append-to-register <RET> _r_ | Añade la región al registro _r_ (con prefijo C-u, también la borra del buffer)
-| M-x prepend-to-register <RET> _r_ | Añade la región al principio del registro _r_
+| C-x r s _r_ | Guarda la región en el registro _r_ (con prefijo C-u,
+  también la borra del buffer)
+| C-x r r _r_ | Guarda la región-rectángulo en el registro _r_ (con
+  prefijo C-u, también la borra del buffer)
+| C-x r i _r_ | Inserta en el buffer el texto o el rectángulo del
+  registro _r_ (con prefijo, deja el cursor al principio y pone la
+  marca al final)
+| M-x append-to-register <RET> _r_ | Añade la región al registro _r_
+  (con prefijo C-u, también la borra del buffer)
+| M-x prepend-to-register <RET> _r_ | Añade la región al principio del
+  registro _r_
 | M-x view-register <RET> _r_ | Describe el contenido del registro _r_
 |===
 
@@ -96,17 +101,30 @@
 
 [cols="15,85"]
 |===
-| C-x <SPC> | Conmuta el modo de marcado de rectángulo, mostrando la región-rectángulo y haciendo que las órdenes habituales de copiado y pegado funcionen sobre ella mientras la región esté activa. En este modo, C-x C-x alterna el cursor entre las cuatro esquinas del rectángulo
+| C-x <SPC> | Conmuta el modo de marcado de rectángulo, mostrando la
+  región-rectángulo y haciendo que las órdenes habituales de copiado y
+  pegado funcionen sobre ella mientras la región esté activa. En este
+  modo, C-x C-x alterna el cursor entre las cuatro esquinas del
+  rectángulo
 | C-x r k | Corta la región-rectángulo
 | C-x r M-w | Copia la región-rectángulo
 | C-x r d | Borra la región-rectángulo
-| C-x r y | Pega el último rectángulo cortado en el punto donde esté el cursor
-| C-x r o | Abre espacio para un rectángulo, desplazando el texto a la derecha y rellenándolo con espacios
-| C-x r c | Limpia el espacio del rectángulo, sustituyendo el texto por espacios
-| C-x r N | Numera cada línea del rectángulo y desplaza el texto a la derecha. Precedido por C-u, permite elegir el número inicial y el formato
-| C-x r t _string_ <RET> | Reemplaza cada línea del rectángulo por _string_
-| M-x delete-whitespace-rectangle | Elimina los espacios que haya en cada línea del rectángulo, desde la columna de la izquierda en adelante
-| C-x r r _r_ | Guarda la región-rectángulo en el registro _r_ (con prefijo C-u, también la borra del buffer)
+| C-x r y | Pega el último rectángulo cortado en el punto donde esté
+  el cursor
+| C-x r o | Abre espacio para un rectángulo, desplazando el texto a la
+  derecha y rellenándolo con espacios
+| C-x r c | Limpia el espacio del rectángulo, sustituyendo el texto
+  por espacios
+| C-x r N | Numera cada línea del rectángulo y desplaza el texto a la
+  derecha. Precedido por C-u, permite elegir el número inicial y el
+  formato
+| C-x r t _string_ <RET> | Reemplaza cada línea del rectángulo por
+  _string_
+| M-x delete-whitespace-rectangle | Elimina los espacios que haya en
+  cada línea del rectángulo, desde la columna de la izquierda en
+  adelante
+| C-x r r _r_ | Guarda la región-rectángulo en el registro _r_ (con
+  prefijo C-u, también la borra del buffer)
 |===
 
 === Repeticiones
@@ -117,7 +135,8 @@
 | C-u - | Argumento negativo para la siguiente orden
 | M-[0-9]... | Repite la siguiente orden n veces
 | C-u [0-9]... | Repite la siguiente orden n veces
-| C-x z | Repite la última orden. Seguir pulsando z para seguir repitiendo
+| C-x z | Repite la última orden. Seguir pulsando z para seguir
+  repitiendo
 | M-0 C-x e | Repite una macro hasta alcanzar el final del fichero
 | C-u 0 C-x e | Repite una macro hasta alcanzar el final del fichero
 |===
@@ -126,6 +145,7 @@
 
 [cols="15,85"]
 |===
-| M-x subword-mode | Habilita que Emacs considere las mayúsculas como separadores de palabras
+| M-x subword-mode | Habilita que Emacs considere las mayúsculas como
+  separadores de palabras
 | C-o | Inserta un retorno donde esté el cursor, sin moverlo
 |===
