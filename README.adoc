@@ -26,48 +26,58 @@
 
 [cols="20,80"]
 |===
-| `C-x C-u` | Deshacer (undo)
+| `C-x u` | Deshace (undo)
+| `C-/` | Deshace (undo)
+| `C-_` | Deshace (undo)
 |===
 
 === Copiar, cortar y pegar
 
 [cols="20,80"]
 |===
-| `C-y` | Pegar (yank)
-| `M-y` | (Después de `C-y`). Sustituir el texto pegado por otro
+| `C-y` | Pega (yank) el texto cortado y pone la marca al otro lado de
+  donde quede el cursor
+| `M-y` | (Después de `C-y`). Sustituye el texto pegado por otro
   cortado previamente
 | `M-w` | Copia el texto marcado
 | `C-w` | Corta el texto marcado
-| `C-M-w` | Seguir añadiendo lo siguiente que se corte al texto cortado
+| `C-M-w` | Sigue añadiendo lo siguiente que se corte al texto cortado
   previamente
 |===
 
-=== Movimiento
+=== Seleccionar texto
 
 [cols="20,80"]
 |===
-| `C-SPC` | Poner la marca
-| `C-u C-SPC` | Ir a la marca
-| `C-x C-x` | Intercambiar el cursor y la marca
+| `C-<SPC>` | Pone la marca donde esté el cursor y la activa
+| `C-@` | Pone la marca donde esté el cursor y la activa
+| `C-u C-<SPC>` | Va a la marca
+| `C-x C-x` | Intercambia el cursor y la marca, y la activa
 |===
+
+=== Mover el cursor
 
 [cols="20,80"]
 |===
 | `M-r` | Mueve el cursor al principio, mitad y final de la pantalla
-| `M-g M-g` | Ir a una línea específica
-| `C-x C-n` | Fijar la columna a la que se mueve el cursor cuando cambia
-  de línea goal column)
+| `M-g M-g` | Va a una línea específica
+| `C-x C-n` | Fija la columna a la que se mueve el cursor cuando
+  cambia de línea goal column)
 | `C-u C-x C-n` | Deshabilita la orden anterior
+| `C-<SPC> C-<SPC>` | Guarda la posición del cursor en el anillo de
+  marcas
+| `C-u C-<SPC>` | Mueve el cursor a la última posición guardada en el
+  anillo de marcas
 |===
 
 [cols="20,80"]
 |===
-| `C-M-f` | Ir al final del bloque
-| `C-M-b` | Ir al principio del bloque
-| `C-M-u` | Ir al bloque anterior
-| `C-M-d` | Ir al siguiente bloque
-| `C-M-a` | Ir al principio de una función
-| `C-M-e` | Ir al final de una función
+| `C-M-f` | Va al final del bloque
+| `C-M-b` | Va al principio del bloque
+| `C-M-u` | Va al bloque anterior
+| `C-M-d` | Va al siguiente bloque
+| `C-M-a` | Va al principio de una función
+| `C-M-e` | Va al final de una función
 |===
 
 === Búsqueda
@@ -75,7 +85,7 @@
 [cols="20,80"]
 |===
 | `M-x occur` | Encuentra todas las líneas que tengan un texto
-| `C-M-s` | Buscar regexp
+| `C-M-s` | Busca regexp
 | `M-c` | (Al buscar) Conmuta la sensibilidad a las mayúsculas
 | `M-e` | (Al buscar) Permite editar la cadena de búsqueda. Terminar con
   RET
@@ -208,7 +218,10 @@
 
 [cols="20,80"]
 |===
+| `C-g` | Aborta una orden en curso
 | `M-x subword-mode` | Habilita que Emacs considere las mayúsculas como
   separadores de palabras
 | `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
+| `C-x C-l` | Convierte el texto de la región en minúsculas
+| `C-x C-u` | Convierte el texto de la región en mayúsculas
 |===
