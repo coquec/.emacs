@@ -60,7 +60,7 @@
  '(js-indent-level 3)
  '(package-selected-packages
    (quote
-    (use-package json-mode adoc-mode terraform-mode markdown-mode))))
+    (adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
