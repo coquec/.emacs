@@ -16,10 +16,10 @@
 
 [cols="20,80"]
 |===
-| `C-h m` | Muestra todas las combinaciones de teclado de los modos
-  mayor y menor
 | `C-h` | (Tras una tecla de prefijo) Muestra las combinaciones
   disponibles con ese prefijo
+| `C-h m` | Muestra todas las combinaciones de teclado de los
+  **m**odos mayor y menores
 |===
 
 === Deshacer
@@ -89,7 +89,7 @@
 
 [cols="20,80"]
 |===
-| `C-x r ?` | Ayuda de órdenes de registros/bookmarks
+| `C-x r ?` | Ayuda de órdenes de registros/marcadores
 | `C-x r <SPC> _**r**_` | Guarda la posición del cursor en el registro _**r**_
 | `C-x r w _**r**_` | Guarda la configuración de las ventanas del marco
   seleccionado en el registro _**r**_
@@ -120,6 +120,23 @@
 | `(set-register _**r**_ '(file . _**path**_))` | Guarda el nombre del
   archivo _**path**_ en el registro _**r**_. P. ej, `(set-register ?e
   '(file . "/home/xxx/.emacs"))`. Puede visitarse con `C-x r j _**r**_`
+|===
+
+=== Marcadores (bookmarks)
+
+[cols="20,80"]
+|===
+| `C-x r m <RET>` | Establece un marcador en el buffer actual, donde
+  esté el cursor, llamado igual que el archivo
+| `C-x r m _**bookmark**_ <RET>` | Establece un marcador llamado
+  _**bookmark**_ en el buffer actual, donde esté el cursor
+| `C-x r M _**bookmark**_ <RET>` | Como el anterior, pero no reescribe
+  un marcador que ya exista
+| `C-x r b _**bookmark**_ <RET>` | Salta al marcador especificado
+| `C-x r l` | Lista todos los marcadores. Se puede editar el contenido
+  del listado (pulsar `?` para ayuda)
+| ``M-x bookmark-save` | Guarda la lista de marcadores en el archivo
+  de marcadores por defecto
 |===
 
 === Rectángulos
