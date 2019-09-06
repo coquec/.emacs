@@ -62,8 +62,9 @@
   principio y la marca al final, y la activa
 | `C-x h` | Marcar el buffer entero: pone el cursor al principio y la
   marca al final, y la activa
-| `C-x C-p` | Marcar la página actual: pone el cursor al principio y
-  la marca al final, y la activa
+| `C-x C-p` | Marcar la página actual (según el delimitador definido
+  en la variable `page-delimiter`): pone el cursor al principio y la
+  marca al final, y la activa
 | `M-@` | Pone la marca al final de la siguiente palabra sin mover el
   cursor, y la activa. Con cada pulsación añade una palabra
   más. Admite argumentos precedido de `C-u _**número**_` o C-u
@@ -89,6 +90,10 @@
 | `C-n` | Mueve el cursor a la siguiente línea (**n**ext)
 | `M-r` | Mueve el cursor al principio, mitad y final de la pantalla
 | `M-g M-g` | Va a una línea específica
+| `C-x [` | Va al borde de la página anterior (según el delimitador
+  definido en la variable `page-delimiter`)
+| `C-x ]` | Va al borde de la siguiente página (según el delimitador
+  definido en la variable `page-delimiter`)
 | `C-x C-n` | Fija la columna a la que se mueve el cursor cuando
   cambia de línea goal column)
 | `C-u C-x C-n` | Deshabilita la orden anterior
@@ -252,4 +257,6 @@
 | `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
+| `C-x l` | Cuenta las líneas de la página actual (según el delimitador
+  definido en la variable `page-delimiter`)
 |===
