@@ -26,9 +26,9 @@
 
 [cols="20,80"]
 |===
-| `C-x u` | Deshace (undo)
-| `C-/` | Deshace (undo)
-| `C-_` | Deshace (undo)
+| `C-x u` .3+| Deshace (undo)
+| `C-/`
+| `C-_`
 |===
 
 === Copiar, cortar y pegar
@@ -43,22 +43,50 @@
 | `C-w` | Corta el texto marcado
 | `C-M-w` | Sigue añadiendo lo siguiente que se corte al texto cortado
   previamente
+| `C-M-k` | Corta la siguiente expresión balanceada
+| `C-M-t` | Intercambia (**t**ranspone) las expresiones balanceadas
+  que rodean al cursor
 |===
 
-=== Seleccionar texto
+=== Seleccionar texto (marcar)
 
 [cols="20,80"]
 |===
-| `C-<SPC>` | Pone la marca donde esté el cursor y la activa
-| `C-@` | Pone la marca donde esté el cursor y la activa
+| `C-<SPC>` .2+| Pone la marca donde esté el cursor y la activa
+| `C-@`
 | `C-u C-<SPC>` | Va a la marca
-| `C-x C-x` | Intercambia el cursor y la marca, y la activa
+| `C-x C-x` | Intercambia el cursor y la marca y la activa
+| `M-h` | Marcar el párrafo actual: pone el cursor al principio y la
+  marca al final, y la activa
+| `C-M-h` | Marcar la función (_defun_) actual: pone el cursor al
+  principio y la marca al final, y la activa
+| `C-x h` | Marcar el buffer entero: pone el cursor al principio y la
+  marca al final, y la activa
+| `C-x C-p` | Marcar la página actual: pone el cursor al principio y
+  la marca al final, y la activa
+| `M-@` | Pone la marca al final de la siguiente palabra sin mover el
+  cursor, y la activa. Con cada pulsación añade una palabra
+  más. Admite argumentos precedido de `C-u _**número**_` o C-u
+  _**-número**_ para marcar hacia atrás
+| `C-M-@` .2+| Pone la marca al final de la siguiente expresión
+  balanceada sin mover el cursor, y la activa. Con cada pulsación
+  añade una expresión más. Admite argumentos precedido de `C-u
+  _**número**_` o C-u _**-número**_ para marcar hacia atrás
+| `C-M-<SPC>`
 |===
 
-=== Mover el cursor
+=== Movimiento del cursor
 
 [cols="20,80"]
 |===
+| `C-f` | Mueve el cursor al siguiente carácter (**f**orward)
+| `C-M-f` | Mueve el cursor al final de la siguiente expresión
+  balanceada
+| `C-b` | Mueve el cursor al carácter anterior (**b**ackward)
+| `C-M-b` | Mueve el cursor al principio de la expresión balanceada
+  anterior
+| `C-p` | Mueve el cursor a la línea anterior (**p**revious)
+| `C-n` | Mueve el cursor a la siguiente línea (**n**ext)
 | `M-r` | Mueve el cursor al principio, mitad y final de la pantalla
 | `M-g M-g` | Va a una línea específica
 | `C-x C-n` | Fija la columna a la que se mueve el cursor cuando
@@ -196,12 +224,12 @@
 |===
 | `M--` | Argumento negativo para la siguiente orden
 | `C-u -` | Argumento negativo para la siguiente orden
-| `M-_**n**_` | Repite la siguiente orden _**n**_ veces
-| `C-u _**n**_` | Repite la siguiente orden _**n**_ veces
+| `M-_**n**_` .2+| Repite la siguiente orden _**n**_ veces
+| `C-u _**n**_`
 | `C-x z` | Repite la última orden. Seguir pulsando z para seguir
   repitiendo
-| `M-0 C-x e` | Repite una macro hasta alcanzar el final del fichero
-| `C-u 0 C-x e` | Repite una macro hasta alcanzar el final del fichero
+| `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del fichero
+| `C-u 0 C-x e`
 |===
 
 === Macros
