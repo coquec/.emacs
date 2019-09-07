@@ -29,6 +29,8 @@
 | `C-x u` .3+| Deshace (undo)
 | `C-/`
 | `C-_`
+| `C-u C-/` .2+| Deshace dentro de la región
+| `C-u C-_`
 |===
 
 === Copiar, cortar y pegar
@@ -69,11 +71,11 @@
   cursor, y la activa. Con cada pulsación añade una palabra
   más. Admite argumentos precedido de `C-u _**número**_` o C-u
   _**-número**_ para marcar hacia atrás
-| `C-M-@` .2+| Pone la marca al final de la siguiente expresión
+| `C-M-<SPC>` .2+| Pone la marca al final de la siguiente expresión
   balanceada sin mover el cursor, y la activa. Con cada pulsación
   añade una expresión más. Admite argumentos precedido de `C-u
   _**número**_` o C-u _**-número**_ para marcar hacia atrás
-| `C-M-<SPC>`
+| `C-M-@`
 |===
 
 === Movimiento del cursor
@@ -113,12 +115,26 @@
 | `C-M-e` | Va al final de una función
 |===
 
-=== Búsqueda
+=== Buscar y reemplazar
 
 [cols="20,80"]
 |===
-| `M-x occur` | Encuentra todas las líneas que tengan un texto
-| `C-M-s` | Busca regexp
+| `C-s` | Busca hacia delante
+| `C-r` | Busca hacia atrás
+| `C-M-s` | Busca regexp hacia delante
+| `C-x replace-string <RET> _**string**_ <RET> _**newstring**_
+  <RET>` | Reemplaza todas de las ocurrencias de _**string**_ por
+  _**newstring**_. Intenta mantener las mayúsculas de la cadena
+  original (p.ej, al cambiar `UNO` por `dos`, pone `DOS`). No hace
+  esto si se usan mayúsculas en _**string**_ o en _**newstring**_.
+| `M-% _**string**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
+  de las ocurrencias de _**string**_ por _**newstring**_. Con prefijo
+  `C-u _**n**_`, solo cambia las ocurrencias rodeadas por
+  delimitadores de palabras. Con prefijo `C-u _**-**_`, busca hacia
+  atrás
+| `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
+  de las ocurrencias de _**regexp**_ por _**newstring**_. Por lo
+  demás, funciona como la anterior
 | `M-c` | (Al buscar) Conmuta la sensibilidad a las mayúsculas
 | `M-e` | (Al buscar) Permite editar la cadena de búsqueda. Terminar con
   RET
@@ -126,6 +142,7 @@
   búsquedas
 | `M-p` | (Al buscar) Presenta la anterior cadena en el histórico de
   búsquedas
+| `M-x occur` | Encuentra todas las líneas que tengan un texto
 |===
 
 === Registros
@@ -231,6 +248,11 @@
 | `C-u -` | Argumento negativo para la siguiente orden
 | `M-_**n**_` .2+| Repite la siguiente orden _**n**_ veces
 | `C-u _**n**_`
+| `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
+  minibuffer. Precedida de `C-u _**n**_`, ejecuta la e_**n**_ésima
+  orden anterior (1 para la última)
+| `M-x list-command-history` | Muestra la historia de órdenes
+  ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
 | `C-x z` | Repite la última orden. Seguir pulsando z para seguir
   repitiendo
 | `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del fichero
