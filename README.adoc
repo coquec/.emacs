@@ -12,6 +12,18 @@
 :appendix-caption: Apéndice
 :figure-caption: Figura
 
+=== Salida y trabajo con varios archivos en distintos _buffers_
+
+[cols="20,80"]
+|===
+| `C-x C-c` | Salir de Emacs
+| `C-x C-f` | Abrir un archivo en un nuevo buffer (__**f**__ind file)
+| `C-x b` | Cambia de buffer
+| `C-x o` | Cambia de ventana
+| `C-x k` | Cierra (__**k**__ill) un buffer
+|===
+
+
 === Ayuda
 
 [cols="20,80"]
