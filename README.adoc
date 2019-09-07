@@ -134,11 +134,13 @@
 | `C-s` | Busca hacia delante
 | `C-r` | Busca hacia atrás
 | `C-M-s` | Busca regexp hacia delante
-| `C-x replace-string <RET> _**string**_ <RET> _**newstring**_
+| `M-x replace-string <RET> _**string**_ <RET> _**newstring**_
   <RET>` | Reemplaza todas de las ocurrencias de _**string**_ por
-  _**newstring**_. Intenta mantener las mayúsculas de la cadena
-  original (p.ej, al cambiar `UNO` por `dos`, pone `DOS`). No hace
-  esto si se usan mayúsculas en _**string**_ o en _**newstring**_.
+  _**newstring**_ desde la posición del cursor hasta el final del
+  buffer. Intenta mantener las mayúsculas de la cadena original (p.ej,
+  al cambiar `UNO` por `dos`, pone `DOS`). No hace esto si se usan
+  mayúsculas en _**string**_ o en _**newstring**_. Si hay una región
+  activa, solo actúa dentro de ella
 | `M-% _**string**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
   de las ocurrencias de _**string**_ por _**newstring**_. Con prefijo
   `C-u _**n**_`, solo cambia las ocurrencias rodeadas por
@@ -147,14 +149,23 @@
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
   de las ocurrencias de _**regexp**_ por _**newstring**_. Por lo
   demás, funciona como la anterior
-| `M-c` | (Al buscar) Conmuta la sensibilidad a las mayúsculas
+| `M-c` .2+| (Al buscar) Conmuta la sensibilidad a las mayúsculas (por
+  defecto, la búsqueda no es sensible a las mayúsculas)
+| `M-s c`
 | `M-e` | (Al buscar) Permite editar la cadena de búsqueda. Terminar con
   RET
 | `M-n` | (Al buscar) Presenta la siguiente cadena en el histórico de
   búsquedas
 | `M-p` | (Al buscar) Presenta la anterior cadena en el histórico de
   búsquedas
-| `M-x occur` | Encuentra todas las líneas que tengan un texto
+| `M-s <SPC>` | (Al buscar) Conmuta entre la interpretación laxa de
+  espacios y la interpretación literal en la cadena buscada
+| `M-s '` | (Al buscar) Conmuta el desdoblamiento de caracteres
+  (_character folding_). Activada, encuentra caracteres acentuados
+  como _á_ al buscar _a_, por ejemplo
+| `M-s o _**regexp**_ <RET>` .2+| Encuentra todas las líneas que
+  tengan _**regexp**_
+| `M-x occur <RET> _**regexp**_ <RET>`
 |===
 
 === Registros
