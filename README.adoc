@@ -269,7 +269,8 @@
 |===
 | `M--` | Argumento negativo para la siguiente orden
 | `C-u -` | Argumento negativo para la siguiente orden
-| `M-_**n**_` .2+| Repite la siguiente orden _**n**_ veces
+| `C-_**n**_` .3+| Repite la siguiente orden _**n**_ veces
+| `M-_**n**_`
 | `C-u _**n**_`
 | `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
   minibuffer. Precedida de `C-u _**n**_`, ejecuta la e_**n**_ésima
@@ -290,6 +291,27 @@
 | `C-x )` | Termina de grabar una macro
 | `C-x e` | Ejecuta la última macro grabada
 | `C-x C-k x _**r**_` | Guarda la última macro en el registro _**r**_. Puede ejecutarse con `C-x r j _**r**_`
+|===
+
+=== Transposición
+
+[cols="20,80"]
+|===
+| `C-t` | Transpone los dos caracteres que rodean al cursor y avanza
+  el cursor (_hace avanzar_ el carácter que hay antes del cursor y
+  deja el cursor tras él). Si está al final de la línea, transpone los
+  dos últimos caracteres de la línea sin mover el cursor. Con un
+  prefijo `C-_**n**_`, hace avanzar el carácter _**n**_ veces. Con un
+  prefijo negativo, lo hace retroceder. Con un prefijo `C-0`,
+  transpone el carácter que hay tras el cursor con el de la marca
+| `M-t` | Transpone la palabra que hay antes del cursor con la palabra
+  que viene después, y pone el cursor después de la segunda palabra
+  (_hace avanzar_ la palabra que hay antes del cursor). No mueve los
+  signos de puntuación. Admite prefijo `C-_**n**_`
+| `C-M-t` | Transpone dos expresiones balanceadas (_hace avanzar_ la
+  expresión balanceada que haya encima del cursor)
+| `C-x C-t` | Transpone dos líneas (_hace avanzar_ la línea que haya
+  encima del cursor)
 |===
 
 === Varios
