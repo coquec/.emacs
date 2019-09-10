@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: AsciiDoc header
+# key:  head
+# --
+= ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`}
+:tags: Publish
+:author: ${2:`(user-full-name)`}
+:email: ${3:`(user-login-name)`}
+:date: ${4:`(format-time-string "%B %Y")`}
+:revdate: ${5:`(format-time-string "%Y%m%d")`}
+:source-highlighter: pygments
+:toc:
+:toc-title: Índice
+:toclevels: 3
+:numbered:
+:appendix-caption: Apéndice
+:figure-caption: Figura
+
+== $0
