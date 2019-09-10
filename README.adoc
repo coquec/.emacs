@@ -81,12 +81,12 @@
   marca al final, y la activa
 | `M-@` | Pone la marca al final de la siguiente palabra sin mover el
   cursor, y la activa. Con cada pulsación añade una palabra
-  más. Admite argumentos precedido de `C-u _**número**_` o C-u
-  _**-número**_ para marcar hacia atrás
+  más. Admite argumentos precedido de `C-_**número**_` o
+  `C-_**-número**_` para marcar hacia atrás
 | `C-M-<SPC>` .2+| Pone la marca al final de la siguiente expresión
   balanceada sin mover el cursor, y la activa. Con cada pulsación
-  añade una expresión más. Admite argumentos precedido de `C-u
-  _**número**_` o C-u _**-número**_ para marcar hacia atrás
+  añade una expresión más. Admite argumentos precedido de
+  `C-_**número**_` o `C-_**-número**_` para marcar hacia atrás
 | `C-M-@`
 |===
 
@@ -143,8 +143,8 @@
   activa, solo actúa dentro de ella
 | `M-% _**string**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
   de las ocurrencias de _**string**_ por _**newstring**_. Con prefijo
-  `C-u _**n**_`, solo cambia las ocurrencias rodeadas por
-  delimitadores de palabras. Con prefijo `C-u _**-**_`, busca hacia
+  `C-_**número**_`, solo cambia las ocurrencias rodeadas por
+  delimitadores de palabras. Con prefijo `C-_**-**_`, busca hacia
   atrás
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
   de las ocurrencias de _**regexp**_ por _**newstring**_. Por lo
@@ -189,9 +189,9 @@
 | `C-x r r _**r**_` | Guarda la región-rectángulo en el registro _**r**_ (con
   prefijo `C-u`, también la borra del buffer)
 | `C-x r n _**r**_` | Guarda el número 0 en el registro _**r**_
-  (precedido de `C-u _**número**_`, guarda ese valor en el registro)
+  (precedido de `C-_**número**_`, guarda ese valor en el registro)
 | `C-x r + _**r**_` | Si el registro _**r**_ tiene un número, le suma
-  1 (precedido de `C-u _**número**_`, le suma esa cantidad)
+  1 (precedido de `C-_**número**_`, le suma esa cantidad)
 | `C-x r i _**r**_` | Inserta en el buffer el número, el texto o el
   rectángulo del registro _**r**_ (con prefijo `C-u`, deja el cursor
   al principio y pone la marca al final)
@@ -269,12 +269,13 @@
 |===
 | `M--` | Argumento negativo para la siguiente orden
 | `C-u -` | Argumento negativo para la siguiente orden
-| `C-_**n**_` .3+| Repite la siguiente orden _**n**_ veces
-| `M-_**n**_`
-| `C-u _**n**_`
+| `C-_**número**_` .3+| Repite la siguiente orden el _**número**_
+  especificado de veces
+| `M-_**número**_`
+| `C-u _**número**_`
 | `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
-  minibuffer. Precedida de `C-u _**n**_`, ejecuta la e_**n**_ésima
-  orden anterior (1 para la última)
+  minibuffer. Precedido de `C-_**n**_`, ejecuta la e_**n**_ésima orden
+  anterior (1 para la última)
 | `M-x list-command-history` | Muestra la historia de órdenes
   ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
 | `C-x z` | Repite la última orden. Seguir pulsando z para seguir
