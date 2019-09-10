@@ -318,7 +318,12 @@
 
 [cols="20,80"]
 |===
-| `C-x C-e` | Evalúa la primera _sexp_ que encuentre antes del cursor
+| `M-:` | Pide una expresión en el minibuffer, la evalúa y muestra el
+  resultado. Con prefijo `C-u 1`, inserta el resultado en el buffer
+  actual
+| `C-x C-e` | Evalúa la primera _sexp_ que encuentre antes del
+  cursor. Con prefijo `C-u 1`, inserta el resultado en el buffer
+  actual
 |===
 
 === Varios
