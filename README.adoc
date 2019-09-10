@@ -338,6 +338,16 @@
 | `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
   varias veces para alternar entre el centro, la primera línea o el
   final de la ventana
+| `C-x <TAB>` | Indenta la región de forma interactiva (usar las
+  flechas -> y <- para ajustar el texto, con shift para mover varias
+  columnas a la vez)
+| `M-i` | Inserta espacios en la posición del cursor hasta alcanzar la
+  siguiente parada del tabulador
+| `M-^` | Junta la línea actual con la anterior separadas por un solo
+  espacio
+| `C-M-\` | Indenta la región, como si se hubiera pulsado `<TAB>` en
+  cada línea. Precedido de `C-_**número**_`, indenta la región a la
+  columna _**número**_ (la primera es la 0)
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
 | `C-x l` | Cuenta las líneas de la página actual (según el delimitador
