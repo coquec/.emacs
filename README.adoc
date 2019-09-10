@@ -103,6 +103,7 @@
 | `C-p` | Mueve el cursor a la línea anterior (**p**revious)
 | `C-n` | Mueve el cursor a la siguiente línea (**n**ext)
 | `M-r` | Mueve el cursor al principio, mitad y final de la pantalla
+| `M-m` | Mueve el cursor al primer carácter no blanco de la línea
 | `M-g M-g` | Va a una línea específica
 | `C-x [` | Va al borde de la página anterior (según el delimitador
   definido en la variable `page-delimiter`)
