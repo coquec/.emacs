@@ -83,9 +83,14 @@
 (require 'ido)
 (ido-mode t)
 
-;; Enable line numbers in 
+;; Enable line numbers
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+;; Enable YASSnippet minor mode in adoc-mode
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'adoc-mode-hook #'yas-minor-mode)
 
 ;; Enable elpy for Python editing
 (use-package elpy
