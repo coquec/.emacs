@@ -340,8 +340,10 @@
   varias veces para alternar entre el centro, la primera línea o el
   final de la ventana
 | `C-x <TAB>` | Indenta la región de forma interactiva (usar las
-  flechas -> y <- para ajustar el texto, con shift para mover varias
-  columnas a la vez)
+  flechas -> y <- para mover el texto una columna cada vez, y con
+  `S-->` y `S-<-` para moverlo de parada a parada de tabulador). Con
+  prefijo `C-__**número**_`, añade o quita el _**número**_
+  especificado de espacios al principio de las líneas marcadas
 | `M-i` | Inserta espacios en la posición del cursor hasta alcanzar la
   siguiente parada del tabulador
 | `M-^` | Junta la línea actual con la anterior separadas por un solo
