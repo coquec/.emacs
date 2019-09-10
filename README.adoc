@@ -351,6 +351,9 @@
 | `C-M-\` | Indenta la región, como si se hubiera pulsado `<TAB>` en
   cada línea. Precedido de `C-_**número**_`, indenta la región a la
   columna _**número**_ (la primera es la 0)
+| `C-M-o` | Divide la línea actual en la posición del cursor,
+  insertando un retorno y los espacios necesarios para que el texto
+  que está a la derecha del cursor quede a la misma altura
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
 | `C-x l` | Cuenta las líneas de la página actual (según el delimitador
