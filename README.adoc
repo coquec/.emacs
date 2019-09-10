@@ -323,7 +323,7 @@
   separadores de palabras
 | `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
 | `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
-  varias veces para alternar entre la primera línea, el centro o el
+  varias veces para alternar entre el centro, la primera línea o el
   final de la ventana
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
