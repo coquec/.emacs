@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: AsciiDoc task for Jira
+# key:  task
+# --
+= PSE-${1:XXX}: ${2:Título}
+
+${3:Descripción}
+
+== Objetivos
+
+* ${4:Objetivo 1}
+
+== Dependencias
+
+* ${5:Dependencia 1}
+
+== Criterios de aceptación
+
+* [ ] ${6:Criterio 1}
+
+== Riesgos
+
+${7:Ninguno}
+
