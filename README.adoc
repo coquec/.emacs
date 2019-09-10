@@ -2,7 +2,7 @@
 :tags: Publish
 :author: Coque Couto
 :email: coque.couto@gmail.com
-:date: September 2019
+:date: september 2019
 :revdate: 20190903
 :source-highlighter: pygments
 :toc:
@@ -312,6 +312,13 @@
   expresión balanceada que haya encima del cursor)
 | `C-x C-t` | Traspone dos líneas (_hace avanzar_ la línea que haya
   encima del cursor)
+|===
+
+=== Expresiones en Lisp
+
+[cols="20,80"]
+|===
+| `C-x C-e` | Evalúa la primera _sexp_ que encuentre antes del cursor
 |===
 
 === Varios
