@@ -328,17 +328,19 @@
   actual
 |===
 
-=== Varios
+=== Indentación (_fill_)
 
 [cols="20,80"]
 |===
-| `C-g` | Aborta una orden en curso
-| `M-x subword-mode` | Habilita que Emacs considere las mayúsculas como
-  separadores de palabras
-| `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
-| `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
-  varias veces para alternar entre el centro, la primera línea o el
-  final de la ventana
+| `M-q` | Indenta el párrafo actual. Si la región está activa, indenta
+  todos sus párrafos. Precedido de `C-u`, justifica el texto entre la
+  primera columna y el margen derecho, metiendo los espacios
+  necesarios entre las palabras
+| `M-x fill-region` | Indenta todos los párrafos de la región
+| `M-x fill-region-as-paragraph` | Indenta la región, considerándola
+  como un solo párrafo
+| `C-x f` | Establece el margen derecho ('fill-column'). Precedido de
+  `C-u`, lo establece en la columna donde esté el cursor
 | `C-x <TAB>` | Indenta la región de forma interactiva (usar las
   flechas -> y <- para mover el texto una columna cada vez, y con
   `S-->` y `S-<-` para moverlo de parada a parada de tabulador). Con
@@ -357,6 +359,25 @@
 | `C-M-o` | Divide la línea actual en la posición del cursor,
   insertando un retorno y los espacios necesarios para que el texto
   que está a la derecha del cursor quede a la misma altura
+| `M-x auto-fill-mode` | Conmuta el modo de auto-indentación. Las
+  líneas se dividen al pulsar `<SPC>` o `<RET>` cuando sobrepasan la
+  columna `fill-column`
+| `M-o M-s` | Centra la línea del cursor entre la primera columna y el
+  margen derecho. Precedido de `C-_**n**_`, centra las siguientes
+  _**n**_ líneas y pone el cursor tras ellas
+|===
+
+=== Varios
+
+[cols="20,80"]
+|===
+| `C-g` | Aborta una orden en curso
+| `M-x subword-mode` | Habilita que Emacs considere las mayúsculas como
+  separadores de palabras
+| `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
+| `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
+  varias veces para alternar entre el centro, la primera línea o el
+  final de la ventana
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
 | `C-x l` | Cuenta las líneas de la página actual (según el delimitador
