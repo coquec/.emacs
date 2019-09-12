@@ -20,6 +20,7 @@
 | `C-x C-f` | Abrir un archivo en un nuevo buffer (__**f**__ind file)
 | `C-x C-s` | Guarda el buffer actual (__**s**__ave file)
 | `C-x C-v` | Reemplaza el buffer actual por otro archivo
+| `C-x C-w` | Guarda el buffer en otro archivo (__**w**__rite file)
 | `C-x s` | Guarda todos los buffers
 | `C-x b` | Cambia de buffer
 | `C-x o` | Cambia de ventana
