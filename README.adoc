@@ -38,6 +38,8 @@
   disponibles con ese prefijo
 | `C-h m` | Muestra todas las combinaciones de teclado de los
   **m**odos mayor y menores
+| `C-h a _**string**_` | Muestra las órdenes que concuerden con
+_**string**_ (_**a**_propos)
 |===
 
 === Movimiento del cursor
