@@ -34,62 +34,6 @@
   **m**odos mayor y menores
 |===
 
-=== Deshacer
-
-[cols="20,80"]
-|===
-| `C-x u` .3+| Deshace (undo)
-| `C-/`
-| `C-_`
-| `C-u C-/` .2+| Deshace dentro de la región
-| `C-u C-_`
-|===
-
-=== Copiar, cortar y pegar
-
-[cols="20,80"]
-|===
-| `C-y` | Pega (yank) el texto cortado y pone la marca al otro lado de
-  donde quede el cursor
-| `M-y` | (Después de `C-y`). Sustituye el texto pegado por otro
-  cortado previamente
-| `M-w` | Copia el texto marcado
-| `C-w` | Corta el texto marcado
-| `C-M-w` | Sigue añadiendo lo siguiente que se corte al texto cortado
-  previamente
-| `C-M-k` | Corta la siguiente expresión balanceada
-| `C-M-t` | Intercambia (**t**ranspone) las expresiones balanceadas
-  que rodean al cursor
-|===
-
-=== Seleccionar texto (marcar)
-
-[cols="20,80"]
-|===
-| `C-<SPC>` .2+| Pone la marca donde esté el cursor y la activa
-| `C-@`
-| `C-u C-<SPC>` | Va a la marca
-| `C-x C-x` | Intercambia el cursor y la marca y la activa
-| `M-h` | Marcar el párrafo actual: pone el cursor al principio y la
-  marca al final, y la activa
-| `C-M-h` | Marcar la función (_defun_) actual: pone el cursor al
-  principio y la marca al final, y la activa
-| `C-x h` | Marcar el buffer entero: pone el cursor al principio y la
-  marca al final, y la activa
-| `C-x C-p` | Marcar la página actual (según el delimitador definido
-  en la variable `page-delimiter`): pone el cursor al principio y la
-  marca al final, y la activa
-| `M-@` | Pone la marca al final de la siguiente palabra sin mover el
-  cursor, y la activa. Con cada pulsación añade una palabra
-  más. Admite argumentos precedido de `C-_**número**_` o
-  `C-_**-número**_` para marcar hacia atrás
-| `C-M-<SPC>` .2+| Pone la marca al final de la siguiente expresión
-  balanceada sin mover el cursor, y la activa. Con cada pulsación
-  añade una expresión más. Admite argumentos precedido de
-  `C-_**número**_` o `C-_**-número**_` para marcar hacia atrás
-| `C-M-@`
-|===
-
 === Movimiento del cursor
 
 [cols="20,80"]
@@ -126,6 +70,83 @@
 | `C-M-d` | Va al siguiente bloque
 | `C-M-a` | Va al principio de una función
 | `C-M-e` | Va al final de una función
+|===
+
+=== Deshacer
+
+[cols="20,80"]
+|===
+| `C-x u` .3+| Deshace (undo)
+| `C-/`
+| `C-_`
+| `C-u C-/` .2+| Deshace dentro de la región
+| `C-u C-_`
+|===
+
+=== Seleccionar texto (marcar)
+
+[cols="20,80"]
+|===
+| `C-<SPC>` .2+| Pone la marca donde esté el cursor y la activa
+| `C-@`
+| `C-u C-<SPC>` | Va a la marca
+| `C-x C-x` | Intercambia el cursor y la marca y la activa
+| `M-h` | Marcar el párrafo actual: pone el cursor al principio y la
+  marca al final, y la activa
+| `C-M-h` | Marcar la función (_defun_) actual: pone el cursor al
+  principio y la marca al final, y la activa
+| `C-x h` | Marcar el buffer entero: pone el cursor al principio y la
+  marca al final, y la activa
+| `C-x C-p` | Marcar la página actual (según el delimitador definido
+  en la variable `page-delimiter`): pone el cursor al principio y la
+  marca al final, y la activa
+| `M-@` | Pone la marca al final de la siguiente palabra sin mover el
+  cursor, y la activa. Con cada pulsación añade una palabra
+  más. Admite argumentos precedido de `C-_**número**_` o
+  `C-_**-número**_` para marcar hacia atrás
+| `C-M-<SPC>` .2+| Pone la marca al final de la siguiente expresión
+  balanceada sin mover el cursor, y la activa. Con cada pulsación
+  añade una expresión más. Admite argumentos precedido de
+  `C-_**número**_` o `C-_**-número**_` para marcar hacia atrás
+| `C-M-@`
+|===
+
+=== Copiar, cortar y pegar
+
+[cols="20,80"]
+|===
+| `C-y` | Pega (yank) el texto cortado y pone la marca al otro lado de
+  donde quede el cursor
+| `M-y` | (Después de `C-y`). Sustituye el texto pegado por otro
+  cortado previamente
+| `M-w` | Copia el texto marcado
+| `C-w` | Corta el texto marcado
+| `C-M-w` | Sigue añadiendo lo siguiente que se corte al texto cortado
+  previamente
+| `C-M-k` | Corta la siguiente expresión balanceada
+| `C-M-t` | Intercambia (**t**ranspone) las expresiones balanceadas
+  que rodean al cursor
+|===
+
+=== Repeticiones
+
+[cols="20,80"]
+|===
+| `M--` | Argumento negativo para la siguiente orden
+| `C-u -` | Argumento negativo para la siguiente orden
+| `C-_**número**_` .3+| Repite la siguiente orden el _**número**_
+  especificado de veces
+| `M-_**número**_`
+| `C-u _**número**_`
+| `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
+  minibuffer. Precedido de `C-_**n**_`, ejecuta la e_**n**_ésima orden
+  anterior (1 para la última)
+| `M-x list-command-history` | Muestra la historia de órdenes
+  ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
+| `C-x z` | Repite la última orden. Seguir pulsando z para seguir
+  repitiendo
+| `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del fichero
+| `C-u 0 C-x e`
 |===
 
 === Buscar y reemplazar
@@ -167,6 +188,55 @@
 | `M-s o _**regexp**_ <RET>` .2+| Encuentra todas las líneas que
   tengan _**regexp**_
 | `M-x occur <RET> _**regexp**_ <RET>`
+|===
+
+=== Indentación (_fill_)
+
+[cols="20,80"]
+|===
+| `M-q` | Indenta el párrafo actual. Si la región está activa, indenta
+  todos sus párrafos. Precedido de `C-u`, justifica el texto entre la
+  primera columna y el margen derecho, metiendo los espacios
+  necesarios entre las palabras
+| `M-x fill-region` | Indenta todos los párrafos de la región
+| `M-x fill-region-as-paragraph` | Indenta la región, considerándola
+  como un solo párrafo
+| `C-x f` | Establece el margen derecho ('fill-column'). Precedido de
+  `C-u`, lo establece en la columna donde esté el cursor
+| `C-x <TAB>` | Indenta la región de forma interactiva (usar las
+  flechas -> y <- para mover el texto una columna cada vez, y con
+  `S-->` y `S-<-` para moverlo de parada a parada de tabulador). Con
+  prefijo `C-__**número**_`, añade o quita el _**número**_
+  especificado de espacios al principio de las líneas marcadas
+| `M-i` | Inserta espacios en la posición del cursor hasta alcanzar la
+  siguiente parada del tabulador
+| `M-x indent-relative` | Inserta espacios en la posición del cursor
+  hasta el primer carácter que no sea un espacio en la línea anterior,
+  o hasta la siguiente parada del tabulador si no hay caracteres así
+| `M-^` | Junta la línea actual con la anterior separadas por un solo
+  espacio
+| `C-M-\` | Indenta la región, como si se hubiera pulsado `<TAB>` en
+  cada línea. Precedido de `C-_**número**_`, indenta la región a la
+  columna _**número**_ (la primera es la 0)
+| `C-M-o` | Divide la línea actual en la posición del cursor,
+  insertando un retorno y los espacios necesarios para que el texto
+  que está a la derecha del cursor quede a la misma altura
+| `M-x auto-fill-mode` | Conmuta el modo de auto-indentación. Las
+  líneas se dividen al pulsar `<SPC>` o `<RET>` cuando sobrepasan la
+  columna `fill-column`
+| `M-o M-s` | Centra la línea del cursor entre la primera columna y el
+  margen derecho. Precedido de `C-_**n**_`, centra las siguientes
+  _**n**_ líneas y pone el cursor tras ellas
+|===
+
+=== Macros
+
+[cols="20,80"]
+|===
+| `C-x (` | Empieza a grabar una macro
+| `C-x )` | Termina de grabar una macro
+| `C-x e` | Ejecuta la última macro grabada
+| `C-x C-k x _**r**_` | Guarda la última macro en el registro _**r**_. Puede ejecutarse con `C-x r j _**r**_`
 |===
 
 === Registros
@@ -264,37 +334,6 @@
   (con prefijo `C-u`, también la borra del buffer)
 |===
 
-=== Repeticiones
-
-[cols="20,80"]
-|===
-| `M--` | Argumento negativo para la siguiente orden
-| `C-u -` | Argumento negativo para la siguiente orden
-| `C-_**número**_` .3+| Repite la siguiente orden el _**número**_
-  especificado de veces
-| `M-_**número**_`
-| `C-u _**número**_`
-| `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
-  minibuffer. Precedido de `C-_**n**_`, ejecuta la e_**n**_ésima orden
-  anterior (1 para la última)
-| `M-x list-command-history` | Muestra la historia de órdenes
-  ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
-| `C-x z` | Repite la última orden. Seguir pulsando z para seguir
-  repitiendo
-| `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del fichero
-| `C-u 0 C-x e`
-|===
-
-=== Macros
-
-[cols="20,80"]
-|===
-| `C-x (` | Empieza a grabar una macro
-| `C-x )` | Termina de grabar una macro
-| `C-x e` | Ejecuta la última macro grabada
-| `C-x C-k x _**r**_` | Guarda la última macro en el registro _**r**_. Puede ejecutarse con `C-x r j _**r**_`
-|===
-
 === Trasposición
 
 [cols="20,80"]
@@ -326,45 +365,6 @@
 | `C-x C-e` | Evalúa la primera _sexp_ que encuentre antes del
   cursor. Con prefijo `C-u 1`, inserta el resultado en el buffer
   actual
-|===
-
-=== Indentación (_fill_)
-
-[cols="20,80"]
-|===
-| `M-q` | Indenta el párrafo actual. Si la región está activa, indenta
-  todos sus párrafos. Precedido de `C-u`, justifica el texto entre la
-  primera columna y el margen derecho, metiendo los espacios
-  necesarios entre las palabras
-| `M-x fill-region` | Indenta todos los párrafos de la región
-| `M-x fill-region-as-paragraph` | Indenta la región, considerándola
-  como un solo párrafo
-| `C-x f` | Establece el margen derecho ('fill-column'). Precedido de
-  `C-u`, lo establece en la columna donde esté el cursor
-| `C-x <TAB>` | Indenta la región de forma interactiva (usar las
-  flechas -> y <- para mover el texto una columna cada vez, y con
-  `S-->` y `S-<-` para moverlo de parada a parada de tabulador). Con
-  prefijo `C-__**número**_`, añade o quita el _**número**_
-  especificado de espacios al principio de las líneas marcadas
-| `M-i` | Inserta espacios en la posición del cursor hasta alcanzar la
-  siguiente parada del tabulador
-| `M-x indent-relative` | Inserta espacios en la posición del cursor
-  hasta el primer carácter que no sea un espacio en la línea anterior,
-  o hasta la siguiente parada del tabulador si no hay caracteres así
-| `M-^` | Junta la línea actual con la anterior separadas por un solo
-  espacio
-| `C-M-\` | Indenta la región, como si se hubiera pulsado `<TAB>` en
-  cada línea. Precedido de `C-_**número**_`, indenta la región a la
-  columna _**número**_ (la primera es la 0)
-| `C-M-o` | Divide la línea actual en la posición del cursor,
-  insertando un retorno y los espacios necesarios para que el texto
-  que está a la derecha del cursor quede a la misma altura
-| `M-x auto-fill-mode` | Conmuta el modo de auto-indentación. Las
-  líneas se dividen al pulsar `<SPC>` o `<RET>` cuando sobrepasan la
-  columna `fill-column`
-| `M-o M-s` | Centra la línea del cursor entre la primera columna y el
-  margen derecho. Precedido de `C-_**n**_`, centra las siguientes
-  _**n**_ líneas y pone el cursor tras ellas
 |===
 
 === Varios
