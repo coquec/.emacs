@@ -311,18 +311,18 @@ _**string**_ (_**a**_propos)
 | `C-x r b _**bookmark**_ <RET>` | Salta al marcador especificado
 | `C-x r l` | Lista todos los marcadores. Se puede editar el contenido
   del listado (pulsar `?` para ayuda)
-| ``M-x bookmark-save` | Guarda la lista de marcadores en el archivo
-  de marcadores por defecto (`~/.emacs.d/bookmarks` o `~/.emacs.bmk`,
-  si éste existe)
-| ``M-x bookmark-delete <RET> _**bookmark**_ <RET>` | Borra el
-  marcador _**bookmark**_
-| ``M-x bookmark-insert-location <RET> _**bookmark**_ <RET>` | Inserta
+| `M-x bookmark-save` | Guarda la lista de marcadores en el archivo de
+  marcadores por defecto (`~/.emacs.d/bookmarks` o `~/.emacs.bmk`, si
+  éste existe)
+| `M-x bookmark-delete <RET> _**bookmark**_ <RET>` | Borra el marcador
+  _**bookmark**_
+| `M-x bookmark-insert-location <RET> _**bookmark**_ <RET>` | Inserta
   en el buffer el nombre del archivo al que apunta _**bookmark**_
-| ``M-x bookmark-insert <RET> _**bookmark**_ <RET>` | Inserta en el
+| `M-x bookmark-insert <RET> _**bookmark**_ <RET>` | Inserta en el
   buffer el contenido del archivo al que apunta _**bookmark**_
-| ``M-x bookmark-load <RET> _**filename**_ <RET>` | Carga el archivo
-  de marcadores _**filename**_
-| ``M-x bookmark-write <RET> _**filename**_ <RET>` | Guarda los
+| `M-x bookmark-load <RET> _**filename**_ <RET>` | Carga el archivo de
+  marcadores _**filename**_
+| `M-x bookmark-write <RET> _**filename**_ <RET>` | Guarda los
   marcadores en el archivo _**filename**_
 |===
 
