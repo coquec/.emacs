@@ -81,6 +81,17 @@ _**string**_ (_**a**_propos)
 | `C-M-e` | Va al final de una función
 |===
 
+[cols="20,80"]
+|===
+| `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
+  varias veces para alternar entre el centro, la primera línea o el
+  final de la ventana
+| `C-v` | Siguiente página
+| `M-v` | Página anterior
+| `C-x >` | _Scroll_ a la derecha
+| `C-x <` | _Scroll_ a la izquierda
+|===
+
 === Deshacer
 
 [cols="20,80"]
@@ -384,9 +395,6 @@ _**string**_ (_**a**_propos)
 | `M-x subword-mode` | Habilita que Emacs considere las mayúsculas como
   separadores de palabras
 | `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
-| `C-l` | Pone la línea actual en el centro de la ventana. Pulsar
-  varias veces para alternar entre el centro, la primera línea o el
-  final de la ventana
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
 | `C-x l` | Cuenta las líneas de la página actual (según el delimitador
