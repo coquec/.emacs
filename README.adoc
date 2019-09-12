@@ -21,6 +21,7 @@
 | `C-x b` | Cambia de buffer
 | `C-x o` | Cambia de ventana
 | `C-x k` | Cierra (__**k**__ill) un buffer
+| `C-z` | Suspende Emacs (o lo minimiza si está en modo GUI)
 |===
 
 
