@@ -23,8 +23,8 @@
 | `C-x C-w` | Guarda el buffer en otro archivo (__**w**__rite file)
 | `C-x C-q` | Conmuta el estado de _solo lectura_ del buffer
 | `C-x s` | Guarda todos los buffers
-| `C-x b` | Cambia de buffer
-| `C-x o` | Cambia de ventana
+| `C-x b` | Cambia el buffer actual
+| `C-x o` | Cambia la ventana actual
 | `C-x k` | Cierra (__**k**__ill) un buffer
 | `C-z` | Suspende Emacs (o lo minimiza si está en modo GUI)
 |===
