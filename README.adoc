@@ -87,6 +87,8 @@ _**string**_ (_**a**_propos)
   varias veces para alternar entre el centro, la primera línea o el
   final de la ventana
 | `C-v` | Siguiente página
+| `C-M-v` | Siguiente página en otra ventana (p.ej, la de una página
+  de ayuda)
 | `M-v` | Página anterior
 | `C-x >` | _Scroll_ a la derecha
 | `C-x <` | _Scroll_ a la izquierda
