@@ -167,7 +167,8 @@ _**string**_ (_**a**_propos)
   ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
 | `C-x z` | Repite la última orden. Seguir pulsando z para seguir
   repitiendo
-| `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del fichero
+| `M-0 C-x e` .2+| Repite una macro hasta alcanzar el final del
+  fichero
 | `C-u 0 C-x e`
 |===
 
@@ -196,8 +197,8 @@ _**string**_ (_**a**_propos)
 | `M-c` .2+| (Al buscar) Conmuta la sensibilidad a las mayúsculas (por
   defecto, la búsqueda no es sensible a las mayúsculas)
 | `M-s c`
-| `M-e` | (Al buscar) Permite editar la cadena de búsqueda. Terminar con
-  RET
+| `M-e` | (Al buscar) Permite editar la cadena de búsqueda. Terminar
+  con RET
 | `M-n` | (Al buscar) Presenta la siguiente cadena en el histórico de
   búsquedas
 | `M-p` | (Al buscar) Presenta la anterior cadena en el histórico de
@@ -258,7 +259,8 @@ _**string**_ (_**a**_propos)
 | `C-x (` | Empieza a grabar una macro
 | `C-x )` | Termina de grabar una macro
 | `C-x e` | Ejecuta la última macro grabada
-| `C-x C-k x _**r**_` | Guarda la última macro en el registro _**r**_. Puede ejecutarse con `C-x r j _**r**_`
+| `C-x C-k x _**r**_` | Guarda la última macro en el registro
+  _**r**_. Puede ejecutarse con `C-x r j _**r**_`
 |===
 
 === Registros
@@ -266,11 +268,12 @@ _**string**_ (_**a**_propos)
 [cols="20,80"]
 |===
 | `C-x r ?` | Ayuda de órdenes de registros/marcadores
-| `C-x r <SPC> _**r**_` | Guarda la posición del cursor en el registro _**r**_
-| `C-x r w _**r**_` | Guarda la configuración de las ventanas del marco
-  seleccionado en el registro _**r**_
-| `C-x r f _**r**_` | Guarda la configuración de todos los marcos y sus
-  ventanas en el registro _**r**_
+| `C-x r <SPC> _**r**_` | Guarda la posición del cursor en el registro
+  _**r**_
+| `C-x r w _**r**_` | Guarda la configuración de las ventanas del
+  marco seleccionado en el registro _**r**_
+| `C-x r f _**r**_` | Guarda la configuración de todos los marcos y
+  sus ventanas en el registro _**r**_
 | `C-x r j _**r**_` | Salta a la posición del cursor, recupera las
   configuraciones de ventanas o marcos guardadas en el registro
   _**r**_, visita el archivo guardado en él o ejecuta la macro
@@ -279,8 +282,8 @@ _**string**_ (_**a**_propos)
   recuperada
 | `C-x r s _**r**_` | Guarda la región en el registro _**r**_ (con
   prefijo `C-u`, también la borra del buffer)
-| `C-x r r _**r**_` | Guarda la región-rectángulo en el registro _**r**_ (con
-  prefijo `C-u`, también la borra del buffer)
+| `C-x r r _**r**_` | Guarda la región-rectángulo en el registro
+  _**r**_ (con prefijo `C-u`, también la borra del buffer)
 | `C-x r n _**r**_` | Guarda el número 0 en el registro _**r**_
   (precedido de `C-_**número**_`, guarda ese valor en el registro)
 | `C-x r + _**r**_` | Si el registro _**r**_ tiene un número, le suma
@@ -288,14 +291,16 @@ _**string**_ (_**a**_propos)
 | `C-x r i _**r**_` | Inserta en el buffer el número, el texto o el
   rectángulo del registro _**r**_ (con prefijo `C-u`, deja el cursor
   al principio y pone la marca al final)
-| `M-x append-to-register <RET> _**r**_` | Añade la región al registro _**r**_
-  (con prefijo `C-u`, también la borra del buffer)
-| `M-x prepend-to-register <RET> _**r**_` | Añade la región al principio del
+| `M-x append-to-register <RET> _**r**_` | Añade la región al registro
+  _**r**_ (con prefijo `C-u`, también la borra del buffer)
+| `M-x prepend-to-register <RET> _**r**_` | Añade la región al
+  principio del registro _**r**_
+| `M-x view-register <RET> _**r**_` | Describe el contenido del
   registro _**r**_
-| `M-x view-register <RET> _**r**_` | Describe el contenido del registro _**r**_
 | `(set-register _**r**_ '(file . _**path**_))` | Guarda el nombre del
   archivo _**path**_ en el registro _**r**_. P. ej, `(set-register ?e
-  '(file . "/home/xxx/.emacs"))`. Puede visitarse con `C-x r j _**r**_`
+  '(file . "/home/xxx/.emacs"))`. Puede visitarse con `C-x r j
+  _**r**_`
 |===
 
 === Marcadores (bookmarks)
@@ -340,20 +345,20 @@ _**string**_ (_**a**_propos)
 | `C-x r d` | Borra la región-rectángulo
 | `C-x r y` | Pega el último rectángulo cortado en el punto donde esté
   el cursor
-| `C-x r o` | Abre espacio para un rectángulo, desplazando el texto a la
-  derecha y rellenándolo con espacios
+| `C-x r o` | Abre espacio para un rectángulo, desplazando el texto a
+  la derecha y rellenándolo con espacios
 | `C-x r c` | Limpia el espacio del rectángulo, sustituyendo el texto
   por espacios
 | `C-x r N` | Numera cada línea del rectángulo y desplaza el texto a
   la derecha. Precedido por `C-u`, permite elegir el número inicial y
   el formato
-| `C-x r t _**string**_ <RET>` | Reemplaza cada línea del rectángulo por
-  _**string**_
+| `C-x r t _**string**_ <RET>` | Reemplaza cada línea del rectángulo
+  por _**string**_
 | `M-x delete-whitespace-rectangle` | Elimina los espacios que haya en
   cada línea del rectángulo, desde la columna de la izquierda en
   adelante
-| `C-x r r _**r**_` | Guarda la región-rectángulo en el registro _**r**_
-  (con prefijo `C-u`, también la borra del buffer)
+| `C-x r r _**r**_` | Guarda la región-rectángulo en el registro
+  _**r**_ (con prefijo `C-u`, también la borra del buffer)
 |===
 
 === Trasposición
@@ -394,11 +399,11 @@ _**string**_ (_**a**_propos)
 [cols="20,80"]
 |===
 | `C-g` | Aborta una orden en curso
-| `M-x subword-mode` | Habilita que Emacs considere las mayúsculas como
-  separadores de palabras
+| `M-x subword-mode` | Habilita que Emacs considere las mayúsculas
+  como separadores de palabras
 | `C-o` | Inserta un retorno donde esté el cursor, sin moverlo
 | `C-x C-l` | Convierte el texto de la región en minúsculas
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
-| `C-x l` | Cuenta las líneas de la página actual (según el delimitador
-  definido en la variable `page-delimiter`)
+| `C-x l` | Cuenta las líneas de la página actual (según el
+  delimitador definido en la variable `page-delimiter`)
 |===
