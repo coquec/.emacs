@@ -71,7 +71,7 @@ There are two things you can do about this warning:
  '(js-indent-level 3)
  '(package-selected-packages
    (quote
-    (magit json-mode adoc-mode terraform-mode markdown-mode))))
+    (paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -94,15 +94,24 @@ There are two things you can do about this warning:
 (require 'ido)
 (ido-mode t)
 
-;; Enable line numbers in 
+;; Enable line numbers
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-;; Enable elpy for Python editing
-(elpy-enable)
+;; Enable YASSnippet minor mode in adoc-mode
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'adoc-mode-hook #'yas-minor-mode)
 
 ;; Enable highlight matching parentheses.
 (show-paren-mode t)
+
+;; Enable elpy for Python editing
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (elpy-enable))
 
 ;; Enable EditorConfig.
 (require 'editorconfig)
