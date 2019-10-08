@@ -28,8 +28,24 @@ There are two things you can do about this warning:
 (add-to-list
   'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (wombat)))
+ '(js-indent-level 3)
+ '(package-selected-packages
+   (quote
+    (indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
+
 ;; Deshabilita el sonido.
 (setq visible-bell t)
+
+;; Deshabilita la tool bar.
+(tool-bar-mode -1)
 
 ;; Utiliza espacios en vez de tabuladores.
 (setq-default indent-tabs-mode nil)
@@ -59,19 +75,6 @@ There are two things you can do about this warning:
 
 ;; Guardamos la historia de últimos ficheros abiertos cada 4 min.
 (run-at-time nil (* 5 60) 'recentf-save-list)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
- '(js-indent-level 3)
- '(package-selected-packages
-   (quote
-    (indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
