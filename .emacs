@@ -71,7 +71,7 @@ There are two things you can do about this warning:
  '(js-indent-level 3)
  '(package-selected-packages
    (quote
-    (hydra paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
+    (indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -119,6 +119,9 @@ There are two things you can do about this warning:
 
 ;; Enable magit.
 (require 'magit)
+
+;; Enable hydra.
+(require 'hydra)
 
 ;; Enable indent-tools and use hydra bindings
 (require 'indent-tools)
