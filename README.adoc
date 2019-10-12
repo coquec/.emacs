@@ -179,6 +179,10 @@ _**string**_ (_**a**_propos)
 | `C-s` | Busca hacia delante
 | `C-r` | Busca hacia atrás
 | `C-M-s` | Busca regexp hacia delante
+| `M-x word-search-forward <RET> _**string**_ <RET>` | Busca las
+  palabras que haya en _**string**_, ignorando los signos de
+  puntuación, espacios en blanco y retornos de línea que haya entre
+  ellas
 | `M-x replace-string <RET> _**string**_ <RET> _**newstring**_
   <RET>` | Reemplaza todas de las ocurrencias de _**string**_ por
   _**newstring**_ desde la posición del cursor hasta el final del
