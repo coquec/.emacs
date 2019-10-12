@@ -178,10 +178,16 @@ _**string**_ (_**a**_propos)
 |===
 | `C-s` | Búsqueda interactiva hacia delante. Empezar a escribir para
   ir a la primera coincidencia. Volver a pulsar `C-s` para ir a la
-  siguiente
+  siguiente. Terminar pulsando `<RET>`
+| `C-s C-s` | Repite hacia adelante la última búsqueda interactiva
+| `C-s C-w` | Búsqueda interactiva hacia delante de la palabra en la
+  que está el cursor
 | `C-r` | Búsqueda interactiva hacia atrás. Empezar a escribir para ir
   a la primera coincidencia. Volver a pulsar `C-r` para ir a la
-  anterior
+  anterior. Terminar pulsando `<RET>`
+| `C-r C-r` | Repite hacia atrás la última búsqueda interactiva
+| `C-r C-w` | Búsqueda interactiva hacia atrás de la palabra en la que
+  está el cursor
 | `C-M-s` | Busca regexp hacia delante
 | `M-x word-search-forward <RET> _**string**_ <RET>` | Busca las
   palabras que haya en _**string**_, ignorando los signos de
