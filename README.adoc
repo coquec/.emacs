@@ -176,8 +176,12 @@ _**string**_ (_**a**_propos)
 
 [cols="20,80"]
 |===
-| `C-s` | Busca hacia delante
-| `C-r` | Busca hacia atrás
+| `C-s` | Búsqueda interactiva hacia delante. Empezar a escribir para
+  ir a la primera coincidencia. Volver a pulsar `C-s` para ir a la
+  siguiente
+| `C-r` | Búsqueda interactiva hacia atrás. Empezar a escribir para ir
+  a la primera coincidencia. Volver a pulsar `C-r` para ir a la
+  anterior
 | `C-M-s` | Busca regexp hacia delante
 | `M-x word-search-forward <RET> _**string**_ <RET>` | Busca las
   palabras que haya en _**string**_, ignorando los signos de
