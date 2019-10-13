@@ -422,4 +422,6 @@ _**string**_ (_**a**_propos)
 | `C-x C-u` | Convierte el texto de la región en mayúsculas
 | `C-x l` | Cuenta las líneas de la página actual (según el
   delimitador definido en la variable `page-delimiter`)
+| `M-x recursive-edit` | Abre una edición recursiva. El modo principal
+  aparece entre corchetes. Se termina con `M-C-c`
 |===
