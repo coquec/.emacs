@@ -189,7 +189,8 @@ _**string**_ (_**a**_propos)
 | `C-r C-r` | Repite hacia atrás la última búsqueda interactiva
 | `C-r C-w` | Búsqueda interactiva hacia atrás de la palabra en la que
   está el cursor
-| `C-M-s` | Busca regexp hacia delante
+| `C-M-s` | Búsqueda interactiva de regexp hacia delante
+| `C-M-r` | Búsqueda interactiva de regexp hacia atrás
 | `M-x word-search-forward <RET> _**string**_ <RET>` | Busca las
   palabras que haya en _**string**_, ignorando los signos de
   puntuación, espacios en blanco y retornos de línea que haya entre
