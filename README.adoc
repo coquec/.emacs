@@ -162,7 +162,8 @@ _**string**_ (_**a**_propos)
 | `C-u _**número**_`
 | `C-x <ESC> <ESC>` | Re-ejecuta la última orden introducida en el
   minibuffer. Precedido de `C-_**n**_`, ejecuta la e_**n**_ésima orden
-  anterior (1 para la última)
+  anterior (1 para la última). Se puede usar `M-p` y `M-n` para
+  moverse en el historial de órdenes
 | `M-x list-command-history` | Muestra la historia de órdenes
   ejecutadas que pueden repetirse con `C-x <ESC> <ESC>`
 | `C-x z` | Repite la última orden. Seguir pulsando z para seguir
