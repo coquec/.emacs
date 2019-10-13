@@ -202,10 +202,11 @@ _**string**_ (_**a**_propos)
   mayúsculas en _**string**_ o en _**newstring**_. Si hay una región
   activa, solo actúa dentro de ella
 | `M-% _**string**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
-  de las ocurrencias de _**string**_ por _**newstring**_. Con prefijo
-  `C-_**número**_`, solo cambia las ocurrencias rodeadas por
-  delimitadores de palabras. Con prefijo `C-_**-**_`, busca hacia
-  atrás
+  de las ocurrencias de _**string**_ por _**newstring**_, preguntando
+  en cada ocurrencia qué queremos hacer. Con prefijo `C-_**número**_`,
+  solo cambia las ocurrencias rodeadas por delimitadores de
+  palabras. Con prefijo `C-_**-**_`, busca hacia atrás. Se puede
+  pulsar `C-r` para abrir una edición recursiva
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>` | Reemplaza algunas
   de las ocurrencias de _**regexp**_ por _**newstring**_. Por lo
   demás, funciona como la anterior
