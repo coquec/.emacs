@@ -8,7 +8,7 @@
 :email: ${3:`(user-login-name)`}
 :date: ${4:`(format-time-string "%B %Y")`}
 :revdate: ${5:`(format-time-string "%Y%m%d")`}
-:source-highlighter: pygments
+:source-highlighter: rouge
 :toc:
 :toc-title: Índice
 :toclevels: 3
