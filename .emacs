@@ -62,10 +62,7 @@ There are two things you can do about this warning:
 ;; Fijamos la tabulación del buffer actual a cuatro espacios.
 (setq tab-width 4)
 
-;; Mostramos el número de columna en la barra de estado.
-(setq column-number-mode t)
-
-;; Fijamos las paradas del tabulador cada 3 caracteres.
+;; Fijamos las paradas del tabulador cada 4 caracteres.
 (setq tab-stop-list (number-sequence 4 200 4))
 
 ;; Habilitamos la historia de últimos ficheros abiertos.
