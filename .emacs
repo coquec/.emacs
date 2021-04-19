@@ -29,11 +29,10 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes '(wombat))
  '(js-indent-level 3)
  '(package-selected-packages
-   (quote
-    (indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode))))
+   '(indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode)))
 
 ;; Deshabilita el sonido.
 (setq visible-bell t)
