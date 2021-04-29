@@ -119,3 +119,6 @@ There are two things you can do about this warning:
 ;; Enable indent-tools and use hydra bindings
 (require 'indent-tools)
 (global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
+
+;; Enable org-tree-slide.
+(require 'org-tree-slide)
