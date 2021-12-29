@@ -660,6 +660,11 @@
 | Pide una expresión en el minibuffer, la evalúa y muestra el resultado.  Con
   prefijo `C-u 1`, inserta el resultado en el buffer actual
 
+| `C-j`
+| En el buffer `\*scratch*` o en un buffer que esté en `lisp-iteration-mode`,
+  evalúa la primera _sexp_ que encuentre antes del cursor e inserta el
+  resultado en el buffer
+
 | `C-x C-e`
 | Evalúa la primera _sexp_ que encuentre antes del cursor.  Con prefijo `C-u
   1`, inserta el resultado en el buffer actual
