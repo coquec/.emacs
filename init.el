@@ -1,22 +1,16 @@
 ; Añade los repositorios de paquetes de MELPA.
 (require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (when no-ssl
-    (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (package-initialize)
+
+;; use-package to simplify the config file
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
 ;; Pone el modo AsciiDoc al abrir los ficheros .adoc.
 (add-to-list
@@ -30,9 +24,10 @@ There are two things you can do about this warning:
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(custom-enabled-themes '(wombat))
- '(js-indent-level 3)
- '(package-selected-packages
-   '(indent-tools paredit adoc-mode magit use-package json-mode terraform-mode markdown-mode)))
+ '(js-indent-level 3))
+
+;; Deshabilita el mensaje de arranque.
+(setq inhibit-startup-message t)
 
 ;; Deshabilita el sonido.
 (setq visible-bell t)
@@ -40,14 +35,17 @@ There are two things you can do about this warning:
 ;; Deshabilita la tool bar.
 (tool-bar-mode -1)
 
-;; Utiliza espacios en vez de tabuladores.
-(setq-default indent-tabs-mode nil)
+;; Deshabilita la scroll bar.
+(toggle-scroll-bar -1)
 
 ;; Muestra el número de columna en la barra de estado.
 (setq column-number-mode t)
 
 ;; Usa el nombre del buffer como título del marco.
 (setq frame-title-format "%b")
+
+;; Utiliza espacios en vez de tabuladores.
+(setq-default indent-tabs-mode nil)
 
 ;; Fijamos la tabulación por defecto a cuatro espacios.
 (setq-default tab-width 4)
@@ -58,12 +56,15 @@ There are two things you can do about this warning:
 ;; Fijamos las paradas del tabulador cada 4 caracteres.
 (setq tab-stop-list (number-sequence 4 200 4))
 
+;; Enable highlight matching parentheses.
+(show-paren-mode t)
+
 ;; Habilitamos la historia de últimos ficheros abiertos.
 (recentf-mode 1)
-(setq recentf-max-menu-items 25)
+(setq recentf-max-menu-items 50)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; Guardamos la historia de últimos ficheros abiertos cada 4 min.
+;; Guardamos la historia de últimos ficheros abiertos cada 5 min.
 (run-at-time nil (* 5 60) 'recentf-save-list)
 
 (put 'upcase-region 'disabled nil)
@@ -83,21 +84,21 @@ There are two things you can do about this warning:
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
-;; Enable ido-mode
-(require 'ido)
-(ido-mode t)
-
 ;; Enable line numbers
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-;; Enable YASSnippet minor mode in adoc-mode
-(require 'yasnippet)
-(yas-reload-all)
-(add-hook 'adoc-mode-hook #'yas-minor-mode)
+;; Enable ido-mode
+(use-package ido
+  :ensure t
+  :config
+  (ido-mode t))
 
-;; Enable highlight matching parentheses.
-(show-paren-mode t)
+;; Enable YASSnippet minor mode in adoc-mode
+(use-package yasnippet
+  :config
+  (yas-reload-all)
+  (add-hook 'adoc-mode-hook #'yas-minor-mode))
 
 ;; Enable elpy for Python editing
 (use-package elpy
@@ -107,18 +108,20 @@ There are two things you can do about this warning:
   (elpy-enable))
 
 ;; Enable EditorConfig.
-(require 'editorconfig)
-(editorconfig-mode 1)
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
 
 ;; Enable magit.
-(require 'magit)
+(use-package magit)
 
 ;; Enable hydra.
-(require 'hydra)
+(use-package hydra)
 
 ;; Enable indent-tools and use hydra bindings
-(require 'indent-tools)
-(global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
+(use-package indent-tools
+  :config
+  (global-set-key (kbd "C-c >") 'indent-tools-hydra/body))
 
 ;; Enable org-tree-slide.
-(require 'org-tree-slide)
+(use-package org-tree-slide)
