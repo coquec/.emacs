@@ -2,7 +2,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 ;; use-package to simplify the config file
 (unless (package-installed-p 'use-package)
