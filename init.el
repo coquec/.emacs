@@ -5,7 +5,7 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-;; use-package to simplify the config file
+;; use-package hace más simple el fichero de configuración.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -13,22 +13,24 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-;; Pone el modo AsciiDoc al abrir los ficheros .adoc.
+;; Usamos el modo AsciiDoc con los ficheros .adoc.
 (add-to-list
-  'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
+ 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes '(wombat))
- '(js-indent-level 3))
+;; Habilitamos la comprobación ortográfica con flyspell en todos los
+;; modos de texto y de programación.
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
-;; Deshabilita el mensaje de arranque.
-(setq inhibit-startup-message t)
+;; Usamos un archivo temporal para guardar los cambios que se hagan
+;; mediante el menú de configuración.  En la práctica, esto hace que
+;; estos cambios no se guarden.  Toda la personalización debería
+;; hacerse en este archivo.
+(setq custom-file (make-temp-file "emacs-custom-" nil ".el"))
+(load custom-file)
+
+;; Deshabilita la página de inicio.
+(setq inhibit-startup-screen t)
 
 ;; Deshabilita el sonido.
 (setq visible-bell t)
@@ -37,7 +39,7 @@
 (tool-bar-mode -1)
 
 ;; Deshabilita la scroll bar.
-(toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 
 ;; Muestra el número de columna en la barra de estado.
 (setq column-number-mode t)
@@ -57,7 +59,8 @@
 ;; Fijamos las paradas del tabulador cada 4 caracteres.
 (setq tab-stop-list (number-sequence 4 200 4))
 
-;; Enable highlight matching parentheses.
+;; Destacamos el paréntesis relacionado con el que está junto al
+;; cursor.
 (show-paren-mode t)
 
 ;; Habilitamos la historia de últimos ficheros abiertos.
@@ -70,12 +73,11 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; Habilitamos el ido-mode.
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 (defun unfill-paragraph (&optional region)
   "Takes a multi-line paragraph and makes it into a single line of text."
@@ -85,44 +87,43 @@
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
-;; Enable line numbers
-(when (version<= "26.0.50" emacs-version )
+;; Mostramos los números de línea en el margen izquierdo.
+(when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 
-;; Enable ido-mode
-(use-package ido
-  :ensure t
-  :config
-  (ido-mode t))
-
-;; Enable YASSnippet minor mode in adoc-mode
+;; Habilitamos el modo menor YASSnippet minor mode en adoc-mode.
 (use-package yasnippet
   :config
   (yas-reload-all)
   (add-hook 'adoc-mode-hook #'yas-minor-mode))
 
-;; Enable elpy for Python editing
+;; Habilitamos elpy al editar Python.
 (use-package elpy
   :ensure t
   :defer t
   :init
   (elpy-enable))
 
-;; Enable EditorConfig.
+;; Habilitamos EditorConfig para gestionar los valores por defecto en
+;; cuanto a tabulaciones, finales de línea sin espacios, líneas en
+;; blanco al final de los ficheros...
 (use-package editorconfig
   :config
   (editorconfig-mode 1))
 
-;; Enable magit.
+;; Habilitamos magit para trabajar con Git desde Emacs.
 (use-package magit)
 
-;; Enable hydra.
+;; Habilitamos hydra.
 (use-package hydra)
 
-;; Enable indent-tools and use hydra bindings
+;; Habilitamos indent-tools y usamos los bindings de hydra.
 (use-package indent-tools
   :config
   (global-set-key (kbd "C-c >") 'indent-tools-hydra/body))
 
-;; Enable org-tree-slide.
+;; Habilitamos las diapositivas en archivos org con org-tree-slide.
 (use-package org-tree-slide)
+
+;; Cargamos el tema por defecto
+(load-theme 'wombat)
