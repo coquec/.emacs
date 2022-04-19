@@ -91,8 +91,7 @@
     (fill-paragraph nil region)))
 
 ;; Mostramos los números de línea en el margen izquierdo.
-(when (version<= "26.0.50" emacs-version)
-  (global-display-line-numbers-mode))
+(global-display-line-numbers-mode)
 
 ;; Habilitamos el modo menor YASSnippet minor mode en adoc-mode.
 (use-package yasnippet
