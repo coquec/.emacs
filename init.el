@@ -125,5 +125,8 @@
 ;; Habilitamos las diapositivas en archivos org con org-tree-slide.
 (use-package org-tree-slide)
 
+;; YAML mode.
+(use-package yaml-mode)
+
 ;; Cargamos el tema por defecto
 (load-theme 'wombat)
