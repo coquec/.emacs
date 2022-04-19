@@ -13,6 +13,9 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
+;; Cargamos el tema por defecto
+(load-theme 'wombat)
+
 ;; Usamos el modo AsciiDoc con los ficheros .adoc.
 (add-to-list
  'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
@@ -127,6 +130,3 @@
 
 ;; YAML mode.
 (use-package yaml-mode)
-
-;; Cargamos el tema por defecto
-(load-theme 'wombat)
