@@ -93,6 +93,12 @@
 ;; Mostramos los números de línea en el margen izquierdo.
 (global-display-line-numbers-mode)
 
+;; 80 columnas de ancho, más las necesarias para los números de línea.
+(if (display-graphic-p)
+  (setq default-frame-alist
+    '((width . 87)
+      (height . 35))))
+
 ;; Habilitamos el modo menor YASSnippet minor mode en adoc-mode.
 (use-package yasnippet
   :config
