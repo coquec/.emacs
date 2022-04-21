@@ -99,6 +99,9 @@
     '((width . 87)
       (height . 35))))
 
+;; Final de línea en la columna 79.
+(setq-default fill-column 79)
+
 ;; Habilitamos el modo menor YASSnippet minor mode en adoc-mode.
 (use-package yasnippet
   :config
