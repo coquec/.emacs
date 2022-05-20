@@ -138,3 +138,7 @@
 
 ;; YAML mode.
 (use-package yaml-mode)
+
+;; Cambiamos M-/ a hippie expand
+;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
