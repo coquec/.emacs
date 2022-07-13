@@ -142,3 +142,8 @@
 ;; Cambiamos M-/ a hippie expand
 ;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
+
+;; Atajo para copiar el nombre del buffer actual al kill-ring.
+(global-set-key
+  (kbd "C-c w")
+  (lambda () (interactive) (kill-new (file-name-nondirectory buffer-file-name))))
