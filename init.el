@@ -104,6 +104,14 @@
 ;; Final de línea en la columna 79.
 (setq-default fill-column 79)
 
+;; Actualizar los paquetes automáticamente.
+;; https://github.com/rranelli/auto-package-update.el
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
 ;; Habilitamos el modo menor YASSnippet minor mode en adoc-mode.
 (use-package yasnippet
   :config
@@ -112,7 +120,6 @@
 
 ;; Habilitamos elpy al editar Python.
 (use-package elpy
-  :ensure t
   :defer t
   :init
   (elpy-enable))
