@@ -10,9 +10,10 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
+
+;; Instalar cualquier paquete que no esté en el sistema.
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; Cargamos el tema por defecto
 (load-theme 'wombat)
