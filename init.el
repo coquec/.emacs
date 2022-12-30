@@ -5,7 +5,8 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-;; use-package hace más simple el fichero de configuración.
+;; use-package es una macro que hace más simple el fichero de configuración.
+;; https://github.com/jwiegley/use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
