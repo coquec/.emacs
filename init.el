@@ -18,10 +18,6 @@
 ;; Cargamos el tema por defecto
 (load-theme 'wombat)
 
-;; Usamos el modo AsciiDoc con los ficheros .adoc.
-(add-to-list
- 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
-
 ;; Habilitamos la comprobación ortográfica con flyspell en todos los
 ;; modos de texto y de programación.
 (add-hook 'text-mode-hook 'flyspell-mode)
@@ -147,6 +143,9 @@
 
 ;; YAML mode.
 (use-package yaml-mode)
+
+;; AsciiDoc mode.
+(use-package adoc-mode)
 
 ;; Cambiamos M-/ a hippie expand
 ;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
