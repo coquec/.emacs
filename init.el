@@ -87,6 +87,8 @@
     ;; This would override `fill-column' if it's an integer.
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
+(global-set-key
+  (kbd "C-c q") 'unfill-paragraph)
 
 ;; Mostramos los números de línea en el margen izquierdo.
 (global-display-line-numbers-mode)
