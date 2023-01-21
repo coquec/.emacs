@@ -165,3 +165,7 @@
 ;; Enable presentations in org-mode with org-tree-slide.
 (use-package org-tree-slide)
 
+;; Avoid inheritance of the 'project' tag.  This allows to mark project tasks
+;; explicitly and to have an agenda view with the current projects by typing
+;; 'M-x org-agenda m project'.
+(setq org-tags-exclude-from-inheritance '("project"))
