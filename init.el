@@ -126,12 +126,6 @@
   (yas-reload-all)
   (add-hook 'adoc-mode-hook #'yas-minor-mode))
 
-;; elpy for Python programming.
-(use-package elpy
-  :defer t
-  :init
-  (elpy-enable))
-
 ;; EditorConfig package allows to use .editorconfig files to set default
 ;; values for tabs, end of lines, emptylines...
 (use-package editorconfig
