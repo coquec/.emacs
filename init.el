@@ -163,3 +163,6 @@
 ;; explicitly and to have an agenda view with the current projects by typing
 ;; 'M-x org-agenda m project'.
 (setq org-tags-exclude-from-inheritance '("project"))
+
+;; Record state changes in the default drawers "LOGBOOK".
+(setq org-log-into-drawer t)
