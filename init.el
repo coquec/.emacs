@@ -150,8 +150,10 @@
 (use-package adoc-mode)
 
 ;; SLIME, for Common Lisp programming.
-(use-package slime)
-(setq inferior-lisp-program "sbcl")
+;; I don't use this one in Windows.
+(when (not (equal system-type 'windows-nt))
+  (use-package slime)
+  (setq inferior-lisp-program "sbcl"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode configuration.
