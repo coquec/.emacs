@@ -29,7 +29,8 @@
   (tool-bar-mode -1))
 
 ;; Disable scroll bar.
-(scroll-bar-mode -1)
+(when (display-graphic-p)
+  (scroll-bar-mode -1))
 
 ;; Show the column number at the status bar.
 (setq column-number-mode t)
