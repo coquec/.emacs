@@ -25,7 +25,8 @@
 (setq visible-bell t)
 
 ;; Disable tool bar.
-(tool-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1))
 
 ;; Disable scroll bar.
 (scroll-bar-mode -1)
