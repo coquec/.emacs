@@ -62,14 +62,11 @@
 | (Tras una tecla de prefijo) Muestra las combinaciones disponibles con ese
   prefijo
 
-
-| `C-h m`
-| Muestra todas las combinaciones de teclado de los **m**odos mayor y menores
-
-
 | `C-h k _**key**_`
 | Describe la función de la tecla _**key**_
 
+| `C-h m`
+| Describe los **m**odos activos, incluyendo todas las combinaciones de teclado
 
 | `C-h a _**string**_`
 | Muestra las órdenes que concuerden con _**string**_ (_**a**_propos)
