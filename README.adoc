@@ -1,4 +1,4 @@
-= GNU Emacs shortcuts
+= Atajos de GNU Emacs
 :tags: Publish
 :author: Coque Couto
 :email: coque.couto@gmail.com
