@@ -77,6 +77,9 @@
 | `C-h v _**string**_`
 | Describe la **v**ariable _**string**_
 
+| `C-h x _**string**_`
+| Describe la orden _**string**_
+
 |===
 
 === Movimiento del cursor
