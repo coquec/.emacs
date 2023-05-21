@@ -74,6 +74,9 @@
 | `C-h a _**string**_`
 | Muestra las órdenes que concuerden con _**string**_ (_**a**_propos)
 
+| `C-h v _**string**_`
+| Describe la **v**ariable _**string**_
+
 |===
 
 === Movimiento del cursor
