@@ -52,7 +52,6 @@
 
 |===
 
-
 === Ayuda
 
 [cols="20,80"]
@@ -211,7 +210,6 @@
 .2+| Pone la marca donde esté el cursor y la activa
 | `C-@`
 
-
 | `C-u C-<SPC>`
 | Va a la marca
 
@@ -275,6 +273,7 @@
 
 | `C-M-t`
 | Intercambia (**t**ranspone) las expresiones balanceadas que rodean al cursor
+
 |===
 
 === Repeticiones
@@ -293,7 +292,6 @@
   especificado de veces
 | `M-_**número**_`
 | `C-u _**número**_`
-
 
 | `C-x <ESC> <ESC>`
 | Re-ejecuta la última orden introducida en el minibuffer.  Precedido de
@@ -358,7 +356,6 @@
   `DOS`).  No hace esto si se usan mayúsculas en _**string**_ o en
   _**newstring**_.  Si hay una región activa, solo actúa dentro de ella
   
-
 | `M-% _**string**_ <RET> _**newstring**_ <RET>`
 | Reemplaza algunas de las ocurrencias de _**string**_ por _**newstring**_,
   preguntando en cada ocurrencia qué queremos hacer.  Con prefijo
@@ -374,7 +371,6 @@
 .2+| (Al buscar) Conmuta la sensibilidad a las mayúsculas (por defecto, la
   búsqueda no es sensible a las mayúsculas)
 | `M-s c`
-
 
 | `M-e`
 | (Al buscar) Permite editar la cadena de búsqueda.  Terminar con RET
