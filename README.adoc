@@ -691,6 +691,9 @@
 | `M-x _**string**_`
 | Permite ejecutar cualquier orden interactiva de Emacs.
 
+| `M-X _**string**_`
+| Permite ejecutar las órdenes más adecuadas para el buffer activo.
+
 | `M-x subword-mode`
 | Habilita que Emacs considere las mayúsculas como separadores de palabras
 
