@@ -80,6 +80,9 @@
 | `C-h x _**string**_`
 | Describe la orden _**string**_
 
+| `C-h f _**string**_`
+| Describe la **f**unción _**string**_
+
 |===
 
 === Movimiento del cursor
