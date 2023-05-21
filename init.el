@@ -56,7 +56,8 @@
 ;; Enable saving last opened files history.
 (recentf-mode 1)
 (setq recentf-max-menu-items 50)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(global-set-key
+  (kbd "C-c c r") 'recentf-open-files)
 
 ;; Save last 5 open files history every 5 minutes.
 (run-at-time nil (* 5 60) 'recentf-save-list)
@@ -78,7 +79,7 @@
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 (global-set-key
-  (kbd "C-c q") 'unfill-paragraph)
+  (kbd "C-c c q") 'unfill-paragraph)
 
 ;; Show line numbers at the left.
 (global-display-line-numbers-mode)
