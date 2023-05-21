@@ -700,6 +700,10 @@
 | `C-o`
 | Inserta un retorno donde esté el cursor, sin moverlo
 
+| `C-x 8`
+| Prefijo para introducir caracteres especiales.  Por ejemplo, `C-x 8 ~ n`
+  inserta una eñe
+
 | `C-x C-l`
 | Convierte el texto de la región en minúsculas
 
