@@ -688,6 +688,9 @@
 | `C-g`
 | Aborta una orden en curso
 
+| `M-x _**string**_`
+| Permite ejecutar cualquier orden interactiva de Emacs.
+
 | `M-x subword-mode`
 | Habilita que Emacs considere las mayúsculas como separadores de palabras
 
