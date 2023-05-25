@@ -171,3 +171,16 @@
 
 ;; Record state changes in the default drawers "LOGBOOK".
 (setq org-log-into-drawer t)
+
+;; Copy to the clipboard the second top-most header of the current path, and
+;; assign a key binding to it.
+(defun jcouto/org-project-to-kill-buffer ()
+  "Places in a new kill buffer the header of the current
+project (we suppose it's the second element in the outline
+path)."
+  (interactive)
+  (kill-new (nth 1 (org-get-outline-path))))
+(add-hook
+ 'org-mode-hook
+ (lambda () (local-set-key (kbd "C-c c p"
+                                'jcouto/org-project-to-kill-buffer))))
