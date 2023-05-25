@@ -179,7 +179,9 @@
 project (we suppose it's the second element in the outline
 path)."
   (interactive)
-  (kill-new (nth 1 (org-get-outline-path))))
+  (let ((project (nth 1 (org-get-outline-path))))
+    (message project)
+    (kill-new project)))
 (add-hook
  'org-mode-hook
  (lambda () (local-set-key (kbd "C-c c p")
