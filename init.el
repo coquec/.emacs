@@ -71,7 +71,7 @@
 (ido-mode 1)
 
 ;; This function joins all the lines of a paragraph in one.
-(defun unfill-paragraph (&optional region)
+(defun jcouto/unfill-paragraph (&optional region)
   "Takes a multi-line paragraph and makes it into a single line of text."
   (interactive (progn (barf-if-buffer-read-only) '(t)))
   (let ((fill-column (point-max))
@@ -79,7 +79,7 @@
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 (global-set-key
-  (kbd "C-c c q") 'unfill-paragraph)
+  (kbd "C-c c q") 'jcouto/unfill-paragraph)
 
 ;; Show line numbers at the left.
 (global-display-line-numbers-mode)
