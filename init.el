@@ -182,5 +182,5 @@ path)."
   (kill-new (nth 1 (org-get-outline-path))))
 (add-hook
  'org-mode-hook
- (lambda () (local-set-key (kbd "C-c c p"
-                                'jcouto/org-project-to-kill-buffer))))
+ (lambda () (local-set-key (kbd "C-c c p")
+                                'jcouto/org-project-to-kill-buffer)))
