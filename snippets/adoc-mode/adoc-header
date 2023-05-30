@@ -2,7 +2,7 @@
 # name: AsciiDoc header
 # key:  head
 # --
-= ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`}
+= ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
 :tags: Publish
 :author: ${2:`(user-full-name)`}
 :email: ${3:`(user-login-name)`}
