@@ -105,6 +105,81 @@
 (global-set-key
   (kbd "C-c c q") 'jcv/unfill-paragraph)
 
+;; Functions for decoding Base64 strings in buffers.
+
+(defun jcv/base64-decode-string (str &optional charset)
+  "Decode a Base64 or Base64url encoded string, coding the result
+in UTF-8 by default, although CHARSET can be used to choose
+another one.
+ 
+Base64 strings are converted to Base64url format before decoding,
+so there can be any number of '=' characters at the end."
+  (let ((charset (or charset 'utf-8)))
+    (decode-coding-string
+     (base64-decode-string
+      (string-replace "+" "-"
+                      (string-replace "/" "_"
+                                      (string-replace "=" "" str))) t)
+     charset)))
+ 
+(defun jcv/base64-decode-region (beg end &optional charset)
+  "Replaces a Base64 or Base64url text enclosed by the region with
+its decoded version.  Leaves the mark at the beginning of the
+decoded text, and the point at the end."
+  (interactive "r")
+  (let ((decoded-text
+         (jcv/base64-decode-string (buffer-substring-no-properties
+                                    beg end) charset)))
+    (delete-region beg end)
+    (goto-char beg)
+    (set-mark beg)
+    (insert decoded-text)))
+ 
+(defun jcv/base64-decode-region-into-buffer (beg end &optional charset)
+  "Decode a Base64 or Base64url encoded region and appends the
+result to the temporary buffer *Base64 decode*.  Leaves the mark
+in that buffer at the beginning of the decoded text, and the
+point at the end."
+  (interactive "r")
+  (let* ((output-buffer (get-buffer-create "*Base64 decode*"))
+         (encoded-text (buffer-substring-no-properties beg end))
+         (decoded-text (jcv/base64-decode-string encoded-text charset)))
+    (with-current-buffer output-buffer
+      (goto-char (point-max))
+      (insert encoded-text "\n")
+      (set-mark (point-max))
+      (insert decoded-text "\n"))
+    (switch-to-buffer-other-window output-buffer)
+    (set-window-point
+     (get-buffer-window output-buffer)
+     (- (point-max) 1))))
+ 
+(defun jcv/base64-find-limits ()
+  "Returns a list with the limits of a Base64 or Base64url string
+under the cursor, with the beginning at the first position and
+the end at the second one."
+  (list (+ 1 (re-search-backward "[^-_a-zA-Z0-9+/]"))
+        ;; We consider all the '=' characters at the end of the string, as our
+        ;; decode functions ignore them.
+        (re-search-forward "[-_a-zA-Z0-9+/]+=*")))
+ 
+(defun jcv/base64-decode-point-in-place ()
+  "Decode the Base64 or Base64url string under the cursor calling
+`base64-decode-region', leaving the result in the same buffer."
+  (interactive)
+  (save-excursion
+    (apply 'jcv/base64-decode-region (jcv/base64-find-limits))))
+ 
+(defun jcv/base64-decode-point-into-buffer ()
+  "Decode the Base64 or Base64url string under the cursor calling
+`base64-decode-region-into-buffer', leaving the result in a
+temporary buffer."
+  (interactive)
+  (save-excursion
+    (apply 'jcv/base64-decode-region-into-buffer (jcv/base64-find-limits))))
+(global-set-key
+  (kbd "C-c c 6") 'jcv/base64-decode-point-into-buffer)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
 
