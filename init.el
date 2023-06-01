@@ -71,7 +71,7 @@
 (ido-mode 1)
 
 ;; This function joins all the lines of a paragraph in one.
-(defun jcouto/unfill-paragraph (&optional region)
+(defun jcv/unfill-paragraph (&optional region)
   "Takes a multi-line paragraph and makes it into a single line of text."
   (interactive (progn (barf-if-buffer-read-only) '(t)))
   (let ((fill-column (point-max))
@@ -79,7 +79,7 @@
     (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 (global-set-key
-  (kbd "C-c c q") 'jcouto/unfill-paragraph)
+  (kbd "C-c c q") 'jcv/unfill-paragraph)
 
 ;; Show line numbers at the left.
 (global-display-line-numbers-mode)
@@ -174,7 +174,7 @@
 
 ;; Copy to the clipboard the second top-most header of the current path, and
 ;; assign a key binding to it.
-(defun jcouto/org-project-to-kill-buffer ()
+(defun jcv/org-project-to-kill-buffer ()
   "Places in a new kill buffer the header of the current
 project (we suppose it's the second element in the outline
 path)."
@@ -185,4 +185,4 @@ path)."
 (add-hook
  'org-mode-hook
  (lambda () (local-set-key (kbd "C-c c p")
-                                'jcouto/org-project-to-kill-buffer)))
+                                'jcv/org-project-to-kill-buffer)))
