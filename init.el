@@ -38,6 +38,9 @@
 ;; Use the current buffer name as the frame tittle.
 (setq frame-title-format "%b")
 
+;; Don't adjust frame size to row/columns multiples.
+(setq frame-resize-pixelwise t)
+
 ;; Use spaces instead of tab characters.
 (setq-default indent-tabs-mode nil)
 
