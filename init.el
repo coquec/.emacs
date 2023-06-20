@@ -30,6 +30,9 @@
 ;; Disable scroll bar.
 (scroll-bar-mode -1)
 
+;; Disable menu bar.
+(menu-bar-mode -1)
+
 ;; Show the column number at the status bar.
 (setq column-number-mode t)
 
