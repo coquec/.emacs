@@ -25,12 +25,10 @@
 (setq visible-bell t)
 
 ;; Disable tool bar.
-(when (display-graphic-p)
-  (tool-bar-mode -1))
+(tool-bar-mode -1)
 
 ;; Disable scroll bar.
-(when (display-graphic-p)
-  (scroll-bar-mode -1))
+(scroll-bar-mode -1)
 
 ;; Show the column number at the status bar.
 (setq column-number-mode t)
