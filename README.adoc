@@ -50,7 +50,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Conmuta el estado de _solo lectura_ del buffer
 
 | `C-x s`
-| Guarda todos los buffers
+| Guarda todos los buffers, de uno en uno.  Si Emacs hace preguntas sobre
+  guardar archivos, podemos usar las mismas respuestas que al salir con `C-x
+  C-c`
 
 | `C-x b`
 | Cambia el buffer actual
