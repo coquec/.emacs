@@ -92,7 +92,7 @@
 
 ;; Shortcut to copy the name of the current buffer to the kill-ring.
 (global-set-key
-  (kbd "C-c w")
+  (kbd "C-c c w")
   (lambda () (interactive) (kill-new (file-name-nondirectory buffer-file-name))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
