@@ -18,7 +18,21 @@
 |===
 
 | `C-x C-c`
-| Salir de Emacs
+a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemos
+   pulsar una de estas teclas:
+
+* `Y` o `yes` guarda el buffer.
+
+* `N` o `DEL` se salta el buffer.
+
+* `q` o `RET` aborta el guardado y sigue con el cierre de Emacs.
+
+* `C-g` aborta el guardado y la salida de Emacs.
+
+* `!` guarda todos los buffers.
+
+* `d` hace un diff del buffer con el archivo del disco.
+
 
 | `C-x C-f`
 | Abrir un archivo en un nuevo buffer (__**f**__ind file)
