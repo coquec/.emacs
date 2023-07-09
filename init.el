@@ -90,6 +90,10 @@
 ;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
+;; Rebind C-x C-b to ibuffer
+;; Recommended in Mastering Emacs.
+(global-set-key [remap list-buffers] 'ibuffer)
+
 ;; Shortcut to copy the name of the current buffer to the kill-ring.
 (global-set-key
   (kbd "C-c c w")
