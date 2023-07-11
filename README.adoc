@@ -57,8 +57,6 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-x b`
 | Cambia el buffer actual
 
-| `C-x o`
-| Cambia la ventana actual
 
 | `C-x k`
 | Cierra (__**k**__ill) un buffer
@@ -68,6 +66,27 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 |===
 
+=== Ventanas
+
+[cols="20,80"]
+|===
+
+| `C-x 0`
+| Cierra la ventana actual
+
+| `C-x 1`
+| Cierra todas las ventanas, salvo la actual
+
+| `C-x 2`
+| Parte la ventana actual horizontalmente
+
+| `C-x 3`
+| Parte la ventana actual verticalmente
+
+| `C-x o`
+| Cambia la ventana actual
+
+|===
 === Ayuda
 
 [cols="20,80"]
