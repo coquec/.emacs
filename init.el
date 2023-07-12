@@ -33,6 +33,10 @@
 ;; Disable menu bar.
 (menu-bar-mode -1)
 
+;; Enable repeat-mode.
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
+(repeat-mode)
+
 ;; Show the column number at the status bar.
 (setq column-number-mode t)
 
