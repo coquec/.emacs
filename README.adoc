@@ -63,6 +63,11 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-x k`
 | Cierra (__**k**__ill) el buffer actual
 
+| `C-x 4`
+| Prefijo para trabajar en la siguiente ventana (a la que iríamos con `C-x o`.
+  Por ejemplo, `C-x 4 C-f` abre un archivo en esa ventana.  Ver las órdenes
+  disponibles con `C-x 4 C-h`
+
 | `C-z`
 | Suspende Emacs (o lo minimiza si está en modo GUI)
 
