@@ -63,6 +63,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-x k`
 | Cierra (__**k**__ill) el buffer actual
 
+| `C-x d`
+| Abre el editor de directorios dired en el buffer actual
+
 | `C-x 4`
 | Prefijo para trabajar en la siguiente ventana (a la que iríamos con `C-x o`.
   Por ejemplo, `C-x 4 C-f` abre un archivo en esa ventana.  Ver las órdenes
@@ -146,8 +149,16 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-p`
 | Mueve el cursor a la línea anterior (**p**revious)
 
+| `C-M-p`
+| Mueve el cursor hacia atrás hasta el paréntesis de apertura más próximo
+  (**p**revious)
+
 | `C-n`
 | Mueve el cursor a la siguiente línea (**n**ext)
+
+| `C-M-n`
+| Mueve el cursor hacia adelante al paréntesis de cierre más próximo
+  (**p**revious)
 
 | `M-r`
 | Mueve el cursor al principio, mitad y final de la pantalla
