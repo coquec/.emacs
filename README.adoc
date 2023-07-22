@@ -163,7 +163,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Mueve el cursor a la siguiente línea (**n**ext)
 
 | `C-M-n`
-| Mueve el cursor hacia adelante al paréntesis de cierre más próximo
+| Mueve el cursor al final de la expresión balanceada siguiente
   (**p**revious)
 
 | `M-r`
