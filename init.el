@@ -1,7 +1,6 @@
 ; Add MELPA and GNU repositories.
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (when (< emacs-major-version 27)
   (package-initialize))
 
