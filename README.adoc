@@ -140,17 +140,11 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `M-f`
 | Mueve el cursor al final de la siguiente palabra
 
-| `C-M-f`
-| Mueve el cursor al final de la siguiente expresión balanceada
-
 | `C-b`
 | Mueve el cursor al carácter anterior (**b**ackward)
 
 | `M-b`
 | Mueve el cursor al principio de la palabra anterior
-
-| `C-M-b`
-| Mueve el cursor al principio de la expresión balanceada anterior
 
 | `C-p`
 | Mueve el cursor a la línea anterior (**p**revious)
@@ -202,10 +196,10 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-M-f`
-| Va al final del bloque
+| Va al final del bloque (expresión balanceada)
 
 | `C-M-b`
-| Va al principio del bloque
+| Va al principio del bloque (expresión balanceada)
 
 | `C-M-u`
 | Va al bloque anterior
