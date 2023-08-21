@@ -135,48 +135,48 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-f`
-| Mueve el cursor al siguiente carácter (**f**orward)
+| Va al siguiente carácter (**f**orward)
 
 | `M-f`
-| Mueve el cursor al final de la siguiente palabra
+| Va al final de la siguiente palabra
 
 | `C-b`
-| Mueve el cursor al carácter anterior (**b**ackward)
+| Va al carácter anterior (**b**ackward)
 
 | `M-b`
-| Mueve el cursor al principio de la palabra anterior
+| Va al principio de la palabra anterior
 
 | `C-p`
-| Mueve el cursor a la línea anterior (**p**revious)
+| Va a la línea anterior (**p**revious)
 
 | `C-M-p`
-| Mueve el cursor hacia atrás hasta el paréntesis de apertura más próximo
+| Va hacia atrás hasta el paréntesis de apertura más próximo
   (**p**revious)
 
 | `C-n`
-| Mueve el cursor a la siguiente línea (**n**ext)
+| Va a la siguiente línea (**n**ext)
 
 | `C-M-n`
-| Mueve el cursor al final de la expresión balanceada siguiente
+| Va al final de la expresión balanceada siguiente
   (**p**revious)
 
 | `C-a`
-| Mueve el cursor al principio de la línea
+| Va al principio de la línea
 
 | `M-a`
-| Mueve el cursor al principio de la frase
+| Va al principio de la frase
 
 | `C-e`
-| Mueve el cursor al final de la línea
+| Va al final de la línea
 
 | `M-e`
-| Mueve el cursor al final de la frase
+| Va al final de la frase
 
 | `M-r`
-| Mueve el cursor al principio, mitad y final de la pantalla
+| Va al principio, mitad y final de la pantalla
 
 | `M-m`
-| Mueve el cursor al primer carácter no blanco de la línea
+| Va al primer carácter no blanco de la línea
 
 | `M-<`
 | Va al principio del buffer
@@ -212,7 +212,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Guarda la posición del cursor en el anillo de marcas
 
 | `C-u C-<SPC>`
-| Mueve el cursor a la última posición guardada en el anillo de marcas
+| Va a la última posición guardada en el anillo de marcas
 
 |===
 
