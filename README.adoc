@@ -169,6 +169,12 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `M-g M-g`
 | Va a una línea específica
 
+| `M-{`
+| Va hacia el principio del párrafo anterior
+
+| `M-}`
+| Va hacia el final del siguiente párrafo
+
 | `C-x [`
 | Va al borde de la página anterior (según el delimitador definido en la
   variable `page-delimiter`)
