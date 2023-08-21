@@ -241,10 +241,13 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
   alternar entre el centro, la primera línea o el final de la ventana
 
 | `C-v`
-| Siguiente página
+| Siguiente página.  Admite argumentos, en especial `C--`, que invierte la
+  dirección (va a la página anterior)
 
 | `C-M-v`
-| Siguiente página en otra ventana (p.ej, la de una página de ayuda)
+| Siguiente página en otra ventana (p.ej, la de una página de ayuda).  Admite
+  argumentos, en especial `C--`, que invierte la dirección (va a la página
+  anterior)
 
 | `M-v`
 | Página anterior
