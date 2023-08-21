@@ -179,10 +179,11 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Va al primer carácter no blanco de la línea
 
 | `M-<`
-| Va al principio del buffer
+| Va al principio del buffer, guardando antes la marca (se puede volver a la
+  posición actual con `C-u C-<SPC>`)
 
 | `M->`
-| Va al final del buffer
+| Va al final del buffer, guardando antes la marca
 
 | `M-g M-g`
 | Va a una línea específica
