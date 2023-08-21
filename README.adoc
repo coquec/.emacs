@@ -178,6 +178,12 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `M-m`
 | Mueve el cursor al primer carácter no blanco de la línea
 
+| `M-<`
+| Va al principio del buffer
+
+| `M->`
+| Va al final del buffer
+
 | `M-g M-g`
 | Va a una línea específica
 
