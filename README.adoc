@@ -249,6 +249,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `M-v`
 | Página anterior
 
+| `C-M-S-v`
+| Página anterior en otra ventana (p.ej, la de una página de ayuda)
+
 | `C-x >`
 | _Scroll_ a la derecha
 
