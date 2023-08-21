@@ -246,7 +246,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 | `C-M-v`
 | Siguiente página en otra ventana (p.ej, la de una página de ayuda).  Admite
-  argumentos, en especial `C--`, que invierte la dirección (va a la página
+  argumentos, en especial `C-M--`, que invierte la dirección (va a la página
   anterior)
 
 | `M-v`
