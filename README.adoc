@@ -160,6 +160,18 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Mueve el cursor al final de la expresión balanceada siguiente
   (**p**revious)
 
+| `C-a`
+| Mueve el cursor al principio de la línea
+
+| `M-a`
+| Mueve el cursor al principio de la frase
+
+| `C-e`
+| Mueve el cursor al final de la línea
+
+| `M-e`
+| Mueve el cursor al final de la frase
+
 | `M-r`
 | Mueve el cursor al principio, mitad y final de la pantalla
 
