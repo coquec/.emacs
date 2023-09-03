@@ -102,6 +102,9 @@
   (kbd "C-c c w")
   (lambda () (interactive) (kill-new (file-name-nondirectory buffer-file-name))))
 
+;; Enable additional movements while searching in Emacs 28.1 and later.
+(setq isearch-allow-motion t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tree-sitter grammar recipes from
 ;; https://www.masteringemacs.org/article/how-to-get-started-tree-sitter.
