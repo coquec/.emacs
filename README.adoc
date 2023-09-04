@@ -35,47 +35,47 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 
 | `C-x C-f`
-| Abrir un archivo en un nuevo buffer (__**f**__ind file)
+| Abrir un archivo en un nuevo buffer (__**f**__ind file).
 
 | `C-x C-s`
-| Guarda el buffer actual (__**s**__ave file)
+| Guarda el buffer actual (__**s**__ave file).
 
 | `C-x C-v`
-| Reemplaza el buffer actual por otro archivo
+| Reemplaza el buffer actual por otro archivo.
 
 | `C-x C-w`
-| Guarda el buffer en otro archivo (__**w**__rite file)
+| Guarda el buffer en otro archivo (__**w**__rite file).
 
 | `C-x C-q`
-| Conmuta el estado de _solo lectura_ del buffer
+| Conmuta el estado de _solo lectura_ del buffer.
 
 | `C-x s`
 | Guarda todos los buffers, de uno en uno.  Si Emacs hace preguntas sobre
   guardar archivos, podemos usar las mismas respuestas que al salir con `C-x
-  C-c`
+  C-c`.
 
 | `C-x b`
-| Cambia el buffer actual
+| Cambia el buffer actual.
 
 | `C-x C-b`
-| Muestra un listado de los buffers
+| Muestra un listado de los buffers.
 
 | `C-x k`
-| Cierra (__**k**__ill) el buffer actual
+| Cierra (__**k**__ill) el buffer actual.
 
 | `C-x d`
-| Abre el editor de directorios dired en el buffer actual
+| Abre el editor de directorios dired en el buffer actual.
 
 | `C-x C-j`
-| Abre el editor de directorios dired en el directorio del buffer actual
+| Abre el editor de directorios dired en el directorio del buffer actual.
 
 | `C-x 4`
 | Prefijo para trabajar en la siguiente ventana (a la que iríamos con `C-x o`.
   Por ejemplo, `C-x 4 C-f` abre un archivo en esa ventana.  Ver las órdenes
-  disponibles con `C-x 4 C-h`
+  disponibles con `C-x 4 C-h`.
 
 | `C-z`
-| Suspende Emacs (o lo minimiza si está en modo GUI)
+| Suspende Emacs (o lo minimiza si está en modo GUI).
 
 |===
 
@@ -85,19 +85,19 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-x 0`
-| Cierra la ventana actual
+| Cierra la ventana actual.
 
 | `C-x 1`
-| Cierra todas las ventanas, salvo la actual
+| Cierra todas las ventanas, salvo la actual.
 
 | `C-x 2`
-| Parte la ventana actual horizontalmente
+| Parte la ventana actual horizontalmente.
 
 | `C-x 3`
-| Parte la ventana actual verticalmente
+| Parte la ventana actual verticalmente.
 
 | `C-x o`
-| Cambia la ventana actual
+| Cambia la ventana actual.
 
 |===
 === Ayuda
@@ -107,28 +107,29 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 | `C-h`
 | (Tras una tecla de prefijo) Muestra las combinaciones disponibles con ese
-  prefijo
+  prefijo.
 
 | `C-h k _**key**_`
-| Describe la función de la tecla _**key**_
+| Describe la función de la tecla _**key**_.
 
 | `C-h l`
-| Muestra las últimas teclas pulsadas y las órdenes ejecutadas
+| Muestra las últimas teclas pulsadas y las órdenes ejecutadas.
 
 | `C-h m`
-| Describe los **m**odos activos, incluyendo todas las combinaciones de teclado
+| Describe los **m**odos activos, incluyendo todas las combinaciones de
+  teclado.
 
 | `C-h a _**string**_`
-| Muestra las órdenes que concuerden con _**string**_ (_**a**_propos)
+| Muestra las órdenes que concuerden con _**string**_ (_**a**_propos).
 
 | `C-h v _**string**_`
-| Describe la **v**ariable _**string**_
+| Describe la **v**ariable _**string**_.
 
 | `C-h x _**string**_`
-| Describe la orden _**string**_
+| Describe la orden _**string**_.
 
 | `C-h f _**string**_`
-| Describe la **f**unción _**string**_
+| Describe la **f**unción _**string**_.
 
 |===
 
@@ -138,85 +139,84 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-f`
-| Va al siguiente carácter (**f**orward)
+| Va al siguiente carácter (**f**orward).
 
 | `M-f`
-| Va al final de la siguiente palabra
+| Va al final de la siguiente palabra.
 
 | `C-b`
-| Va al carácter anterior (**b**ackward)
+| Va al carácter anterior (**b**ackward).
 
 | `M-b`
-| Va al principio de la palabra anterior
+| Va al principio de la palabra anterior.
 
 | `C-p`
-| Va a la línea anterior (**p**revious)
+| Va a la línea anterior (**p**revious).
 
 | `C-M-p`
-| Va hacia atrás hasta el paréntesis de apertura más próximo
-  (**p**revious)
+| Va hacia atrás hasta el paréntesis de apertura más próximo (**p**revious).
 
 | `C-n`
-| Va a la siguiente línea (**n**ext)
+| Va a la siguiente línea (**n**ext).
 
 | `C-M-n`
-| Va al final de la expresión balanceada siguiente
+| Va al final de la expresión balanceada siguiente.
   (**p**revious)
 
 | `C-a`
-| Va al principio de la línea
+| Va al principio de la línea.
 
 | `M-a`
-| Va al principio de la frase
+| Va al principio de la frase.
 
 | `C-e`
-| Va al final de la línea
+| Va al final de la línea.
 
 | `M-e`
-| Va al final de la frase
+| Va al final de la frase.
 
 | `M-r`
-| Va al principio, mitad y final de la pantalla
+| Va al principio, mitad y final de la pantalla.
 
 | `M-m`
-| Va al primer carácter no blanco de la línea
+| Va al primer carácter no blanco de la línea.
 
 | `M-<`
 | Va al principio del buffer, guardando antes la marca (se puede volver a la
-  posición actual con `C-u C-<SPC>`)
+  posición actual con `C-u C-<SPC>`).
 
-| `M->`
-| Va al final del buffer, guardando antes la marca
+| `M\->`
+| Va al final del buffer, guardando antes la marca.
 
 | `M-g M-g`
-| Va a una línea específica
+| Va a una línea específica.
 
 | `M-{`
-| Va hacia el principio del párrafo anterior
+| Va hacia el principio del párrafo anterior.
 
 | `M-}`
-| Va hacia el final del siguiente párrafo
+| Va hacia el final del siguiente párrafo.
 
 | `C-x [`
 | Va al borde de la página anterior (según el delimitador definido en la
-  variable `page-delimiter`)
+  variable `page-delimiter`).
 
 | `C-x ]`
 | Va al borde de la siguiente página (según el delimitador definido en la
-  variable `page-delimiter`)
+  variable `page-delimiter`).
 
 | `C-x C-n`
 | Fija la columna a la que se mueve el cursor cuando cambia de línea goal
-  column)
+  column).
 
 | `C-u C-x C-n`
-| Deshabilita la orden anterior
+| Deshabilita la orden anterior.
 
 | `C-<SPC> C-<SPC>`
-| Guarda la posición del cursor en el anillo de marcas
+| Guarda la posición del cursor en el anillo de marcas.
 
 | `C-u C-<SPC>`
-| Va a la última posición guardada en el anillo de marcas
+| Va a la última posición guardada en el anillo de marcas.
 
 |===
 
@@ -224,22 +224,22 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-M-f`
-| Va al final del bloque (expresión balanceada)
+| Va al final del bloque (expresión balanceada).
 
 | `C-M-b`
-| Va al principio del bloque (expresión balanceada)
+| Va al principio del bloque (expresión balanceada).
 
 | `C-M-u`
-| Va al bloque anterior
+| Va al bloque anterior.
 
 | `C-M-d`
-| Va al siguiente bloque
+| Va al siguiente bloque.
 
 | `C-M-a`
-| Va al principio de una función
+| Va al principio de una función.
 
 | `C-M-e`
-| Va al final de una función
+| Va al final de una función.
 
 |===
 
@@ -248,28 +248,28 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 | `C-l`
 | Pone la línea actual en el centro de la ventana.  Pulsar varias veces para
-  alternar entre el centro, la primera línea o el final de la ventana
+  alternar entre el centro, la primera línea o el final de la ventana.
 
 | `C-v`
 | Siguiente página.  Admite argumentos, en especial `C--`, que invierte la
-  dirección (va a la página anterior)
+  dirección (va a la página anterior).
 
 | `C-M-v`
 | Siguiente página en otra ventana (p.ej, la de una página de ayuda).  Admite
   argumentos, en especial `C-M--`, que invierte la dirección (va a la página
-  anterior)
+  anterior).
 
 | `M-v`
-| Página anterior
+| Página anterior.
 
 | `C-M-S-v`
-| Página anterior en otra ventana (p.ej, la de una página de ayuda)
+| Página anterior en otra ventana (p.ej, la de una página de ayuda).
 
 | `C-x >`
-| _Scroll_ a la derecha
+| _Scroll_ a la derecha.
 
 | `C-x <`
-| _Scroll_ a la izquierda
+| _Scroll_ a la izquierda.
 
 |===
 
@@ -279,11 +279,11 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 |===
 
 | `C-x u`
-.3+| Deshace (undo)
+.3+| Deshace (undo).
 | `C-/`
 | `C-_`
 
-| `C-u C-/` .2+| Deshace dentro de la región
+| `C-u C-/` .2+| Deshace dentro de la región.
 | `C-u C-_`
 
 |===
@@ -299,39 +299,39 @@ marcar las palabras anteriores a la posición del cursor.
 |===
 
 | `C-<SPC>`
-.2+| Pone la marca donde esté el cursor y la activa
+.2+| Pone la marca donde esté el cursor y la activa.
 | `C-@`
 
 | `C-u C-<SPC>`
-| Va a la última marca en el anillo de marcas y la saca de él
+| Va a la última marca en el anillo de marcas y la saca de él.
 
 | `C-x C-x`
-| Intercambia el cursor y la marca y la activa
+| Intercambia el cursor y la marca y la activa.
 
 | `M-h`
 | Marcar el párrafo actual: pone el cursor al principio y la marca al final, y
-  la activa
+  la activa.
 
 | `C-M-h`
 | Marcar la función (_defun_) actual: pone el cursor al principio y la marca al
-  final, y la activa
+  final, y la activa.
 
 | `C-x h`
 | Marcar el buffer entero: pone el cursor al principio y la marca al final, y
-  la activa
+  la activa.
 
 | `C-x C-p`
 | Marcar la página actual (según el delimitador definido en la variable
   `page-delimiter`): pone el cursor al principio y la marca al final, y la
-  activa
+  activa.
 
 | `M-@`
 | Pone la marca al final de la siguiente palabra sin mover el cursor, y la
-  activa
+  activa.
 
 | `C-M-<SPC>`
 .2+| Pone la marca al final de la siguiente expresión balanceada sin mover el
-  cursor, y la activa
+  cursor, y la activa.
 | `C-M-@`
 
 |===
@@ -343,25 +343,25 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `C-y`
 | Pega (yank) el texto cortado y pone la marca al otro lado de donde quede el
-  cursor
+  cursor.
 
 | `M-y`
-| (Después de `C-y`).  Sustituye el texto pegado por otro cortado previamente
+| (Después de `C-y`).  Sustituye el texto pegado por otro cortado previamente.
 
 | `M-w`
-| Copia el texto marcado
+| Copia el texto marcado.
 
 | `C-w`
-| Corta el texto marcado
+| Corta el texto marcado.
 
 | `C-M-w`
-| Sigue añadiendo lo siguiente que se corte al texto cortado previamente
+| Sigue añadiendo lo siguiente que se corte al texto cortado previamente.
 
 | `C-M-k`
-| Corta la siguiente expresión balanceada
+| Corta la siguiente expresión balanceada.
 
 | `C-M-t`
-| Intercambia (**t**ranspone) las expresiones balanceadas que rodean al cursor
+| Intercambia (**t**ranspone) las expresiones balanceadas que rodean al cursor.
 
 |===
 
@@ -371,10 +371,10 @@ marcar las palabras anteriores a la posición del cursor.
 |===
 
 | `M--`
-| Argumento negativo para la siguiente orden
+| Argumento negativo para la siguiente orden.
 
 | `C-u -`
-| Argumento negativo para la siguiente orden
+| Argumento negativo para la siguiente orden.
 
 | `C-_**número**_`
 .4+| Repite la siguiente orden el _**número**_ especificado de veces.  Intentar
@@ -389,18 +389,17 @@ marcar las palabras anteriores a la posición del cursor.
 | `C-x <ESC> <ESC>`
 | Re-ejecuta la última orden introducida en el minibuffer.  Precedido de
   `C-_**n**_`, ejecuta la e_**n**_ésima orden anterior (1 para la última).  Se
-  puede usar `M-p` y `M-n` para moverse en el historial de órdenes
+  puede usar `M-p` y `M-n` para moverse en el historial de órdenes.
 
 | `M-x list-command-history`
 | Muestra la historia de órdenes ejecutadas que pueden repetirse con `C-x <ESC>
-  <ESC>`
+  <ESC>`.
 
 | `C-x z`
-| Repite la última orden.  Seguir pulsando z para seguir repitiendo
+| Repite la última orden.  Seguir pulsando z para seguir repitiendo.
 
 | `M-0 C-x e`
-.2+| Repite una macro hasta alcanzar el final del
-  fichero
+.2+| Repite una macro hasta alcanzar el final del buffer.
 | `C-u 0 C-x e`
 
 |===
@@ -415,48 +414,50 @@ marcar las palabras anteriores a la posición del cursor.
   coincidencia.
 
 | `C-s C-s`
-| Repite hacia adelante la última búsqueda interactiva
+| Repite hacia adelante la última búsqueda interactiva.
 
 | `C-s C-w`
-| Búsqueda interactiva hacia adelante de la palabra en la que está el cursor
+| Búsqueda interactiva hacia adelante de la palabra en la que está el cursor.
 
 | `C-r`
 | Búsqueda interactiva hacia atrás.  Empezar a escribir para ir a la primera
   coincidencia.
 
 | `C-r C-r`
-| Repite hacia atrás la última búsqueda interactiva
+| Repite hacia atrás la última búsqueda interactiva.
 
 | `C-r C-w`
-| Búsqueda interactiva hacia atrás de la palabra en la que está el cursor
+| Búsqueda interactiva hacia atrás de la palabra en la que está el cursor.
 
 | `C-M-s`
-| Búsqueda interactiva de regexp hacia delante
+| Búsqueda interactiva de regexp hacia delante.
 
 | `C-M-r`
-| Búsqueda interactiva de regexp hacia atrás
+| Búsqueda interactiva de regexp hacia atrás.
 
 | `M-x word-search-forward <RET> _**string**_ <RET>`
 | Busca las palabras que haya en _**string**_, ignorando los signos de
-  puntuación, espacios en blanco y retornos de línea que haya entre ellas
+  puntuación, espacios en blanco y retornos de línea que haya entre ellas.
 
 | `M-x replace-string <RET> _**string**_ <RET> _**newstring**_ <RET>`
 | Reemplaza todas de las ocurrencias de _**string**_ por _**newstring**_ desde
   la posición del cursor hasta el final del buffer.  Intenta mantener las
   mayúsculas de la cadena original (p.ej, al cambiar `UNO` por `dos`, pone
   `DOS`).  No hace esto si se usan mayúsculas en _**string**_ o en
-  _**newstring**_.  Si hay una región activa, solo actúa dentro de ella
+  _**newstring**_.  Si hay una región activa, solo actúa dentro de ella.
   
 | `M-% _**string**_ <RET> _**newstring**_ <RET>`
 | Reemplaza algunas de las ocurrencias de _**string**_ por _**newstring**_,
   preguntando en cada ocurrencia qué queremos hacer.  Con prefijo
   `C-_**número**_`, solo cambia las ocurrencias rodeadas por delimitadores de
   palabras.  Con prefijo `C-_**-**_`, busca hacia atrás.  Se puede pulsar `C-r`
-  para abrir una edición recursiva
+  para abrir una edición recursiva.
 
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>`
 | Reemplaza algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
-  Por lo demás, funciona como la anterior
+  Por lo demás, funciona como la anterior.
+
+|===
 
 ==== Pulsaciones durante las búsquedas
 
@@ -524,54 +525,54 @@ marcar las palabras anteriores a la posición del cursor.
 | `M-q`
 | Indenta el párrafo actual.  Si la región está activa, indenta todos sus
   párrafos.  Precedido de `C-u`, justifica el texto entre la primera columna y
-  el margen derecho, metiendo los espacios necesarios entre las palabras
+  el margen derecho, metiendo los espacios necesarios entre las palabras.
 
 | `M-x fill-region`
-| Indenta todos los párrafos de la región
+| Indenta todos los párrafos de la región.
 
 | `M-x fill-region-as-paragraph`
-| Indenta la región, considerándola como un solo párrafo
+| Indenta la región, considerándola como un solo párrafo.
 
 | `C-x f`
 | Establece el margen derecho ('fill-column').  Precedido de `C-u`, lo
-  establece en la columna donde esté el cursor
+  establece en la columna donde esté el cursor.
 
 | `C-x <TAB>`
 | Indenta la región de forma interactiva (usar las flechas -> y <- para mover
   el texto una columna cada vez, y con `S-->` y `S-<-` para moverlo de parada a
   parada de tabulador).  Con prefijo `C-__**número**_`, añade o quita el
-  _**número**_ especificado de espacios al principio de las líneas marcadas
+  _**número**_ especificado de espacios al principio de las líneas marcadas.
 
 | `M-i`
 | Inserta espacios en la posición del cursor hasta alcanzar la siguiente parada
-  del tabulador
+  del tabulador.
 
 | `M-x indent-relative`
 | Inserta espacios en la posición del cursor hasta el primer carácter que no
   sea un espacio en la línea anterior, o hasta la siguiente parada del
-  tabulador si no hay caracteres así
+  tabulador si no hay caracteres así.
 
 | `M-^`
-| Junta la línea actual con la anterior separadas por un solo espacio
+| Junta la línea actual con la anterior separadas por un solo espacio.
 
 | `C-M-\`
 | Indenta la región, como si se hubiera pulsado `<TAB>` en cada línea.
   Precedido de `C-_**número**_`, indenta la región a la columna _**número**_
-  (la primera es la 0)
+  (la primera es la 0).
 
 | `C-M-o`
 | Divide la línea actual en la posición del cursor, insertando un retorno y los
   espacios necesarios para que el texto que está a la derecha del cursor quede
-  a la misma altura
+  a la misma altura.
 
 | `M-x auto-fill-mode`
 | Conmuta el modo de auto-indentación.  Las líneas se dividen al pulsar `<SPC>`
-  o `<RET>` cuando sobrepasan la columna `fill-column`
+  o `<RET>` cuando sobrepasan la columna `fill-column`.
 
 | `M-o M-s`
 | Centra la línea del cursor entre la primera columna y el margen derecho.
   Precedido de `C-_**n**_`, centra las siguientes _**n**_ líneas y pone el
-  cursor tras ellas
+  cursor tras ellas.
 
 |===
 
@@ -581,17 +582,17 @@ marcar las palabras anteriores a la posición del cursor.
 |===
 
 | `C-x (`
-| Empieza a grabar una macro
+| Empieza a grabar una macro.
 
 | `C-x )`
-| Termina de grabar una macro
+| Termina de grabar una macro.
 
 | `C-x e`
-| Ejecuta la última macro grabada
+| Ejecuta la última macro grabada.
 
 | `C-x C-k x _**r**_`
 | Guarda la última macro en el registro _**r**_.  Puede ejecutarse con `C-x r j
-  _**r**_`
+  _**r**_`.
 
 |===
 
@@ -601,60 +602,60 @@ marcar las palabras anteriores a la posición del cursor.
 |===
 
 | `C-x r ?`
-| Ayuda de órdenes de registros/marcadores
+| Ayuda de órdenes de registros/marcadores.
 
 | `C-x r <SPC> _**r**_`
-| Guarda la posición del cursor en el registro _**r**_
+| Guarda la posición del cursor en el registro _**r**_.
 
 | `C-x r w _**r**_`
 | Guarda la configuración de las ventanas del marco seleccionado en el registro
-  _**r**_
+  _**r**_.
 
 | `C-x r f _**r**_`
 | Guarda la configuración de todos los marcos y sus ventanas en el registro
-  _**r**_
+  _**r**_.
 
 | `C-x r j _**r**_`
 | Salta a la posición del cursor, recupera las configuraciones de ventanas o
   marcos guardadas en el registro _**r**_, visita el archivo guardado en él o
   ejecuta la macro correspodiente.  Con prefijo `C-u` al recuperar la
   configuración de las ventanas, elimina los marcos que no estén en la
-  configuración recuperada
+  configuración recuperada.
 
 | `C-x r s _**r**_`
 | Guarda la región en el registro _**r**_ (con prefijo `C-u`, también la borra
-  del buffer)
+  del buffer).
 
 | `C-x r r _**r**_`
 | Guarda la región-rectángulo en el registro _**r**_ (con prefijo `C-u`,
-  también la borra del buffer)
+  también la borra del buffer).
 
 | `C-x r n _**r**_`
 | Guarda el número 0 en el registro _**r**_ (precedido de `C-_**número**_`,
-  guarda ese valor en el registro)
+  guarda ese valor en el registro).
 
 | `C-x r + _**r**_`
 | Si el registro _**r**_ tiene un número, le suma 1 (precedido de
-  `C-_**número**_`, le suma esa cantidad)
+  `C-_**número**_`, le suma esa cantidad).
 
 | `C-x r i _**r**_`
 | Inserta en el buffer el número, el texto o el rectángulo del registro _**r**_
-  (con prefijo `C-u`, deja el cursor al principio y pone la marca al final)
+  (con prefijo `C-u`, deja el cursor al principio y pone la marca al final).
 
 | `M-x append-to-register <RET> _**r**_`
 | Añade la región al registro _**r**_ (con prefijo `C-u`, también la borra del
-  buffer)
+  buffer).
 
 | `M-x prepend-to-register <RET> _**r**_`
-| Añade la región al principio del registro _**r**_
+| Añade la región al principio del registro _**r**_.
 
 | `M-x view-register <RET> _**r**_`
-| Describe el contenido del registro _**r**_
+| Describe el contenido del registro _**r**_.
 
 | `(set-register _**r**_ '(file . _**path**_))`
 | Guarda el nombre del archivo _**path**_ en el registro _**r**_.  P. ej,
   `(set-register ?e '(file . "/home/xxx/.emacs"))`.  Puede visitarse con `C-x r
-  j _**r**_`
+  j _**r**_`.
 
 |===
 
@@ -665,40 +666,40 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `C-x r m <RET>`
 | Establece un marcador en el buffer actual, donde esté el cursor, llamado
-  igual que el archivo
+  igual que el archivo.
 
 | `C-x r m _**bookmark**_ <RET>`
 | Establece un marcador llamado _**bookmark**_ en el buffer actual, donde esté
-  el cursor
+  el cursor.
 
 | `C-x r M _**bookmark**_ <RET>`
-| Como el anterior, pero no reescribe un marcador que ya exista
+| Como el anterior, pero no reescribe un marcador que ya exista.
 
 | `C-x r b _**bookmark**_ <RET>`
-| Salta al marcador especificado
+| Salta al marcador especificado.
 
 | `C-x r l`
 | Lista todos los marcadores.  Se puede editar el contenido del listado (pulsar
-  `?` para ayuda)
+  `?` para ayuda).
 
 | `M-x bookmark-save`
 | Guarda la lista de marcadores en el archivo de marcadores por defecto
-  (`~/.emacs.d/bookmarks` o `~/.emacs.bmk`, si éste existe)
+  (`~/.emacs.d/bookmarks` o `~/.emacs.bmk`, si éste existe).
 
 | `M-x bookmark-delete <RET> _**bookmark**_ <RET>`
-| Borra el marcador _**bookmark**_
+| Borra el marcador _**bookmark**_.
 
 | `M-x bookmark-insert-location <RET> _**bookmark**_ <RET>`
-| Inserta en el buffer el nombre del archivo al que apunta _**bookmark**_
+| Inserta en el buffer el nombre del archivo al que apunta _**bookmark**_.
 
 | `M-x bookmark-insert <RET> _**bookmark**_ <RET>`
-| Inserta en el buffer el contenido del archivo al que apunta _**bookmark**_
+| Inserta en el buffer el contenido del archivo al que apunta _**bookmark**_.
 
 | `M-x bookmark-load <RET> _**filename**_ <RET>`
-| Carga el archivo de marcadores _**filename**_
+| Carga el archivo de marcadores _**filename**_.
 
 | `M-x bookmark-write <RET> _**filename**_ <RET>`
-| Guarda los marcadores en el archivo _**filename**_
+| Guarda los marcadores en el archivo _**filename**_.
 
 |===
 
@@ -711,41 +712,41 @@ marcar las palabras anteriores a la posición del cursor.
 | Conmuta el modo de marcado de rectángulo, mostrando la región-rectángulo y
   haciendo que las órdenes habituales de copiado y pegado funcionen sobre ella
   mientras la región esté activa.  En este modo, `C-x C-x` alterna el cursor
-  entre las cuatro esquinas del rectángulo
+  entre las cuatro esquinas del rectángulo.
 
 | `C-x r k`
-| Corta la región-rectángulo
+| Corta la región-rectángulo.
 
 | `C-x r M-w`
-| Copia la región-rectángulo
+| Copia la región-rectángulo.
 
 | `C-x r d`
-| Borra la región-rectángulo
+| Borra la región-rectángulo.
 
 | `C-x r y`
-| Pega el último rectángulo cortado en el punto donde esté el cursor
+| Pega el último rectángulo cortado en el punto donde esté el cursor.
 
 | `C-x r o`
 | Abre espacio para un rectángulo, desplazando el texto a la derecha y
-  rellenándolo con espacios
+  rellenándolo con espacios.
 
 | `C-x r c`
-| Limpia el espacio del rectángulo, sustituyendo el texto por espacios
+| Limpia el espacio del rectángulo, sustituyendo el texto por espacios.
 
 | `C-x r N`
 | Numera cada línea del rectángulo y desplaza el texto a la derecha.  Precedido
-  por `C-u`, permite elegir el número inicial y el formato
+  por `C-u`, permite elegir el número inicial y el formato.
 
 | `C-x r t _**string**_ <RET>`
-| Reemplaza cada línea del rectángulo por _**string**_
+| Reemplaza cada línea del rectángulo por _**string**_.
 
 | `M-x delete-whitespace-rectangle`
 | Elimina los espacios que haya en cada línea del rectángulo, desde la columna
-  de la izquierda en adelante
+  de la izquierda en adelante.
 
 | `C-x r r _**r**_`
 | Guarda la región-rectángulo en el registro _**r**_ (con prefijo `C-u`,
-  también la borra del buffer)
+  también la borra del buffer).
 
 |===
 
@@ -760,20 +761,20 @@ marcar las palabras anteriores a la posición del cursor.
   está al final de la línea, traspone los dos últimos caracteres de la línea
   sin mover el cursor. Con un prefijo `C-_**n**_`, hace avanzar el carácter
   _**n**_ veces.  Con un prefijo negativo, lo hace retroceder.  Con un prefijo
-  `C-0`, traspone el carácter que hay tras el cursor con el de la marca
+  `C-0`, traspone el carácter que hay tras el cursor con el de la marca.
 
 | `M-t`
 | Traspone la palabra que hay antes del cursor con la palabra que viene
   después, y pone el cursor después de la segunda palabra (_hace avanzar_ la
   palabra que hay antes del cursor).  No mueve los signos de puntuación.
-  Admite prefijo `C-_**n**_`
+  Admite prefijo `C-_**n**_`.
 
 | `C-M-t`
 | Traspone dos expresiones balanceadas (_hace avanzar_ la expresión balanceada
-  que haya encima del cursor)
+  que haya encima del cursor).
 
 | `C-x C-t`
-| Traspone dos líneas (_hace avanzar_ la línea que haya encima del cursor)
+| Traspone dos líneas (_hace avanzar_ la línea que haya encima del cursor).
 
 |===
 
@@ -784,16 +785,16 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `M-:`
 | Pide una expresión en el minibuffer, la evalúa y muestra el resultado.  Con
-  prefijo `M-1`, inserta el resultado en el buffer actual
+  prefijo `M-1`, inserta el resultado en el buffer actual.
 
 | `C-j`
 | En el buffer `\*scratch*` o en un buffer que esté en `lisp-iteration-mode`,
   evalúa la primera _sexp_ que encuentre antes del cursor e inserta el
-  resultado en el buffer
+  resultado en el buffer.
 
 | `C-x C-e`
 | Evalúa la primera _sexp_ que encuentre antes del cursor.  Con prefijo `C-1`,
-  inserta el resultado en el buffer actual
+  inserta el resultado en el buffer actual.
 
 |===
 
@@ -803,7 +804,7 @@ marcar las palabras anteriores a la posición del cursor.
 |===
 
 | `C-g`
-| Aborta una orden en curso
+| Aborta una orden en curso.
 
 | `M-x _**string**_`
 | Permite ejecutar cualquier orden interactiva de Emacs.
@@ -812,27 +813,27 @@ marcar las palabras anteriores a la posición del cursor.
 | Permite ejecutar las órdenes más adecuadas para el buffer activo.
 
 | `M-x subword-mode`
-| Habilita que Emacs considere las mayúsculas como separadores de palabras
+| Habilita que Emacs considere las mayúsculas como separadores de palabras.
 
 | `C-o`
-| Inserta un retorno donde esté el cursor, sin moverlo
+| Inserta un retorno donde esté el cursor, sin moverlo.
 
 | `C-x 8`
 | Prefijo para introducir caracteres especiales.  Por ejemplo, `C-x 8 ~ n`
-  inserta una eñe
+  inserta una eñe.
 
 | `C-x C-l`
-| Convierte el texto de la región en minúsculas
+| Convierte el texto de la región en minúsculas.
 
 | `C-x C-u`
-| Convierte el texto de la región en mayúsculas
+| Convierte el texto de la región en mayúsculas.
 
 | `C-x l`
 | Cuenta las líneas de la página actual (según el delimitador definido en la
-  variable `page-delimiter`)
+  variable `page-delimiter`).
 
 | `M-x recursive-edit`
 | Abre una edición recursiva.  El modo principal aparece entre corchetes.  Se
-  termina con `M-C-c`
+  termina con `M-C-c`.
 
 |===
