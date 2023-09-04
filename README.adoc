@@ -407,15 +407,6 @@ marcar las palabras anteriores a la posición del cursor.
 
 === Buscar y reemplazar
 
-Durante las búsquedas, `C-s` repite la última búsqueda hacia adelante, y `C-r`
-hacia atrás.  Si la variable `isearch-allow-motion` está habilitada, `M-<` va a
-la primera ocurrencia en el buffer, `M->` a la última, `C-v` a la primera
-después de la ventana actual y `M-v` a la última en la anterior.
-
-Terminar pulsando `<RET>` para dejar el cursor en el texto encontrado y
-establecer una marca donde empezó la búsqueda, o con `C-g` para volver a la
-posición donde empezó la búsqueda.
-
 [cols="20,80"]
 |===
 
@@ -467,30 +458,60 @@ posición donde empezó la búsqueda.
 | Reemplaza algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
   Por lo demás, funciona como la anterior
 
+==== Pulsaciones durante las búsquedas
+
+[cols="20,80"]
+|===
+
+| `<RET>`
+| Termina la búsqueda, dejando el cursor en el texto encontrado y estableciendo
+  una marca donde empezó la búsqueda.
+
+| `C-g`
+| Aborta la búsqueda, volviendo a la posición donde empezó.
+
+| `C-s`
+| Seguir buscando hacia adelante.
+
+| `C-r`
+| Seguir buscando hacia atrás.
+
+| `M-<`
+| Va a la primera ocurrencia en el buffer.
+
+| `M\->`
+| Va a la última ocurrencia en el buffer.
+
+| `C-v`
+| Va a la primera ocurrencia después de la ventana actual.
+
+| `M-v`
+| Va a la última ocurrencia antes de la ventana actual.
+
 | `M-c`
 .2+| (Al buscar) Conmuta la sensibilidad a las mayúsculas (por defecto, la
-  búsqueda no es sensible a las mayúsculas)
+  búsqueda no es sensible a las mayúsculas).
 | `M-s c`
 
 | `M-e`
-| (Al buscar) Permite editar la cadena de búsqueda.  Terminar con RET
+| Permite editar la cadena de búsqueda.  Terminar con RET.
 
 | `M-n`
-| (Al buscar) Presenta la siguiente cadena en el histórico de búsquedas
+| Presenta la siguiente cadena de la historia de búsquedas.
 
 | `M-p`
-| (Al buscar) Presenta la anterior cadena en el histórico de búsquedas
+| Presenta la anterior cadena de la historia de búsquedas.
 
 | `M-s <SPC>`
-| (Al buscar) Conmuta entre la interpretación laxa de espacios y la
-  interpretación literal en la cadena buscada
+| Conmuta entre la interpretación laxa de espacios y la interpretación literal
+  en la cadena buscada.
 
 | `M-s '`
-| (Al buscar) Conmuta el desdoblamiento de caracteres (_character folding_).
-  Activada, encuentra caracteres acentuados como _á_ al buscar _a_, por ejemplo
+| Conmuta el desdoblamiento de caracteres (_character folding_).  Activada,
+  encuentra caracteres acentuados como _á_ al buscar _a_, por ejemplo.
 
 | `M-s o _**regexp**_ <RET>`
-.2+| Encuentra todas las líneas que tengan _**regexp**_
+.2+| Encuentra todas las líneas que tengan _**regexp**_.
 | `M-x occur <RET> _**regexp**_ <RET>`
 
 |===
