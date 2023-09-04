@@ -377,9 +377,13 @@ marcar las palabras anteriores a la posición del cursor.
 | Argumento negativo para la siguiente orden
 
 | `C-_**número**_`
-.3+| Repite la siguiente orden el _**número**_
-  especificado de veces
+.4+| Repite la siguiente orden el _**número**_ especificado de veces.  Intentar
+     utilizar la misma tecla que con la siguiente orden (`C`, `M` o `C-M`),
+     para mantener el ritmo de pulsaciones.  Se pueden utilizar argumentos
+     negativos, e incluso un único argumento negativo (`C--`), para invertir el
+     sentido de algunas órdenes.
 | `M-_**número**_`
+| `C-M-_**número**_`
 | `C-u _**número**_`
 
 | `C-x <ESC> <ESC>`
