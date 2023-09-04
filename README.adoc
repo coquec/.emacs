@@ -66,6 +66,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-x d`
 | Abre el editor de directorios dired en el buffer actual
 
+| `C-x C-j`
+| Abre el editor de directorios dired en el directorio del buffer actual
+
 | `C-x 4`
 | Prefijo para trabajar en la siguiente ventana (a la que iríamos con `C-x o`.
   Por ejemplo, `C-x 4 C-f` abre un archivo en esa ventana.  Ver las órdenes
