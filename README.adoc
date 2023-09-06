@@ -416,8 +416,13 @@ marcar las palabras anteriores a la posición del cursor.
 | `C-s C-s`
 | Repite hacia adelante la última búsqueda interactiva.
 
-| `C-s C-w`
-| Búsqueda interactiva hacia adelante de la palabra en la que está el cursor.
+| `M-s M-.`
+| Búsqueda hacia adelante de lo que haya bajo el cursor.
+
+| `M-s w`
+| Búsqueda hacia adelante de las palabras en la cadena de búsqueda como
+  palabras separadas por espacios o por símbolos.  Por ejemplo, buscando
+  "palabras son palabras" encontrará el texto "palabras.son->palabras".
 
 | `C-r`
 | Búsqueda interactiva hacia atrás.  Empezar a escribir para ir a la primera
@@ -434,6 +439,9 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `C-M-r`
 | Búsqueda interactiva de regexp hacia atrás.
+
+| `C-M-i`
+| Intenta completar la cadena de búsqueda según las búsquedas anteriores.
 
 | `M-x word-search-forward <RET> _**string**_ <RET>`
 | Busca las palabras que haya en _**string**_, ignorando los signos de
@@ -481,6 +489,17 @@ marcar las palabras anteriores a la posición del cursor.
 | `C-r`
 | Seguir buscando hacia atrás.
 
+| `C-w`
+| Añade a la cadena buscada la palabra bajo el cursor.  Pulsar varias veces
+  para añadir más palabras.
+
+| `C-M-y`
+| Añade a la cadena buscada el carácter bajo el cursor.  Pulsar varias veces
+  para añadir más caracteres.
+
+| `C-y`
+| Añade a la cadena buscada la última entrada del portapaleles.
+
 | `M-<`
 | Va a la primera ocurrencia en el buffer.
 
@@ -493,11 +512,6 @@ marcar las palabras anteriores a la posición del cursor.
 | `M-v`
 | Va a la última ocurrencia antes de la ventana actual.
 
-| `M-c`
-.2+| (Al buscar) Conmuta la sensibilidad a las mayúsculas (por defecto, la
-  búsqueda no es sensible a las mayúsculas).
-| `M-s c`
-
 | `M-e`
 | Permite editar la cadena de búsqueda.  Terminar con RET.
 
@@ -507,6 +521,11 @@ marcar las palabras anteriores a la posición del cursor.
 | `M-p`
 | Presenta la anterior cadena de la historia de búsquedas.
 
+| `M-c`
+.2+| Conmuta la sensibilidad a las mayúsculas (por defecto, la búsqueda no es
+  sensible a las mayúsculas).
+| `M-s c`
+
 | `M-s <SPC>`
 | Conmuta entre la interpretación laxa de espacios y la interpretación literal
   en la cadena buscada.
@@ -514,6 +533,18 @@ marcar las palabras anteriores a la posición del cursor.
 | `M-s '`
 | Conmuta el desdoblamiento de caracteres (_character folding_).  Activada,
   encuentra caracteres acentuados como _á_ al buscar _a_, por ejemplo.
+
+| `M-s r`
+| Conmuta la interpretación de la cadena de búsqueda como expresión regular.
+
+| `M-s w`
+| Conmuta la interpretación de las palabras en la cadena de búsqueda como
+  palabras separadas por espacios o por símbolos.  Por ejemplo, buscando
+  "palabras son palabras" encontrará o no el texto "palabras.son->palabras".
+
+| `M-s _`
+| Conmuta la interpretación de la cadena de búsqueda como un símbolo (en un
+  lenguaje de programación).
 
 | `M-s o <RET>`
 | Encuentra todas las líneas que tengan la expresión buscada y las muestra en
