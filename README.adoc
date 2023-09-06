@@ -457,6 +457,10 @@ marcar las palabras anteriores a la posición del cursor.
 | Reemplaza algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
   Por lo demás, funciona como la anterior.
 
+| `M-x occur <RET> _**regexp**_ <RET>`
+| Encuentra todas las líneas que tengan _**regexp**_ y las muestra en una
+  ventana nueva.
+
 |===
 
 ==== Pulsaciones durante las búsquedas
@@ -511,9 +515,9 @@ marcar las palabras anteriores a la posición del cursor.
 | Conmuta el desdoblamiento de caracteres (_character folding_).  Activada,
   encuentra caracteres acentuados como _á_ al buscar _a_, por ejemplo.
 
-| `M-s o _**regexp**_ <RET>`
-.2+| Encuentra todas las líneas que tengan _**regexp**_.
-| `M-x occur <RET> _**regexp**_ <RET>`
+| `M-s o <RET>`
+| Encuentra todas las líneas que tengan la expresión buscada y las muestra en
+  una ventana nueva.
 
 |===
 
