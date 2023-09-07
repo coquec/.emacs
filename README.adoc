@@ -23,9 +23,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 * `Y` o `yes` guarda el buffer.
 
-* `N` o `DEL` se salta el buffer.
+* `N` o `<DEL>` se salta el buffer.
 
-* `q` o `RET` aborta el guardado y sigue con el cierre de Emacs.
+* `q` o `<RET>` aborta el guardado y sigue con el cierre de Emacs.
 
 * `C-g` aborta el guardado y la salida de Emacs.
 
@@ -513,7 +513,7 @@ marcar las palabras anteriores a la posición del cursor.
 | Va a la última ocurrencia antes de la ventana actual.
 
 | `M-e`
-| Permite editar la cadena de búsqueda.  Terminar con RET.
+| Permite editar la cadena de búsqueda.  Terminar con <RET>.
 
 | `M-n`
 | Presenta la siguiente cadena de la historia de búsquedas.
