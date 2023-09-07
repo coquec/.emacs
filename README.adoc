@@ -218,6 +218,12 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | `C-u C-<SPC>`
 | Va a la última posición guardada en el anillo de marcas.
 
+| `M-g M-n`
+| Va a la siguiente ocurrencia de la última búsqueda _occur_.
+
+| `M-g M-p`
+| Va a la ocurrencia anterior de la última búsqueda _occur_.
+
 |===
 
 [cols="20,80"]
@@ -467,7 +473,16 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `M-x occur <RET> _**regexp**_ <RET>`
 | Encuentra todas las líneas que tengan _**regexp**_ y las muestra en una
-  ventana nueva.
+  ventana nueva en modo _occur_.
+
+| `M-x multi-occur-in-matching-buffers`
+| Encuentra una expresión regular en todos los buffers cuyos nombres coincidan
+  con otra expresión regular, y muestra los resultados en una ventana nueva en
+  modo _occur_.
+
+| `M-x multi-occur`
+| Encuentra una expresión regular en todos los buffers que se seleccionen, y
+  muestra los resultados en una ventana nueva en modo _occur_.
 
 |===
 
@@ -538,6 +553,7 @@ marcar las palabras anteriores a la posición del cursor.
 | Conmuta la interpretación de la cadena de búsqueda como expresión regular.
 
 | `M-s w`
+
 | Conmuta la interpretación de las palabras en la cadena de búsqueda como
   palabras separadas por espacios o por símbolos.  Por ejemplo, buscando
   "palabras son palabras" encontrará o no el texto "palabras.son->palabras".
@@ -548,7 +564,71 @@ marcar las palabras anteriores a la posición del cursor.
 
 | `M-s o <RET>`
 | Encuentra todas las líneas que tengan la expresión buscada y las muestra en
-  una ventana nueva.
+  una ventana nueva en modo _occur_.
+
+|===
+
+==== Modo _occur_
+
+Al ejecutar una búsqueda con _occur_, se abre una ventana con todas las líneas
+que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
+
+[cols="20,80"]
+|===
+
+| `o`
+.3+| Mueve el cursor al la ocurrencia de la línea actual.
+| `<RET>`
+| `C-c C-c`
+
+
+| `C-o`
+| Muestra la ocurrencia de la línea actual en otra ventana, sin mover el
+  cursor.
+
+| `<SPC>`
+| Va a la siguiente página.
+
+| `<DEL>`
+| Va a la página anterior.
+
+| `<`
+| Va al principio del buffer.
+
+| `>`
+| Va al final del buffer.
+
+| `c`
+| Crea una nueva copia del buffer.
+
+| `e`
+| Pone el buffer en modo edición.  Los cambios que se hagan en el buffer
+  _occur_ se aplican simultáneamente en las líneas originales.
+
+| `g`
+| Refresca el buffer, ejecutando de nuevo la búsqueda.
+
+| `l`
+| Muestra el error en el centro de la otra ventana.  Pulsar varias veces para
+  ir mostrándolo arriba, abajo o en el centro (como `C-l` en cualquier buffer).
+
+| `n`
+| Muestra en otra ventana la siguiente ocurrencia, y la marca con una flecha en
+  el margen izquierdo.
+
+| `p`
+| Muestra en otra ventana la ocurrencia anterior, y la marca con una flecha en
+  el margen izquierdo.
+
+| `q`
+| Cierra la ventana de _occur_, aunque el buffer se mantiene abierto.
+
+| `r`
+| Renombra el buffer _occur_.
+
+| `C-c C-f`
+| Activa el _follow mode_, que va mostrando las ocurrencias en otra ventana
+  siguiendo el movimiento del cursor.  Se desactiva pulsando el mismo atajo.
 
 |===
 
