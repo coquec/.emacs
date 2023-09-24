@@ -12,30 +12,29 @@
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (when (equal system-type 'windows-nt)
   (setq ispell-dictionary "english-GB")
-    (add-to-list
-     'ispell-local-dictionary-alist '(("english-GB"
-                                       "[[:alpha:]]"
-                                       "[^[:alpha:]]"
-                                       "[']"
-                                       t
-                                       ("-d" "en_GB")
-                                       nil
-                                       utf-8)
-                                      ("english-US"
-                                       "[[:alpha:]]"
-                                       "[^[:alpha:]]"
-                                       "[']"
-                                       t
-                                       ("-d" "en_US")
-                                       nil
-                                       utf-8)
-                                      ("spanish"
-                                       "[[:alpha:]]"
-                                       "[^[:alpha:]]"
-                                       "\\(?:\\`a\\`\\)"
-                                       t
-                                       ("-d" "es")
-                                       nil utf-8))))
+  (setq ispell-local-dictionary-alist '(("english-GB"
+                                         "[[:alpha:]]"
+                                         "[^[:alpha:]]"
+                                         "[']"
+                                         t
+                                         ("-d" "en_GB")
+                                         nil
+                                         utf-8)
+                                        ("english-US"
+                                         "[[:alpha:]]"
+                                         "[^[:alpha:]]"
+                                         "[']"
+                                         t
+                                         ("-d" "en_US")
+                                         nil
+                                         utf-8)
+                                        ("spanish"
+                                         "[[:alpha:]]"
+                                         "[^[:alpha:]]"
+                                         "\\(?:\\`a\\`\\)"
+                                         t
+                                         ("-d" "es")
+                                         nil utf-8))))
 
 ;; Use a temporary file to save configuration changes done via menu.
 ;; This is a way to disable the configuration menu.  All the config
