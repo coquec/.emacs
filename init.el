@@ -11,8 +11,8 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (when (equal system-type 'windows-nt)
-  (setq ispell-dictionary "english-GB")
-  (setq ispell-local-dictionary-alist '(("english-GB"
+  (setq ispell-dictionary "en_GB")
+  (setq ispell-local-dictionary-alist '(("en_GB"
                                          "[[:alpha:]]"
                                          "[^[:alpha:]]"
                                          "[']"
@@ -20,7 +20,7 @@
                                          ("-d" "en_GB")
                                          nil
                                          utf-8)
-                                        ("english-US"
+                                        ("en_US"
                                          "[[:alpha:]]"
                                          "[^[:alpha:]]"
                                          "[']"
@@ -28,13 +28,14 @@
                                          ("-d" "en_US")
                                          nil
                                          utf-8)
-                                        ("spanish"
+                                        ("sp"
                                          "[[:alpha:]]"
                                          "[^[:alpha:]]"
                                          "\\(?:\\`a\\`\\)"
                                          t
                                          ("-d" "es")
-                                         nil utf-8))))
+                                         nil utf-8)))
+  (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist))
 
 ;; Use a temporary file to save configuration changes done via menu.
 ;; This is a way to disable the configuration menu.  All the config
