@@ -10,6 +10,8 @@
 ;; Enable spelling with flyspell in text and programming modes.
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(when (equal system-type 'windows-nt)
+  (setq ispell-dictionary "en_GB"))
 
 ;; Use a temporary file to save configuration changes done via menu.
 ;; This is a way to disable the configuration menu.  All the config
