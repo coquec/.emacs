@@ -84,7 +84,7 @@
 ;; Tab stops each 4 characters.
 (setq tab-stop-list (number-sequence 4 200 4))
 
-;; Highlight the bracket corresponding to the one next to the cursor.
+;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
 
 ;; Enable saving last opened files history.
