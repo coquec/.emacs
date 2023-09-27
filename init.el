@@ -37,11 +37,12 @@
                                          nil utf-8)))
   (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist))
 
-;; Use a temporary file to save configuration changes done via menu.
-;; This is a way to disable the configuration menu.  All the config
-;; must be done in this file.
+;; Use a temporary file to save configuration changes done via menu, and remove
+;; it when emacs exits.  This is a way to disable the configuration menu.  All
+;; the config must be done in the init.el file.
 (setq custom-file (make-temp-file "emacs-custom-" nil ".el"))
-(load custom-file)
+(add-hook 'kill-emacs-hook
+          '(lambda () (delete-file custom-file)))
 
 ;; Disable startup page.
 (setq inhibit-startup-screen t)
