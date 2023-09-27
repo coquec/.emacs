@@ -316,6 +316,9 @@ temporary buffer."
 ;; Record state changes in the default drawers "LOGBOOK".
 (setq org-log-into-drawer t)
 
+;; Don't expand drawers when cycling visibility (e.g., with TAB or S-TAB).
+(add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
+
 ;; Copy to the clipboard the second top-most header of the current path, and
 ;; assign a key binding to it.
 (defun jcv/org-project-to-kill-buffer ()
