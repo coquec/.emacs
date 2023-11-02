@@ -59,6 +59,9 @@
 ;; Disable menu bar.
 (menu-bar-mode -1)
 
+;; Disable message shown when files are saved.
+(setq save-silently 1)
+
 ;; Enable repeat-mode.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
 (repeat-mode)
