@@ -484,6 +484,11 @@ marcar las palabras anteriores a la posición del cursor.
 | Encuentra una expresión regular en todos los buffers que se seleccionen, y
   muestra los resultados en una ventana nueva en modo _occur_.
 
+| `M-g i`
+| Permite ir a uno de los títulos del documento actual usando la
+  infraestructura _imenu_.  Funciona en la mayoría de los modos, incluyendo
+  adoc.
+
 |===
 
 ==== Pulsaciones durante las búsquedas
