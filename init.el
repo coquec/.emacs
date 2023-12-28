@@ -5,7 +5,7 @@
   (package-initialize))
 
 ;; Load default theme.
-(load-theme 'wombat)
+(load-theme 'wheatgrass)
 
 ;; Enable spelling with flyspell in text and programming modes.
 (add-hook 'text-mode-hook 'flyspell-mode)
