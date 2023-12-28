@@ -87,6 +87,10 @@
 ;; Tab stops each 4 characters.
 (setq tab-stop-list (number-sequence 4 200 4))
 
+;; Adjust the wide of the cursor to the character under it.  This helps
+;; to see tabs.
+(setq x-stretch-cursor 1)
+
 ;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
 
