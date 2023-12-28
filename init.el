@@ -91,6 +91,9 @@
 ;; tabs.
 (setq x-stretch-cursor 1)
 
+;; Highlight the current line.
+(global-hl-line-mode)
+
 ;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
 
