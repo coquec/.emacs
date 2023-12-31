@@ -4,8 +4,27 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
+;; use-package macro simplifies the config file.
+;; https://github.com/jwiegley/use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Install all the packets not yet installed.
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+;; Update packages automatically.
+;; https://github.com/rranelli/auto-package-update.el
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
 ;; Load default theme.
-(load-theme 'wheatgrass)
+(use-package srcery-theme)
+(load-theme 'srcery)
 
 ;; Enable spelling with flyspell in text and programming modes.
 (add-hook 'text-mode-hook 'flyspell-mode)
@@ -258,24 +277,6 @@ temporary buffer."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
-
-;; use-package macro simplifies the config file.
-;; https://github.com/jwiegley/use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;; Install all the packets not yet installed.
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-
-;; Update packages automatically.
-;; https://github.com/rranelli/auto-package-update.el
-(use-package auto-package-update
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
 
 ;; Enable YASSnippet minor mode in adoc-mode.
 (use-package yasnippet
