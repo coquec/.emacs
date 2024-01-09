@@ -23,8 +23,7 @@
   (auto-package-update-maybe))
 
 ;; Load default theme.
-(use-package srcery-theme)
-(load-theme 'srcery)
+(load-theme 'wombat)
 
 ;; Enable spelling with flyspell in text and programming modes.
 (add-hook 'text-mode-hook 'flyspell-mode)
