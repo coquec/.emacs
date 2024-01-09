@@ -109,8 +109,9 @@
 ;; tabs.
 (setq x-stretch-cursor 1)
 
-;; Highlight the current line.
+;; Highlight the current line, but don't use underline.
 (global-hl-line-mode)
+(set-face-attribute hl-line-face nil :underline nil)
 
 ;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
