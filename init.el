@@ -200,6 +200,14 @@
 (global-set-key
   (kbd "C-c c q") 'jcv/unfill-paragraph)
 
+;; Opens the directory with Emacs init file.
+(defun jcv/find-init-directory ()
+  "Opens the directory with Emacs init file."
+  (interactive)
+  (find-file user-emacs-directory))
+(global-set-key
+  (kbd "C-c c i") 'jcv/find-init-directory)
+
 ;; Functions for decoding Base64 strings in buffers.
 
 (defun jcv/base64-decode-string (str &optional charset)
