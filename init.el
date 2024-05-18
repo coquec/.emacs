@@ -315,11 +315,39 @@ temporary buffer."
 ;; AsciiDoc mode.
 (use-package adoc-mode)
 
-;; SLIME, for Common Lisp programming.
-;; I don't use this one in Windows.
+;; Diminish.  Allow to use :diminish in use-package to hide minor modes.
+(use-package diminish)
+
+;; Paredit.  Edit parenthesis like a pro in lisp modes.
+(use-package paredit
+  :ensure t
+  :init
+  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook #'enable-paredit-mode)
+  :config
+  (show-paren-mode t)
+  :bind (("C-c c >" . paredit-forward-slurp-sexp)
+         ("C-c c <" . paredit-forward-barf-sexp)
+         ("C-c c C-<" . paredit-backward-slurp-sexp)
+         ("C-c c C->" . paredit-backward-barf-sexp)
+         ("C-c c [" . paredit-wrap-square)
+         ("C-c c {" . paredit-wrap-curly))
+  :diminish nil)
+
+;; I don't use the following packages in Windows.
 (when (not (equal system-type 'windows-nt))
+  ;; SLIME, for Common Lisp programming.
   (use-package slime)
-  (setq inferior-lisp-program "sbcl"))
+  (setq inferior-lisp-program "sbcl")
+
+  ;; Geiser, for Scheme programming, only with guile for now.
+  (use-package geiser-guile))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode configuration.
