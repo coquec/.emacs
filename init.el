@@ -332,11 +332,7 @@ temporary buffer."
   (add-hook 'scheme-mode-hook #'enable-paredit-mode)
   :config
   (show-paren-mode t)
-  :bind (("C-c c >" . paredit-forward-slurp-sexp)
-         ("C-c c <" . paredit-forward-barf-sexp)
-         ("C-c c C-<" . paredit-backward-slurp-sexp)
-         ("C-c c C->" . paredit-backward-barf-sexp)
-         ("C-c c [" . paredit-wrap-square)
+  :bind (("C-c c [" . paredit-wrap-square)
          ("C-c c {" . paredit-wrap-curly))
   :diminish nil)
 
