@@ -362,17 +362,22 @@ temporary buffer."
 ;; Don't expand drawers when cycling visibility (e.g., with TAB or S-TAB).
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
 
-;; Copy to the clipboard the second top-most header of the current path, and
-;; assign a key binding to it.
-(defun jcv/org-project-to-kill-buffer ()
-  "Places in a new kill buffer the header of the current
-project (we suppose it's the second element in the outline
-path)."
-  (interactive)
-  (let ((project (nth 1 (org-get-outline-path))))
-    (message project)
-    (kill-new project)))
-(add-hook
- 'org-mode-hook
- (lambda () (local-set-key (kbd "C-c c p")
-                                'jcv/org-project-to-kill-buffer)))
+;; Copy to the clipboard the Nth header of the current path.
+(defun jcv/org-header-to-kill-buffer (n)
+  "Adds to the kill ring the header in the N position of the
+outline path.  If N is not specified, adds the second element, as
+if N=1."
+  (interactive "p")
+  (let ((header (nth (or n 1)
+                     (org-get-outline-path t))))
+    (message header)
+    (kill-new header)))
+
+;; Customize org-mode key bindings.
+(defun jcv/org-keybindings ()
+  (local-set-key (kbd "C-c c h")
+                 'jcv/org-header-to-kill-buffer))
+
+;; Use my keybindings in org-mode.  I use a function instead of a lambda to
+;; allow to override it when changing the org-mode-hook.
+(add-hook 'org-mode-hook 'jcv/org-keybindings)
