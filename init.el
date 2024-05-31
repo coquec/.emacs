@@ -411,7 +411,7 @@ must follow this format:
 In this case, the function would return (\"Participant 2\",
 \"Participant 3\").
 
-If no participants are checked, returns them all."
+If no participants are checked, it returns them all."
   (let ((participants-raw (jcv/org-drawer-contents-in-hierarchy drawer-name)))
     (and participants-raw
          (let ((participants-list (split-string participants-raw "\n")))
@@ -421,7 +421,7 @@ If no participants are checked, returns them all."
             ;; name.
             (lambda (x)
               (replace-regexp-in-string
-               "^[[:blank:]]*- \\[.\\] *\\(.*?\\)\\( - .*\\)?$"
+               "^[[:blank:]]*- \\[.\\] *\\(.*?\\)\\( +- +.*\\)?$"
                "\\1"
                x))
             ;; Apply the previous function to the checked names (if any), or to
