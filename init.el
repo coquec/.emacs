@@ -372,10 +372,85 @@ if N=1."
     (message header)
     (kill-new header)))
 
+(defun jcv/org-drawer-contents (drawer-name)
+  "Extract the content of the drawer named DRAWER-NAME contained in
+the current heading."
+  (save-excursion
+    (org-back-to-heading t)
+    (let ((drawer-re (format "^[ \t]*:%s:[ \t]*$"
+                             (regexp-quote drawer-name)))
+          (end-drawer-re "^[ \t]*:END:[ \t]*$")
+          (pos-next-heading (save-excursion (outline-next-heading))))
+      (when (re-search-forward drawer-re pos-next-heading t)
+        (let ((start (match-end 0)))
+          (when (re-search-forward end-drawer-re pos-next-heading  t)
+            (string-trim (buffer-substring-no-properties
+                          start
+                          (match-beginning 0)))))))))
+
+(defun jcv/org-drawer-contents-in-hierarchy (drawer-name)
+  "Returns the content of the first drawer named DRAWER-NAME found
+in the heading hierarchy, from the current one upwards."
+  (let ((content (jcv/org-drawer-contents drawer-name)))
+    (or content
+        (save-excursion
+          (and (org-up-heading-safe)
+               (jcv/org-drawer-contents-in-hierarchy drawer-name))))))
+
+(defun jcv/org-get-participants (drawer-name)
+  "Return a list of the participants' names of a meeting, as
+found in the drawer named DRAWER-NAME of the current task, which
+must follow this format:
+
+:PARTICIPANTS:
+- [ ] Participant 1 - comment
+- [X] Participant 2 - comment
+- [X] Participant 3 - comment
+:END:
+
+In this case, the function would return (\"Participant 2\",
+\"Participant 3\").
+
+If no participants are checked, returns them all."
+  (let ((participants-raw (jcv/org-drawer-contents-in-hierarchy drawer-name)))
+    (and participants-raw
+         (let ((participants-list (split-string participants-raw "\n")))
+           ;; Remove anything around the names.
+           (mapcar
+            ;; Use the non-greedy .*? to match the possible comments after the
+            ;; name.
+            (lambda (x)
+              (replace-regexp-in-string
+               "^[[:blank:]]*- \\[.\\] *\\(.*?\\)\\( - .*\\)?$"
+               "\\1"
+               x))
+            ;; Apply the previous function to the checked names (if any), or to
+            ;; all of them.
+            (or (seq-filter (lambda (x)
+                              (string-match "^[[:blank:]]*- \\[[xX]\\] "
+                                            x))
+                            participants-list)
+                participants-list))))))
+
+(defun jcv/org-copy-assistants ()
+  "Copy to the clipboard and prints in the minibuffer the
+list of a meeting participants' names found by the
+`jcv/org-get-participants' function.  The list in printed as a
+string with semicolons between the names, in a format ready to be
+pasted in an email."
+  (interactive)
+  (let ((result (mapconcat 'identity
+                           (jcv/org-get-participants "PARTICIPANTS")
+                           "; ")))
+    (message result)
+    (kill-new result)))
+
 ;; Customize org-mode key bindings.
 (defun jcv/org-keybindings ()
   (local-set-key (kbd "C-c c h")
-                 'jcv/org-header-to-kill-buffer))
+                 'jcv/org-header-to-kill-buffer)
+  (local-set-key (kbd "C-c c p")
+                 'jcv/org-copy-assistants))
 
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
 ;; allow to override it when changing the org-mode-hook.
