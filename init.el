@@ -84,6 +84,10 @@
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
 (repeat-mode)
 
+;; Enable winner-mode, allowing to recover previous window layouts with C-c
+;; <left> and C-c <right>.
+(winner-mode)
+
 ;; Show the column number at the status bar.
 (setq column-number-mode t)
 
