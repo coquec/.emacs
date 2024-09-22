@@ -290,6 +290,12 @@ temporary buffer."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
 
+;; which-key shows the available keybindings while typing a prefix.
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
 ;; Enable YASSnippet minor mode in adoc-mode.
 (use-package yasnippet
   :config
