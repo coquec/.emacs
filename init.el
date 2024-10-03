@@ -413,8 +413,12 @@ in the heading hierarchy, from the current one upwards."
 
 (defun jcv/org-get-participants (drawer-name)
   "Return a list of the participants' names of a meeting, as
-found in the drawer named DRAWER-NAME of the current task, which
-must follow this format:
+found in the drawer named DRAWER-NAME of the current task.
+Participants must be list items with a checkbox.  Comments at the
+end of each item (starting with \" - \"), will be ignored.
+
+For the next examples, the the function would
+return (\"Participant 2\", \"Participant 3\"):
 
 :PARTICIPANTS:
 - [ ] Participant 1 - comment
@@ -422,26 +426,35 @@ must follow this format:
 - [X] Participant 3 - comment
 :END:
 
-In this case, the function would return (\"Participant 2\",
-\"Participant 3\").
+:PARTICIPANTS:
+- From other company:
+  - [ ] Participant 1 - comment
+  - [X] Participant 2 - comment
+- From my company:
+  - [X] Participant 3 - comment
+:END:
 
-If no participants are checked, it returns them all."
+If there are no participants with a check mark, it returns them
+all."
   (let ((participants-raw (jcv/org-drawer-contents-in-hierarchy drawer-name)))
     (and participants-raw
-         (let ((participants-list (split-string participants-raw "\n")))
-           ;; Remove anything around the names.
+         (let ((participants-list
+                (seq-filter (lambda (x)
+                              (string-match "^[[:blank:]]*[-+*] \\[.\\] *" x))
+                            (split-string participants-raw "\n"))))
+           ;; Remove everything around the names.
            (mapcar
             ;; Use the non-greedy .*? to match the possible comments after the
             ;; name.
             (lambda (x)
               (replace-regexp-in-string
-               "^[[:blank:]]*- \\[.\\] *\\(.*?\\)\\( +- +.*\\)?$"
+               "^[[:blank:]]*[-+*] \\[.\\] *\\(.*?\\)\\( +- +.*\\)?$"
                "\\1"
                x))
-            ;; Apply the previous function to the checked names (if any), or to
-            ;; all of them.
+            ;; Apply the previous function to the names with a check mark (if
+            ;; any), or to all of them.
             (or (seq-filter (lambda (x)
-                              (string-match "^[[:blank:]]*- \\[[xX]\\] "
+                              (string-match "^[[:blank:]]*[-+*] \\[[xX]\\] "
                                             x))
                             participants-list)
                 participants-list))))))
