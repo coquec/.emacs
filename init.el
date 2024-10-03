@@ -368,6 +368,10 @@ temporary buffer."
 ;; Record state changes in the default drawers "LOGBOOK".
 (setq org-log-into-drawer t)
 
+;; Use different bullet types when demoting lists items.
+(setq org-list-demote-modify-bullet
+      '(("-" . "+") ("+" . "-") ("*" . "-")))
+
 ;; Don't expand drawers when cycling visibility (e.g., with TAB or S-TAB).
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
 
