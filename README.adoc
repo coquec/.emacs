@@ -957,3 +957,14 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   termina con `M-C-c`.
 
 |===
+
+=== lido-mode
+
+[cols="20,80"]
+|===
+
+| `M-j`
+| Ejecuta la acción sobre el contenido actual del minibuffer sin intentar
+  autocompletarlo.
+
+|===
