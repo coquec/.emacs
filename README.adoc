@@ -257,6 +257,11 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Pone la línea actual en el centro de la ventana.  Pulsar varias veces para
   alternar entre el centro, la primera línea o el final de la ventana.
 
+| `C-M-l`
+| Intenta mostrar el principio del comentario o de la función actual al
+  principio de la vista, sin mover el cursor.  Precedido de `C-u`, permitimos
+  que se mueva el cursor.
+
 | `C-v`
 | Siguiente página.  Admite argumentos, en especial `C--`, que invierte la
   dirección (va a la página anterior).
