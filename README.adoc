@@ -100,6 +100,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Cambia la ventana actual.
 
 |===
+
 === Ayuda
 
 [cols="20,80"]
