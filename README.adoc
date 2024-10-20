@@ -190,8 +190,8 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Va al final del buffer, guardando antes la marca.
 
 | `M-g M-g`
-| Va a una línea específica.  Precedida de un número (p. ej, `M-4 M-3`), va a
-  esa línea.
+| Va a una línea específica.  Admite el número de línea como prefijo o pregunta
+  por él.  Por ejemplo, `M-4 3 M-g M-g`, va a la línea 43.
 
 | `M-g <TAB>`
 | Va a una columna específica.
