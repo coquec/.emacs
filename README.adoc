@@ -177,7 +177,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Va al final de la frase.
 
 | `M-r`
-| Va al principio, mitad y final de la pantalla.
+| Va al principio, mitad y final de la vista.
 
 | `M-m`
 | Va al primer carácter no blanco de la línea.
@@ -191,6 +191,12 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 | `M-g M-g`
 | Va a una línea específica.
+
+| `M-g <TAB>`
+| Va a una columna específica.
+
+| `M-g c`
+| Va a una posición del buffer específica.
 
 | `M-{`
 | Va hacia el principio del párrafo anterior.
