@@ -373,6 +373,10 @@ temporary buffer."
 ;; Don't expand drawers when cycling visibility (e.g., with TAB or S-TAB).
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
 
+;; Active Babel languages.
+(org-babel-do-load-languages 'org-babel-load-languages
+                             '((shell . t)))
+
 ;; Copy to the clipboard the Nth header of the current path.
 (defun jcv/org-header-to-kill-buffer (n)
   "Adds to the kill ring the header in the N position of the
