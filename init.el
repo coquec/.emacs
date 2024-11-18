@@ -268,6 +268,13 @@ temporary buffer."
   :config
   (treesit-auto-add-to-auto-mode-alist 'all))
 
+;; Use corfu for in-buffer completion.  Use it with M-<tab> or with M-/.
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-preview-current t))
+
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
   :ensure t
