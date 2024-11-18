@@ -163,31 +163,6 @@
 ;; Enable additional movements while searching in Emacs 28.1 and later.
 (setq isearch-allow-motion t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; tree-sitter grammar recipes from
-;; https://www.masteringemacs.org/article/how-to-get-started-tree-sitter.
-;;
-;; Install them with treesit-install-language-grammar.
-(setq treesit-language-source-alist
-      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-        (cmake "https://github.com/uyha/tree-sitter-cmake")
-        (css "https://github.com/tree-sitter/tree-sitter-css")
-        (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-        (go "https://github.com/tree-sitter/tree-sitter-go")
-        (html "https://github.com/tree-sitter/tree-sitter-html")
-        (javascript "https://github.com/tree-sitter/tree-sitter-javascript"
-                    "master" "src")
-        (json "https://github.com/tree-sitter/tree-sitter-json")
-        (make "https://github.com/alemuller/tree-sitter-make")
-        (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-        (python "https://github.com/tree-sitter/tree-sitter-python")
-        (toml "https://github.com/tree-sitter/tree-sitter-toml")
-        (tsx "https://github.com/tree-sitter/tree-sitter-typescript"
-             "master" "tsx/src")
-        (typescript "https://github.com/tree-sitter/tree-sitter-typescript"
-                    "master" "typescript/src")
-        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My own functions.
 
@@ -287,6 +262,11 @@ temporary buffer."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
+
+;; Enable tree-sitter automatically for all the languages.
+(use-package treesit-auto
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all))
 
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
