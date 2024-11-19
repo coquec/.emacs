@@ -899,10 +899,9 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   `C-0`, traspone el carácter que hay tras el cursor con el de la marca.
 
 | `M-t`
-| Traspone la palabra que hay antes del cursor con la palabra que viene
-  después, y pone el cursor después de la segunda palabra (_hace avanzar_ la
-  palabra que hay antes del cursor).  No mueve los signos de puntuación.
-  Admite prefijo `C-_**n**_`.
+| Traspone las palabras que rodean al cursor y pone el cursor después de la
+  segunda palabra (_hace avanzar_ la palabra que hay antes del cursor).  No
+  mueve los signos de puntuación.  Admite prefijo `C-_**n**_`.
 
 | `C-M-t`
 | Traspone las expresiones balanceadas que rodean al cursor (_hace avanzar_ la
