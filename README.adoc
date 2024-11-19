@@ -384,9 +384,6 @@ marcar las palabras anteriores a la posición del cursor.
 | `C-S-<BACKSPACE>`
 | Corta la línea actual.
 
-| `C-M-t`
-| Intercambia (**t**ranspone) las expresiones balanceadas que rodean al cursor.
-
 |===
 
 === Repeticiones
@@ -897,7 +894,7 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | Traspone los dos caracteres que rodean al cursor y avanza el cursor (_hace
   avanzar_ el carácter que hay antes del cursor y deja el cursor tras él).  Si
   está al final de la línea, traspone los dos últimos caracteres de la línea
-  sin mover el cursor. Con un prefijo `C-_**n**_`, hace avanzar el carácter
+  sin mover el cursor.  Con un prefijo `C-_**n**_`, hace avanzar el carácter
   _**n**_ veces.  Con un prefijo negativo, lo hace retroceder.  Con un prefijo
   `C-0`, traspone el carácter que hay tras el cursor con el de la marca.
 
@@ -908,8 +905,8 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   Admite prefijo `C-_**n**_`.
 
 | `C-M-t`
-| Traspone dos expresiones balanceadas (_hace avanzar_ la expresión balanceada
-  que haya encima del cursor).
+| Traspone las expresiones balanceadas que rodean al cursor (_hace avanzar_ la
+  expresión balanceada que haya antes del cursor).
 
 | `C-x C-t`
 | Traspone dos líneas (_hace avanzar_ la línea que haya encima del cursor).
