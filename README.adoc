@@ -672,6 +672,11 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | Establece el margen derecho ('fill-column').  Precedido de `C-u`, lo
   establece en la columna donde esté el cursor.
 
+| `C-x .`
+| Toma el texto desde el principio de la línea hasta el cursor y lo establece
+  como el prefijo a usar en cada línea al indentar.  Para eliminarlo, usarlo
+  con el cursor al principio de la línea.
+
 | `C-x <TAB>`
 | Indenta la región de forma interactiva (usar las flechas -> y <- para mover
   el texto una columna cada vez, y con `S-->` y `S-<-` para moverlo de parada a
