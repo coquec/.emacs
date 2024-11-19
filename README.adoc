@@ -364,8 +364,10 @@ marcar las palabras anteriores a la posición del cursor.
 | Pega (yank) el texto cortado y pone la marca al otro lado de donde quede el
   cursor.
 
-| `M-y`
-| (Después de `C-y`).  Sustituye el texto pegado por otro cortado previamente.
+.2+| `M-y`
+| Después de `C-y`, sustituye el texto pegado por otro cortado previamente.
+| En cualquier otro caso, permite elegir qué texto previamente cortado queremos
+  pegar.
 
 | `M-w`
 | Copia el texto marcado.
