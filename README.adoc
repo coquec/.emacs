@@ -379,6 +379,9 @@ marcar las palabras anteriores a la posición del cursor.
 | `C-M-k`
 | Corta la siguiente expresión balanceada.
 
+| `C-S-<BACKSPACE>`
+| Corta la línea actual.
+
 | `C-M-t`
 | Intercambia (**t**ranspone) las expresiones balanceadas que rodean al cursor.
 
