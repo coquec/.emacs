@@ -660,7 +660,7 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | `M-q`
 | Indenta el párrafo actual.  Si la región está activa, indenta todos sus
   párrafos.  Precedido de `C-u`, justifica el texto entre la primera columna y
-  el margen derecho, metiendo los espacios necesarios entre las palabras.
+  el margen derecho metiendo espacios entre las palabras.
 
 | `M-x fill-region`
 | Indenta todos los párrafos de la región.
