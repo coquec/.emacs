@@ -163,6 +163,9 @@
 ;; Enable additional movements while searching in Emacs 28.1 and later.
 (setq isearch-allow-motion t)
 
+;; Switch the focus to help windows when they're opened.
+(setq help-window-select t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My own functions.
 
