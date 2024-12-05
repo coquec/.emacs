@@ -135,7 +135,10 @@
 ;; Enable fido-mode.
 (fido-mode)
 
-;; Show line numbers at the left.
+;; Show line numbers at the left, with width enough space to hold the largest
+;; number.
+(setq display-line-numbers-grow-only t)
+(setq display-line-numbers-width-start 1)
 (global-display-line-numbers-mode)
 
 ;; Frame of 80 columns wide plus the necessary for line numbers.
