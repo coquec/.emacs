@@ -454,7 +454,7 @@ all."
                             participants-list)
                 participants-list))))))
 
-(defun jcv/org-copy-assistants ()
+(defun jcv/org-copy-participants ()
   "Copy to the clipboard and prints in the minibuffer the
 list of a meeting participants' names found by the
 `jcv/org-get-participants' function.  The list in printed as a
@@ -472,7 +472,7 @@ pasted in an email."
   (local-set-key (kbd "C-c c h")
                  'jcv/org-header-to-kill-buffer)
   (local-set-key (kbd "C-c c p")
-                 'jcv/org-copy-assistants))
+                 'jcv/org-copy-participants))
 
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
 ;; allow to override it when changing the org-mode-hook.
