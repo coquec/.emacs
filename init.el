@@ -106,9 +106,6 @@
 ;; Current buffer tabs each 4 characters.
 (setq tab-width 4)
 
-;; Tab stops each 4 characters.
-(setq tab-stop-list (number-sequence 4 200 4))
-
 ;; Adjust the width of the cursor to the character under it.  This helps to see
 ;; tabs.
 (setq x-stretch-cursor 1)
