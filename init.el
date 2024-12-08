@@ -12,14 +12,14 @@
 
 ;; Install all the packets not yet installed.
 (require 'use-package-ensure)
-(setq use-package-always-ensure t)
+(setopt use-package-always-ensure t)
 
 ;; Update packages automatically.
 ;; https://github.com/rranelli/auto-package-update.el
 (use-package auto-package-update
   :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
+  (setopt auto-package-update-delete-old-versions t)
+  (setopt auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
 ;; Load default theme.
@@ -29,41 +29,41 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (when (equal system-type 'windows-nt)
-  (setq ispell-dictionary "en_GB")
-  (setq ispell-local-dictionary-alist '(("en_GB"
-                                         "[[:alpha:]]"
-                                         "[^[:alpha:]]"
-                                         "[']"
-                                         t
-                                         ("-d" "en_GB")
-                                         nil
-                                         utf-8)
-                                        ("en_US"
-                                         "[[:alpha:]]"
-                                         "[^[:alpha:]]"
-                                         "[']"
-                                         t
-                                         ("-d" "en_US")
-                                         nil
-                                         utf-8)
-                                        ("sp"
-                                         "[[:alpha:]]"
-                                         "[^[:alpha:]]"
-                                         "\\(?:\\`a\\`\\)"
-                                         t
-                                         ("-d" "es")
-                                         nil utf-8)))
+  (setopt ispell-dictionary "en_GB")
+  (setopt ispell-local-dictionary-alist '(("en_GB"
+                                           "[[:alpha:]]"
+                                           "[^[:alpha:]]"
+                                           "[']"
+                                           t
+                                           ("-d" "en_GB")
+                                           nil
+                                           utf-8)
+                                          ("en_US"
+                                           "[[:alpha:]]"
+                                           "[^[:alpha:]]"
+                                           "[']"
+                                           t
+                                           ("-d" "en_US")
+                                           nil
+                                           utf-8)
+                                          ("sp"
+                                           "[[:alpha:]]"
+                                           "[^[:alpha:]]"
+                                           "\\(?:\\`a\\`\\)"
+                                           t
+                                           ("-d" "es")
+                                           nil utf-8)))
   (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist))
 
 ;; Use a temporary file to save configuration changes done via menu, and remove
 ;; it when emacs exits.  This is a way to disable the configuration menu.  All
 ;; the config must be done in the init.el file.
-(setq custom-file (make-temp-file "emacs-custom-" nil ".el"))
+(setopt custom-file (make-temp-file "emacs-custom-" nil ".el"))
 (add-hook 'kill-emacs-hook
           '(lambda () (delete-file custom-file)))
 
 ;; Disable startup page.
-(setq inhibit-startup-screen t)
+(setopt inhibit-startup-screen t)
 
 ;; Disable sound.
 (setq visible-bell t)
@@ -89,7 +89,7 @@
 (winner-mode)
 
 ;; Show the column number at the status bar.
-(setq column-number-mode t)
+(column-number-mode)
 
 ;; Use the current buffer name as the frame tittle.
 (setq frame-title-format "%b")
@@ -115,7 +115,7 @@
 
 ;; Enable saving last opened files history.
 (recentf-mode 1)
-(setq recentf-max-menu-items 50)
+(setopt recentf-max-menu-items 50)
 (global-set-key
   (kbd "C-c c r") 'recentf-open-files)
 
@@ -130,8 +130,8 @@
 
 ;; Show line numbers at the left, with width enough space to hold the largest
 ;; number.  Highlight current line number with the lazy-highlight face.
-(setq display-line-numbers-grow-only t)
-(setq display-line-numbers-width-start 1)
+(setopt display-line-numbers-grow-only t)
+(setopt display-line-numbers-width-start 1)
 (set-face-attribute 'line-number-current-line nil :inherit 'lazy-highlight)
 (global-display-line-numbers-mode)
 
@@ -158,10 +158,10 @@
   (lambda () (interactive) (kill-new (file-name-nondirectory buffer-file-name))))
 
 ;; Enable additional movements while searching in Emacs 28.1 and later.
-(setq isearch-allow-motion t)
+(setopt isearch-allow-motion t)
 
 ;; Switch the focus to help windows when they're opened.
-(setq help-window-select t)
+(setopt help-window-select t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My own functions.
@@ -334,7 +334,7 @@ temporary buffer."
 (when (not (equal system-type 'windows-nt))
   ;; SLIME, for Common Lisp programming.
   (use-package slime)
-  (setq inferior-lisp-program "sbcl")
+  (setopt inferior-lisp-program "sbcl")
 
   ;; Geiser, for Scheme programming, only with guile for now.
   (use-package geiser-guile))
@@ -348,14 +348,14 @@ temporary buffer."
 ;; Avoid inheritance of the 'project' tag.  This allows to mark project tasks
 ;; explicitly and to have an agenda view with the current projects by typing
 ;; 'M-x org-agenda m project'.
-(setq org-tags-exclude-from-inheritance '("project"))
+(setopt org-tags-exclude-from-inheritance '("project"))
 
 ;; Record state changes in the default drawers "LOGBOOK".
-(setq org-log-into-drawer t)
+(setopt org-log-into-drawer t)
 
 ;; Use different bullet types when demoting lists items.
-(setq org-list-demote-modify-bullet
-      '(("-" . "+") ("+" . "-") ("*" . "-")))
+(setopt org-list-demote-modify-bullet
+        '(("-" . "+") ("+" . "-") ("*" . "-")))
 
 ;; Don't expand drawers when cycling visibility (e.g., with TAB or S-TAB).
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
