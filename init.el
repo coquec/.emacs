@@ -110,10 +110,6 @@
 ;; tabs.
 (setq x-stretch-cursor 1)
 
-;; Highlight the current line, but don't use underline.
-(global-hl-line-mode)
-(set-face-attribute hl-line-face nil :underline nil)
-
 ;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
 
@@ -133,9 +129,10 @@
 (fido-mode)
 
 ;; Show line numbers at the left, with width enough space to hold the largest
-;; number.
+;; number.  Highlight current line number with the lazy-highlight face.
 (setq display-line-numbers-grow-only t)
 (setq display-line-numbers-width-start 1)
+(set-face-attribute 'line-number-current-line nil :inherit 'lazy-highlight)
 (global-display-line-numbers-mode)
 
 ;; Frame of 80 columns wide plus the necessary for line numbers.
