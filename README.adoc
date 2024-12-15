@@ -934,6 +934,24 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 
 |===
 
+=== Edición de código
+
+[cols="20,80"]
+|===
+
+| `M-;`
+| Inserta o elimina un comentario según lo que Emacs considere adecuado,
+  dependiendo del contenido de la línea actual y de lo que tengamos
+  seleccionado, por ejemplo.
+
+| `C-x C-;`
+| Comenta o quita el comentario de la línea actual.
+
+| `M-j` .2+| Inserta una línea continuando el comentario.
+| `C-M-j`
+
+|===
+
 === Expresiones en Lisp
 
 [cols="20,80"]
