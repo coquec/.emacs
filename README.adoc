@@ -40,7 +40,7 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | Guarda el buffer actual (__**s**__ave file).
 
 | `C-x C-v`
-| Reemplaza el buffer actual por otro archivo.
+| Sustituye el buffer actual por otro archivo.
 
 | `C-x C-w`
 | Guarda el buffer en otro archivo (__**w**__rite file).
@@ -424,7 +424,7 @@ marcar las palabras anteriores a la posición del cursor.
 
 |===
 
-=== Buscar y reemplazar
+=== Buscar y sustituir
 
 [cols="20,80"]
 |===
@@ -468,14 +468,14 @@ marcar las palabras anteriores a la posición del cursor.
   puntuación, espacios en blanco y retornos de línea que haya entre ellas.
 
 | `M-x replace-string <RET> _**string**_ <RET> _**newstring**_ <RET>`
-| Reemplaza todas de las ocurrencias de _**string**_ por _**newstring**_ desde
+| Sustituye todas de las ocurrencias de _**string**_ por _**newstring**_ desde
   la posición del cursor hasta el final del buffer.  Intenta mantener las
   mayúsculas de la cadena original (p.ej, al cambiar `UNO` por `dos`, pone
   `DOS`).  No hace esto si se usan mayúsculas en _**string**_ o en
   _**newstring**_.  Si hay una región activa, solo actúa dentro de ella.
-  
+
 | `M-% _**string**_ <RET> _**newstring**_ <RET>`
-| Reemplaza algunas de las ocurrencias de _**string**_ por _**newstring**_,
+a| Sustituye algunas de las ocurrencias de _**string**_ por _**newstring**_,
   preguntando en cada ocurrencia qué queremos hacer.  Con prefijo
   `C-_**número**_`, solo cambia las ocurrencias rodeadas por delimitadores de
   palabras.  Con prefijo `C-_**-**_`, busca hacia atrás.  Se puede pulsar `C-r`
@@ -500,7 +500,7 @@ Otras opciones disponibles:
 * `U`: deshace todos los cambios.
 
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>`
-| Reemplaza algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
+| Sustituye algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
   Por lo demás, funciona como la anterior.
 
 | `M-x occur <RET> _**regexp**_ <RET>`
@@ -895,7 +895,7 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   por `C-u`, permite elegir el número inicial y el formato.
 
 | `C-x r t _**string**_ <RET>`
-| Reemplaza cada línea del rectángulo por _**string**_.
+| Sustituye cada línea del rectángulo por _**string**_.
 
 | `M-x delete-whitespace-rectangle`
 | Elimina los espacios que haya en cada línea del rectángulo, desde la columna
