@@ -481,6 +481,24 @@ marcar las palabras anteriores a la posición del cursor.
   palabras.  Con prefijo `C-_**-**_`, busca hacia atrás.  Se puede pulsar `C-r`
   para abrir una edición recursiva.
 
+Otras opciones disponibles:
+
+* `<SPC>`, `y`: hace un cambio y sigue.
+
+* `.`: hace un cambio y sale.
+
+* `,`: hace un cambio y se mantiene en la posición actual.
+
+* `<RET>`, `q`: sale sin hacer cambios.
+
+* `!`: cambia todas las ocurrencias hasta el final del buffer.
+
+* `^`: va a la ocurrencia anterior.
+
+* `u`: deshace el último cambio.
+
+* `U`: deshace todos los cambios.
+
 | `C-M-% _**regexp**_ <RET> _**newstring**_ <RET>`
 | Reemplaza algunas de las ocurrencias de _**regexp**_ por _**newstring**_.
   Por lo demás, funciona como la anterior.
