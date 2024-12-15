@@ -992,6 +992,10 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | `C-o`
 | Inserta un retorno donde esté el cursor, sin moverlo.
 
+| `C-x =`
+| Muestra información sobre el carácter bajo el cursor.  Precedido de `C-u`,
+  da más información.
+
 | `C-x 8`
 | Prefijo para introducir caracteres especiales.  Por ejemplo, `C-x 8 ~ n`
   inserta una eñe.
