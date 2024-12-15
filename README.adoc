@@ -33,7 +33,6 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 
 * `d` hace un diff del buffer con el archivo del disco.
 
-
 | `C-x C-f`
 | Abrir un archivo en un nuevo buffer (__**f**__ind file).
 
