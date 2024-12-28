@@ -1006,6 +1006,10 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | `C-x C-u`
 | Convierte el texto de la región en mayúsculas.
 
+| `M-=`
+| Cuenta las palabras, líneas y caracteres de la región actual, activa o no.
+  Precedida de un argumento, actúa sobre el buffer entero.
+
 | `C-x l`
 | Cuenta las líneas de la página actual (según el delimitador definido en la
   variable `page-delimiter`).
