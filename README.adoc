@@ -640,7 +640,8 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 
 | `e`
 | Pone el buffer en modo edición.  Los cambios que se hagan en el buffer
-  _occur_ se aplican simultáneamente en las líneas originales.
+  _occur_ se aplican simultáneamente en las líneas originales.  `C-c C-c`
+  termina la edición.
 
 | `g`
 | Refresca el buffer, ejecutando de nuevo la búsqueda.
