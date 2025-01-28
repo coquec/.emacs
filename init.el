@@ -365,13 +365,18 @@ temporary buffer."
                              '((shell . t)))
 
 ;; Copy to the clipboard the Nth header of the current path.
+(defun jcv/get-org-header (n)
+  "Return the header in the N position of the outline path.  If N is
+not specified, returns the second element, as if N=1."
+  (nth (or n 1)
+       (org-get-outline-path t)))
+
 (defun jcv/org-header-to-kill-buffer (n)
-  "Adds to the kill ring the header in the N position of the
-outline path.  If N is not specified, adds the second element, as
+  "Add to the kill ring the header in the N position of the
+outline path.  If N is not specified, add the second element, as
 if N=1."
   (interactive "p")
-  (let ((header (nth (or n 1)
-                     (org-get-outline-path t))))
+  (let ((header (jcv/get-org-header n)))
     (message header)
     (kill-new header)))
 
