@@ -136,7 +136,7 @@
 (global-display-line-numbers-mode)
 
 ;; Frame of 80 columns wide plus the necessary for line numbers.
-(if (display-graphic-p)
+(when (display-graphic-p)
   (setq default-frame-alist
     '((width . 87)
       (height . 35))))
