@@ -476,3 +476,12 @@ pasted in an email."
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
 ;; allow to override it when changing the org-mode-hook.
 (add-hook 'org-mode-hook 'jcv/org-keybindings)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load local configuration, which can hold sensitive data that should not be
+;; included in the Git repo.
+
+;; Load and run a local.el file in the same folder as init.el, if it exists.
+(let ((local-init-file (concat user-emacs-directory "local.el")))
+  (if (file-readable-p local-init-file)
+      (load-file local-init-file)))
