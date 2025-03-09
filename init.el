@@ -1,18 +1,39 @@
-; Add MELPA repositories.
+;;; init.el --- My personal Emacs init file. -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2025 Coque Couto
+
+;; Author: Coque Couto <coque.couto at gmail.com>
+;; URL: https://github.com/coquec/.emacs
+
+;; init.el is free software: you can redistribute it and/or modify it under the
+;; terms of the GNU General Public License as published by the Free Software
+;; Foundation, either version 3 of the License, or (at your option) any later
+;; version.
+
+;; init.el is distributed in the hope that it will be useful, but WITHOUT ANY
+;; WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+;; FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+;; details.
+
+;; You should have received a copy of the GNU General Public License along with
+;; init.el.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; My personal init.el configuration file for Emacs.
+
+;;; Code:
 (require 'package)
+(require 'use-package)
+
+;; Add MELPA repositories.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 27)
-  (package-initialize))
+(package-refresh-contents)
 
-;; use-package macro simplifies the config file.
-;; https://github.com/jwiegley/use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;; Install all the packets not yet installed.
-(require 'use-package-ensure)
-(setopt use-package-always-ensure t)
+;; Configure use-package default options.
+(setopt use-package-always-ensure t     ; Install packages not yet installed.
+        use-package-always-defer t      ; Load non-autoloaded functions only.
+        )
 
 ;; Update packages automatically.
 ;; https://github.com/rranelli/auto-package-update.el
@@ -60,7 +81,7 @@
 ;; the config must be done in the init.el file.
 (setopt custom-file (make-temp-file "emacs-custom-" nil ".el"))
 (add-hook 'kill-emacs-hook
-          '(lambda () (delete-file custom-file)))
+          #'(lambda () (delete-file custom-file)))
 
 ;; Disable startup page.
 (setopt inhibit-startup-screen t)
@@ -163,12 +184,15 @@
 ;; Switch the focus to help windows when they're opened.
 (setopt help-window-select t)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My own functions.
 
 ;; Joins all the lines of a paragraph in one.
 (defun jcv/unfill-paragraph (&optional region)
-  "Takes a multi-line paragraph and makes it into a single line of text."
+  "Take a multi-line paragraph and make it into a single line of text.
+
+If REGION is non-nil, apply the function to all the paragraphs in it."
   (interactive (progn (barf-if-buffer-read-only) '(t)))
   (let ((fill-column (point-max))
         ;; This would override `fill-column' if it's an integer.
@@ -188,9 +212,10 @@
 ;; Functions for decoding Base64 strings in buffers.
 
 (defun jcv/base64-decode-string (str &optional charset)
-  "Decode a Base64 or Base64url encoded string, coding the result
-in UTF-8 by default, although CHARSET can be used to choose
-another one.
+  "Decode a Base64 or Base64url encoded STR string.
+
+Leave the result in UTF-8 by default, although CHARSET can be used to
+choose another one.
  
 Base64 strings are converted to Base64url format before decoding,
 so there can be any number of '=' characters at the end."
@@ -203,9 +228,14 @@ so there can be any number of '=' characters at the end."
      charset)))
  
 (defun jcv/base64-decode-region (beg end &optional charset)
-  "Replaces a Base64 or Base64url text enclosed by the region with
-its decoded version.  Leaves the mark at the beginning of the
-decoded text, and the point at the end."
+  "Replace a Base64 or Base64url encoded region with its decoded version.
+
+Replace the region enclosed by BEG and END with its decoded version.
+Leave the mark at the beginning of the decoded text, and the point at
+the end.
+
+Leave the result in UTF-8 by default, although CHARSET can be used to
+choose another one."
   (interactive "r")
   (let ((decoded-text
          (jcv/base64-decode-string (buffer-substring-no-properties
@@ -216,10 +246,14 @@ decoded text, and the point at the end."
     (insert decoded-text)))
  
 (defun jcv/base64-decode-region-into-buffer (beg end &optional charset)
-  "Decode a Base64 or Base64url encoded region and appends the
-result to the temporary buffer *Base64 decode*.  Leaves the mark
-in that buffer at the beginning of the decoded text, and the
-point at the end."
+  "Decode a Base64 or Base64url encoded region to a temporary buffer.
+
+Decode the region enclosed by BEG and END and append the result to the
+temporary buffer *Base64 decode*.  Leave the mark in that buffer at the
+beginning of the decoded text, and the point at the end.
+
+Leave the result in UTF-8 by default, although CHARSET can be used to
+choose another one."
   (interactive "r")
   (let* ((output-buffer (get-buffer-create "*Base64 decode*"))
          (encoded-text (buffer-substring-no-properties beg end))
@@ -235,38 +269,46 @@ point at the end."
      (- (point-max) 1))))
  
 (defun jcv/base64-find-limits ()
-  "Returns a list with the limits of a Base64 or Base64url string
-under the cursor, with the beginning at the first position and
-the end at the second one."
+  "Find the limits of the Base64 or Base64url string under the cursor.
+
+Return a list with the limits of a Base64 or Base64url string under the
+cursor, with the beginning at the first position and the end at the
+second one."
   (list (+ 1 (re-search-backward "[^-_a-zA-Z0-9+/]"))
         ;; We consider all the '=' characters at the end of the string, as our
         ;; decode functions ignore them.
         (re-search-forward "[-_a-zA-Z0-9+/]+=*")))
  
 (defun jcv/base64-decode-point-in-place ()
-  "Decode the Base64 or Base64url string under the cursor calling
-`base64-decode-region', leaving the result in the same buffer."
+  "Decode in place the Base64 or Base64url string under the cursor.
+
+Call `base64-decode-region' to do the job."
   (interactive)
   (save-excursion
     (apply 'jcv/base64-decode-region (jcv/base64-find-limits))))
  
 (defun jcv/base64-decode-point-into-buffer ()
-  "Decode the Base64 or Base64url string under the cursor calling
-`base64-decode-region-into-buffer', leaving the result in a
-temporary buffer."
+  "Decode in a temp buffer the Base64 or Base64url string under the cursor.
+
+Call `base64-decode-region-into-buffer' to do the job."
   (interactive)
   (save-excursion
     (apply 'jcv/base64-decode-region-into-buffer (jcv/base64-find-limits))))
 (global-set-key
   (kbd "C-c c 6") 'jcv/base64-decode-point-into-buffer)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
 
 ;; Enable tree-sitter automatically for all the languages.
-(use-package treesit-auto
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all))
+(when (= emacs-major-version 29)
+  (use-package treesit-auto
+    :custom
+    (treesit-auto-install 'prompt)
+    :config
+    (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode)))
 
 ;; Use corfu for in-buffer completion.  Use it with M-<tab> or with M-/.
 (use-package corfu
@@ -277,7 +319,6 @@ temporary buffer."
 
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
-  :ensure t
   :config
   (which-key-mode))
 
@@ -302,7 +343,7 @@ temporary buffer."
 ;; Enable indent-tools and use hydra bindings.
 (use-package indent-tools
   :config
-  (global-set-key (kbd "C-c >") 'indent-tools-hydra/body))
+  (global-set-key (kbd "C-c c >") 'indent-tools-hydra/body))
 
 ;; YAML mode.
 (use-package yaml-mode)
@@ -315,7 +356,6 @@ temporary buffer."
 
 ;; Paredit.  Edit parenthesis like a pro in lisp modes.
 (use-package paredit
-  :ensure t
   :init
   (add-hook 'clojure-mode-hook #'enable-paredit-mode)
   (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
@@ -330,6 +370,14 @@ temporary buffer."
          ("C-c c {" . paredit-wrap-curly))
   :diminish nil)
 
+;; Rest.  Useful functions to call REST APIs.
+(when (>= emacs-major-version 29)
+  (when (< emacs-major-version 30)
+    (use-package vc-use-package))
+  (use-package rest
+    :vc
+    (:url "https://github.com/coquec/rest.git" :branch "main" :rev :newest)))
+
 ;; I don't use the following packages in Windows.
 (when (not (equal system-type 'windows-nt))
   ;; SLIME, for Common Lisp programming.
@@ -339,8 +387,12 @@ temporary buffer."
   ;; Geiser, for Scheme programming, only with guile for now.
   (use-package geiser-guile))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode configuration.
+
+(require 'org)
+(require 'outline)
 
 ;; Enable presentations in org-mode with org-tree-slide.
 (use-package org-tree-slide)
@@ -366,23 +418,23 @@ temporary buffer."
 
 ;; Copy to the clipboard the Nth header of the current path.
 (defun jcv/get-org-header (n)
-  "Return the header in the N position of the outline path.  If N is
-not specified, returns the second element, as if N=1."
+  "Return the header in the N position of the outline path.
+
+If N is not specified, returns the second element, as if N=1."
   (nth (or n 1)
        (org-get-outline-path t)))
 
 (defun jcv/org-header-to-kill-buffer (n)
-  "Add to the kill ring the header in the N position of the
-outline path.  If N is not specified, add the second element, as
-if N=1."
+  "Add to the kill ring the header in the N position of the outline path.
+
+If N is not specified, add the second element, as if N=1."
   (interactive "p")
   (let ((header (jcv/get-org-header n)))
     (message header)
     (kill-new header)))
 
 (defun jcv/org-drawer-contents (drawer-name)
-  "Extract the content of the drawer named DRAWER-NAME contained in
-the current heading."
+  "Get the content of the drawer DRAWER-NAME inside the current heading."
   (save-excursion
     (org-back-to-heading t)
     (let ((drawer-re (format "^[ \t]*:%s:[ \t]*$"
@@ -397,8 +449,10 @@ the current heading."
                           (match-beginning 0)))))))))
 
 (defun jcv/org-drawer-contents-in-hierarchy (drawer-name)
-  "Returns the content of the first drawer named DRAWER-NAME found
-in the heading hierarchy, from the current one upwards."
+  "Return the contents of the drawer DRAWER-NAME in the heading hierarchy.
+
+Look for the first drawer named DRAWER-NAME in the heading hierarchy,
+from the current one upwards, and return its contents."
   (let ((content (jcv/org-drawer-contents drawer-name)))
     (or content
         (save-excursion
@@ -406,13 +460,14 @@ in the heading hierarchy, from the current one upwards."
                (jcv/org-drawer-contents-in-hierarchy drawer-name))))))
 
 (defun jcv/org-get-participants (drawer-name)
-  "Return a list of the participants' names of a meeting, as
-found in the drawer named DRAWER-NAME of the current task.
-Participants must be list items with a checkbox.  Comments at the
+  "Return a list of the participants' names of a meeting.
+
+The list is obtained from the drawer named DRAWER-NAME of the current
+task.  Participants must be list items with a checkbox.  Comments at the
 end of each item (starting with \" - \"), will be ignored.
 
-For the next examples, the the function would
-return (\"Participant 2\", \"Participant 3\"):
+For the next examples, the function would return (\"Participant 2\",
+\"Participant 3\"):
 
 :PARTICIPANTS:
 - [ ] Participant 1 - comment
@@ -428,8 +483,7 @@ return (\"Participant 2\", \"Participant 3\"):
   - [X] Participant 3 - comment
 :END:
 
-If there are no participants with a check mark, it returns them
-all."
+If there are no participants with a check mark, return them all."
   (let ((participants-raw (jcv/org-drawer-contents-in-hierarchy drawer-name)))
     (and participants-raw
          (let ((participants-list
@@ -454,11 +508,12 @@ all."
                 participants-list))))))
 
 (defun jcv/org-copy-participants ()
-  "Copy to the clipboard and prints in the minibuffer the
-list of a meeting participants' names found by the
-`jcv/org-get-participants' function.  The list in printed as a
-string with semicolons between the names, in a format ready to be
-pasted in an email."
+  "Copy to the clipboard the list of people attending a meeting.
+
+Copy to the clipboard and prints in the minibuffer the list of a meeting
+participants' names found by the `jcv/org-get-participants' function.
+The list in printed as a string with semicolons between the names, in a
+format ready to be pasted in an email."
   (interactive)
   (let ((result (mapconcat 'identity
                            (jcv/org-get-participants "PARTICIPANTS")
@@ -468,15 +523,17 @@ pasted in an email."
 
 ;; Customize org-mode key bindings.
 (defun jcv/org-keybindings ()
+  "Configure my keybindings in `org-mode'."
   (local-set-key (kbd "C-c c h")
                  'jcv/org-header-to-kill-buffer)
   (local-set-key (kbd "C-c c p")
                  'jcv/org-copy-participants))
 
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
-;; allow to override it when changing the org-mode-hook.
+;; allow overriding it when changing the org-mode-hook.
 (add-hook 'org-mode-hook 'jcv/org-keybindings)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load local configuration, which can hold sensitive data that should not be
 ;; included in the Git repo.
