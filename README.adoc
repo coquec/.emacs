@@ -1031,3 +1031,13 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   autocompletarlo.
 
 |===
+
+=== edebug-mode
+
+[cols="20,80"]
+|===
+
+| `C-x X w`
+| Va a la posición del código elisp que se está depurando.
+
+|===
