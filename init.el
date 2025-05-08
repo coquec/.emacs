@@ -302,13 +302,12 @@ Call `base64-decode-region-into-buffer' to do the job."
 ;; Additional packages
 
 ;; Enable tree-sitter automatically for all the languages.
-(when (= emacs-major-version 29)
-  (use-package treesit-auto
-    :custom
-    (treesit-auto-install 'prompt)
-    :config
-    (treesit-auto-add-to-auto-mode-alist 'all)
-    (global-treesit-auto-mode)))
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 ;; Use corfu for in-buffer completion.  Use it with M-<tab> or with M-/.
 (use-package corfu
@@ -371,12 +370,14 @@ Call `base64-decode-region-into-buffer' to do the job."
   :diminish nil)
 
 ;; Rest.  Useful functions to call REST APIs.
-(when (>= emacs-major-version 29)
-  (when (< emacs-major-version 30)
-    (use-package vc-use-package))
-  (use-package rest
-    :vc
-    (:url "https://github.com/coquec/rest.git" :branch "main" :rev :newest)))
+(use-package rest
+  :vc
+  (:url "https://github.com/coquec/rest.git" :branch "main" :rev :newest))
+
+;; IPv4.  Elisp functions to manipulate IP addresses.
+(use-package ipv4
+  :vc
+  (:url "https://github.com/coquec/ipv4.git" :branch "main" :rev :newest))
 
 ;; I don't use the following packages in Windows.
 (when (not (equal system-type 'windows-nt))
