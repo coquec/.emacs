@@ -109,6 +109,9 @@ a| Salir de Emacs.  Si Emacs pregunta si queremos guardar algún archivo, podemo
 | (Tras una tecla de prefijo) Muestra las combinaciones disponibles con ese
   prefijo.
 
+| `C-h e`
+| Muestra el buffer `\*Messages*`.
+
 | `C-h k _**key**_`
 | Describe la función de la tecla _**key**_.
 
