@@ -23,6 +23,9 @@
 ;; My personal init.el configuration file for Emacs.
 
 ;;; Code:
+
+
+;;; Package archives configuration.
 (require 'package)
 (require 'use-package)
 
@@ -30,10 +33,12 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-refresh-contents)
 
-;; Configure use-package default options.
-(setopt use-package-always-ensure t     ; Install packages not yet installed.
-        use-package-always-defer t      ; Load non-autoloaded functions only.
-        )
+;; use-package default options.
+(setopt
+ ;; Install packages not yet installed.
+ use-package-always-ensure t
+ ;; Load non-autoloaded functions only.
+ use-package-always-defer t)
 
 ;; Update packages automatically.
 ;; https://github.com/rranelli/auto-package-update.el
@@ -43,45 +48,11 @@
   (setopt auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+
+;;; Appearance.
+
 ;; Load default theme.
 (load-theme 'wombat)
-
-;; Enable spelling with flyspell in text and programming modes.
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(when (equal system-type 'windows-nt)
-  (setopt ispell-dictionary "en_GB")
-  (setopt ispell-local-dictionary-alist '(("en_GB"
-                                           "[[:alpha:]]"
-                                           "[^[:alpha:]]"
-                                           "[']"
-                                           t
-                                           ("-d" "en_GB")
-                                           nil
-                                           utf-8)
-                                          ("en_US"
-                                           "[[:alpha:]]"
-                                           "[^[:alpha:]]"
-                                           "[']"
-                                           t
-                                           ("-d" "en_US")
-                                           nil
-                                           utf-8)
-                                          ("sp"
-                                           "[[:alpha:]]"
-                                           "[^[:alpha:]]"
-                                           "\\(?:\\`a\\`\\)"
-                                           t
-                                           ("-d" "es")
-                                           nil utf-8)))
-  (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist))
-
-;; Use a temporary file to save configuration changes done via menu, and remove
-;; it when emacs exits.  This is a way to disable the configuration menu.  All
-;; the config must be done in the init.el file.
-(setopt custom-file (make-temp-file "emacs-custom-" nil ".el"))
-(add-hook 'kill-emacs-hook
-          #'(lambda () (delete-file custom-file)))
 
 ;; Disable startup page.
 (setopt inhibit-startup-screen t)
@@ -101,53 +72,15 @@
 ;; Disable message shown when files are saved.
 (setq save-silently 1)
 
-;; Enable repeat-mode.
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
-(repeat-mode)
-
-;; Enable winner-mode, allowing to recover previous window layouts with C-c
-;; <left> and C-c <right>.
-(winner-mode)
-
 ;; Show the column number at the status bar.
 (column-number-mode)
 
 ;; Use the current buffer name as the frame tittle.
 (setq frame-title-format "%b")
 
-;; Don't adjust frame size to row/columns multiples.
-(setq frame-resize-pixelwise t)
-
-;; Use spaces instead of tab characters.
-(setq-default indent-tabs-mode nil)
-
-;; Default tabs each 4 characters.
-(setq-default tab-width 4)
-
-;; Current buffer tabs each 4 characters.
-(setq tab-width 4)
-
 ;; Adjust the width of the cursor to the character under it.  This helps to see
 ;; tabs.
 (setq x-stretch-cursor 1)
-
-;; Highlight the bracket matching the one next to the cursor.
-(show-paren-mode t)
-
-;; Enable saving last opened files history.
-(recentf-mode 1)
-(setopt recentf-max-menu-items 50)
-(global-set-key
-  (kbd "C-c c r") 'recentf-open-files)
-
-;; Save last 5 open files history every 5 minutes.
-(run-at-time nil (* 5 60) 'recentf-save-list)
-
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-
-;; Enable fido-mode.
-(fido-mode)
 
 ;; Show line numbers at the left, with width enough space to hold the largest
 ;; number.  Highlight current line number with the lazy-highlight face.
@@ -158,25 +91,77 @@
 
 ;; Frame of 80 columns wide plus the necessary for line numbers.
 (when (display-graphic-p)
-  (setq default-frame-alist
-    '((width . 87)
-      (height . 35))))
+  (setq default-frame-alist '((width . 87) (height . 48))))
+
+;; Don't adjust frame size to row/columns multiples.
+(setq frame-resize-pixelwise t)
+
+
+;;; My own key prefixes.
+
+(defconst my-key-prefix "C-c c"
+  "Prefix to use in my own keybindings.")
+
+;; Generate my own key sequence.
+(defun my-key (suffix)
+  "Return my own key sequence combining `my-key-prefix' with SUFFIX."
+  (concat my-key-prefix " " suffix))
+
+
+;;; Behaviour changes.
+
+;; Use a temporary file to save configuration changes done via menu, and remove
+;; it when emacs exits.  This is a way to disable the configuration menu.  All
+;; the config must be done in the init.el file.
+(setopt custom-file (make-temp-file "emacs-custom-" nil ".el"))
+(add-hook 'kill-emacs-hook
+          #'(lambda () (delete-file custom-file)))
+
+;; Enable repeat-mode.
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
+(repeat-mode)
+
+;; Enable winner-mode, allowing to recover previous window layouts with C-c
+;; <left> and C-c <right>.
+(winner-mode)
+
+;; Use spaces instead of tab characters.
+(setq-default indent-tabs-mode nil)
+
+;; Default tabs each 4 characters.
+(setq-default tab-width 4)
+
+;; Current buffer tabs each 4 characters.
+(setq tab-width 4)
+
+;; Highlight the bracket matching the one next to the cursor.
+(show-paren-mode t)
+
+;; Enable saving last opened files history.
+(recentf-mode 1)
+(setopt recentf-max-menu-items 50)
+(keymap-global-set
+ (my-key "r") #'recentf-open-files)
+
+;; Save last 5 open files history every 5 minutes.
+(run-at-time nil (* 5 60) #'recentf-save-list)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+;; Enable fido-mode.
+(fido-mode)
 
 ;; Default end of line at column 79.
 (setq-default fill-column 79)
 
 ;; Rebind M-/ to hippie expand
 ;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
-(global-set-key [remap dabbrev-expand] 'hippie-expand)
+(substitute-key-definition #'dabbrev-expand #'hippie-expand
+                           (current-global-map))
 
-;; Rebind C-x C-b to ibuffer
-;; Recommended in Mastering Emacs.
-(global-set-key [remap list-buffers] 'ibuffer)
-
-;; Shortcut to copy the name of the current buffer to the kill-ring.
-(global-set-key
-  (kbd "C-c c w")
-  (lambda () (interactive) (kill-new (file-name-nondirectory buffer-file-name))))
+;; Rebind C-x C-b to ibuffer Recommended in Mastering Emacs.
+(substitute-key-definition #'list-buffers #'ibuffer (current-global-map))
 
 ;; Enable additional movements while searching in Emacs 28.1 and later.
 (setopt isearch-allow-motion t)
@@ -185,11 +170,32 @@
 (setopt help-window-select t)
 
 
+;;; Spell checking.
+
+;; Enable spelling with flyspell in text and programming modes.
+(add-hook 'text-mode-hook #'flyspell-mode)
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)
+(when (equal system-type 'windows-nt)
+  (setopt ispell-dictionary "en_GB")
+  (setopt
+   ispell-local-dictionary-alist
+   '(("en_GB" "[[:alpha:]]" "[^[:alpha:]]" "[']" t ("-d" "en_GB") nil utf-8)
+     ("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" t ("-d" "en_US") nil utf-8)
+     ("sp" "[[:alpha:]]" "[^[:alpha:]]" "\\(?:\\`a\\`\\)" t ("-d" "es") nil
+      utf-8)))
+  (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My own functions.
 
+;; Copy the name of the current buffer to the kill-ring.
+(defun my-kill-buffer-name
+ (interactive) (kill-new (file-name-nondirectory buffer-file-name)))
+(keymap-global-set (my-key "w") #'my-kill-buffer-name)
+
 ;; Joins all the lines of a paragraph in one.
-(defun jcv/unfill-paragraph (&optional region)
+(defun my-unfill-paragraph (&optional region)
   "Take a multi-line paragraph and make it into a single line of text.
 
 If REGION is non-nil, apply the function to all the paragraphs in it."
@@ -198,20 +204,20 @@ If REGION is non-nil, apply the function to all the paragraphs in it."
         ;; This would override `fill-column' if it's an integer.
         (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
-(global-set-key
-  (kbd "C-c c q") 'jcv/unfill-paragraph)
+(keymap-global-set
+ (my-key "q") 'my-unfill-paragraph)
 
 ;; Opens the directory with Emacs init file.
-(defun jcv/find-init-directory ()
+(defun my-find-init-directory ()
   "Opens the directory with Emacs init file."
   (interactive)
   (find-file user-emacs-directory))
-(global-set-key
-  (kbd "C-c c i") 'jcv/find-init-directory)
+(keymap-global-set
+ (my-key "i") 'my-find-init-directory)
 
 ;; Functions for decoding Base64 strings in buffers.
 
-(defun jcv/base64-decode-string (str &optional charset)
+(defun my-base64-decode-string (str &optional charset)
   "Decode a Base64 or Base64url encoded STR string.
 
 Leave the result in UTF-8 by default, although CHARSET can be used to
@@ -227,7 +233,7 @@ so there can be any number of '=' characters at the end."
                                       (string-replace "=" "" str))) t)
      charset)))
  
-(defun jcv/base64-decode-region (beg end &optional charset)
+(defun my-base64-decode-region (beg end &optional charset)
   "Replace a Base64 or Base64url encoded region with its decoded version.
 
 Replace the region enclosed by BEG and END with its decoded version.
@@ -238,14 +244,14 @@ Leave the result in UTF-8 by default, although CHARSET can be used to
 choose another one."
   (interactive "r")
   (let ((decoded-text
-         (jcv/base64-decode-string (buffer-substring-no-properties
-                                    beg end) charset)))
+         (my-base64-decode-string (buffer-substring-no-properties
+                                   beg end) charset)))
     (delete-region beg end)
     (goto-char beg)
     (set-mark beg)
     (insert decoded-text)))
  
-(defun jcv/base64-decode-region-into-buffer (beg end &optional charset)
+(defun my-base64-decode-region-into-buffer (beg end &optional charset)
   "Decode a Base64 or Base64url encoded region to a temporary buffer.
 
 Decode the region enclosed by BEG and END and append the result to the
@@ -257,7 +263,7 @@ choose another one."
   (interactive "r")
   (let* ((output-buffer (get-buffer-create "*Base64 decode*"))
          (encoded-text (buffer-substring-no-properties beg end))
-         (decoded-text (jcv/base64-decode-string encoded-text charset)))
+         (decoded-text (my-base64-decode-string encoded-text charset)))
     (with-current-buffer output-buffer
       (goto-char (point-max))
       (insert encoded-text "\n")
@@ -268,7 +274,7 @@ choose another one."
      (get-buffer-window output-buffer)
      (- (point-max) 1))))
  
-(defun jcv/base64-find-limits ()
+(defun my-base64-find-limits ()
   "Find the limits of the Base64 or Base64url string under the cursor.
 
 Return a list with the limits of a Base64 or Base64url string under the
@@ -279,23 +285,23 @@ second one."
         ;; decode functions ignore them.
         (re-search-forward "[-_a-zA-Z0-9+/]+=*")))
  
-(defun jcv/base64-decode-point-in-place ()
+(defun my-base64-decode-point-in-place ()
   "Decode in place the Base64 or Base64url string under the cursor.
 
 Call `base64-decode-region' to do the job."
   (interactive)
   (save-excursion
-    (apply 'jcv/base64-decode-region (jcv/base64-find-limits))))
+    (apply 'my-base64-decode-region (my-base64-find-limits))))
  
-(defun jcv/base64-decode-point-into-buffer ()
+(defun my-base64-decode-point-into-buffer ()
   "Decode in a temp buffer the Base64 or Base64url string under the cursor.
 
 Call `base64-decode-region-into-buffer' to do the job."
   (interactive)
   (save-excursion
-    (apply 'jcv/base64-decode-region-into-buffer (jcv/base64-find-limits))))
-(global-set-key
-  (kbd "C-c c 6") 'jcv/base64-decode-point-into-buffer)
+    (apply 'my-base64-decode-region-into-buffer (my-base64-find-limits))))
+(keymap-global-set
+ (my-key "6") 'my-base64-decode-point-into-buffer)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -342,7 +348,7 @@ Call `base64-decode-region-into-buffer' to do the job."
 ;; Enable indent-tools and use hydra bindings.
 (use-package indent-tools
   :config
-  (global-set-key (kbd "C-c c >") 'indent-tools-hydra/body))
+  (keymap-global-set (my-key ">") 'indent-tools-hydra/body))
 
 ;; YAML mode.
 (use-package yaml-mode)
@@ -363,10 +369,11 @@ Call `base64-decode-region-into-buffer' to do the job."
   (add-hook 'lisp-mode-hook #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook #'enable-paredit-mode)
+  (bind-key (my-key "(") #'paredit-wrap-sexp)
+  (bind-key (my-key "[") #'paredit-wrap-square)
+  (bind-key (my-key "{") #'paredit-wrap-curly)
   :config
   (show-paren-mode t)
-  :bind (("C-c c [" . paredit-wrap-square)
-         ("C-c c {" . paredit-wrap-curly))
   :diminish nil)
 
 ;; Rest.  Useful functions to call REST APIs.
@@ -414,27 +421,26 @@ Call `base64-decode-region-into-buffer' to do the job."
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
 
 ;; Active Babel languages.
-(org-babel-do-load-languages 'org-babel-load-languages
-                             '((shell . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))
 
 ;; Copy to the clipboard the Nth header of the current path.
-(defun jcv/get-org-header (n)
+(defun my-get-org-header (n)
   "Return the header in the N position of the outline path.
 
 If N is not specified, returns the second element, as if N=1."
   (nth (or n 1)
        (org-get-outline-path t)))
 
-(defun jcv/org-header-to-kill-buffer (n)
+(defun my-org-header-to-kill-buffer (n)
   "Add to the kill ring the header in the N position of the outline path.
 
 If N is not specified, add the second element, as if N=1."
   (interactive "p")
-  (let ((header (jcv/get-org-header n)))
+  (let ((header (my-get-org-header n)))
     (message header)
     (kill-new header)))
 
-(defun jcv/org-drawer-contents (drawer-name)
+(defun my-org-drawer-contents (drawer-name)
   "Get the content of the drawer DRAWER-NAME inside the current heading."
   (save-excursion
     (org-back-to-heading t)
@@ -449,19 +455,19 @@ If N is not specified, add the second element, as if N=1."
                           start
                           (match-beginning 0)))))))))
 
-(defun jcv/org-drawer-contents-in-hierarchy (drawer-name)
+(defun my-org-drawer-contents-in-hierarchy (drawer-name)
   "Return the contents of the drawer DRAWER-NAME in the heading hierarchy.
 
 Look for the first drawer named DRAWER-NAME in the heading hierarchy,
 from the current one upwards, and return its contents."
-  (let ((content (jcv/org-drawer-contents drawer-name)))
+  (let ((content (my-org-drawer-contents drawer-name)))
     (or content
         (save-excursion
           (and (org-up-heading-safe)
-               (jcv/org-drawer-contents-in-hierarchy drawer-name))))))
+               (my-org-drawer-contents-in-hierarchy drawer-name))))))
 
-(defun jcv/org-get-participants (drawer-name)
-  "Return a list of the participants' names of a meeting.
+(defun my-org-get-participants (drawer-name)
+  "Return a list of the participants' names in a meeting.
 
 The list is obtained from the drawer named DRAWER-NAME of the current
 task.  Participants must be list items with a checkbox.  Comments at the
@@ -485,7 +491,7 @@ For the next examples, the function would return (\"Participant 2\",
 :END:
 
 If there are no participants with a check mark, return them all."
-  (let ((participants-raw (jcv/org-drawer-contents-in-hierarchy drawer-name)))
+  (let ((participants-raw (my-org-drawer-contents-in-hierarchy drawer-name)))
     (and participants-raw
          (let ((participants-list
                 (seq-filter (lambda (x)
@@ -508,31 +514,34 @@ If there are no participants with a check mark, return them all."
                             participants-list)
                 participants-list))))))
 
-(defun jcv/org-copy-participants ()
+(defun my-org-copy-participants ()
   "Copy to the clipboard the list of people attending a meeting.
 
 Copy to the clipboard and prints in the minibuffer the list of a meeting
-participants' names found by the `jcv/org-get-participants' function.
+participants' names found by the `my-org-get-participants' function.
 The list in printed as a string with semicolons between the names, in a
 format ready to be pasted in an email."
   (interactive)
   (let ((result (mapconcat 'identity
-                           (jcv/org-get-participants "PARTICIPANTS")
+                           (my-org-get-participants "PARTICIPANTS")
                            "; ")))
     (message result)
     (kill-new result)))
 
 ;; Customize org-mode key bindings.
-(defun jcv/org-keybindings ()
+(defun my-org-keybindings ()
   "Configure my keybindings in `org-mode'."
-  (local-set-key (kbd "C-c c h")
-                 'jcv/org-header-to-kill-buffer)
-  (local-set-key (kbd "C-c c p")
-                 'jcv/org-copy-participants))
+  (local-set-key (my-key "h")
+                 #'my-org-header-to-kill-buffer)
+  (local-set-key (my-key "p")
+                 #'my-org-copy-participants))
 
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
 ;; allow overriding it when changing the org-mode-hook.
-(add-hook 'org-mode-hook 'jcv/org-keybindings)
+(add-hook 'org-mode-hook 'my-org-keybindings)
+
+;; Add global keybinding to open org-mode agenda.
+(keymap-global-set (my-key "a") #'org-agenda)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
