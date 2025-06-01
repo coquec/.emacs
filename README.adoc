@@ -1045,6 +1045,11 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 [cols="20,80"]
 |===
 
+| `C-u C-M-x`
+| Instrumenta la función donde se encuentra el cursor.  La próxima vez que se
+  ejecute, se detendrá la ejecución y se abrirá el código de la función en modo
+  edebug.
+
 | `C-x X w`
 | Va a la posición del código elisp que se está depurando.
 
