@@ -552,6 +552,6 @@ format ready to be pasted in an email."
 ;;
 ;; Keep it in a different directory so it can be maintained in its own Git
 ;; repo.
-(let ((local-init-file (concat user-emacs-directory "/local/local.el")))
+(let ((local-init-file (concat user-emacs-directory "local/local.el")))
   (if (file-readable-p local-init-file)
       (load-file local-init-file)))
