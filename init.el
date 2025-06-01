@@ -540,18 +540,16 @@ format ready to be pasted in an email."
 ;; allow overriding it when changing the org-mode-hook.
 (add-hook 'org-mode-hook 'my-org-keybindings)
 
-;; Add global keybinding to open org-mode agenda.
-(keymap-global-set (my-key "a") #'org-agenda)
+;; Add global keybinding to open org-mode agenda in my preferred view.
+(keymap-global-set (my-key "a") #'org-agenda-list)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load local configuration, which can hold sensitive data that should not be
 ;; included in the Git repo.
-
-;; Load and run a local.el file in the same folder as init.el, if it exists.
 ;;
-;; Keep it in a different directory so it can be maintained in its own Git
-;; repo.
+;; Keep it in a directory inside `user-emacs-directory' so it can be maintained
+;; in its own Git repo.
 (let ((local-init-file (concat user-emacs-directory "local/local.el")))
   (if (file-readable-p local-init-file)
       (load-file local-init-file)))
