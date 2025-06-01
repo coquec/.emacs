@@ -376,6 +376,11 @@ Call `base64-decode-region-into-buffer' to do the job."
   (show-paren-mode t)
   :diminish nil)
 
+;; Macrostep.  Review elisp macros dynamically.
+(use-package macrostep
+  :init
+  (bind-key (my-key "m") #'macrostep-expand))
+
 ;; Rest.  Useful functions to call REST APIs.
 (use-package rest
   :vc

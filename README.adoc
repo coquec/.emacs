@@ -974,10 +974,11 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | Evalúa la primera _sexp_ que encuentre antes del cursor.  Con prefijo `C-1`,
   inserta el resultado en el buffer actual.
 
-| `M-x pp-macroexpand-last-sexp`
-| Muestra en un nuevo buffer el resultado de expandir la macro que termina en
-  el paréntesis que hay antes del cursor.  Precedido de `C-u`, inserta el
-  resultado en el buffer actual.
+| `M-x macrostep-expand`
+| Parte del paquete `macrostep`.  Muestra en el buffer actual el resultado de
+  expandir la macro que empieza donde está el cursor, y entra en un modo menor
+  `macrostep-mode` donde se pueden usar varias teclas para seguir expandiendo
+  macros dentro de la actual.  Se sale con `q`.
 
 |===
 
