@@ -956,7 +956,7 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 
 |===
 
-=== Expresiones en Lisp
+=== Emacs Lisp
 
 [cols="20,80"]
 |===
@@ -973,6 +973,11 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 | `C-x C-e`
 | Evalúa la primera _sexp_ que encuentre antes del cursor.  Con prefijo `C-1`,
   inserta el resultado en el buffer actual.
+
+| `M-x pp-macroexpand-last-sexp`
+| Muestra en un nuevo buffer el resultado de expandir la macro que termina en
+  el paréntesis que hay antes del cursor.  Precedido de `C-u`, inserta el
+  resultado en el buffer actual.
 
 |===
 
