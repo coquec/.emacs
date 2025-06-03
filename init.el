@@ -536,10 +536,10 @@ format ready to be pasted in an email."
 ;; Customize org-mode key bindings.
 (defun my-org-keybindings ()
   "Configure my keybindings in `org-mode'."
-  (local-set-key (my-key "h")
-                 #'my-org-header-to-kill-buffer)
-  (local-set-key (my-key "p")
-                 #'my-org-copy-participants))
+  (keymap-local-set (my-key "h")
+                    #'my-org-header-to-kill-buffer)
+  (keymap-local-set (my-key "p")
+                    #'my-org-copy-participants))
 
 ;; Use my keybindings in org-mode.  I use a function instead of a lambda to
 ;; allow overriding it when changing the org-mode-hook.

@@ -1041,6 +1041,7 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
 
 |===
 
+[[edebug-mode]]
 === edebug-mode
 
 [cols="20,80"]
@@ -1051,7 +1052,23 @@ que se encuentren.  Dentro de ella, se pueden usar los siguientes atajos:
   ejecute, se detendrá la ejecución y se abrirá el código de la función en modo
   edebug.
 
+| `v`
+| Muestra las ventanas que había antes de entrar en edebug.  Se puede volver a
+  edebug con `C-x X w`.
+
 | `C-x X w`
 | Va a la posición del código elisp que se está depurando.
+
+| `q`
+| Aborta la ejecución y sale del modo edebug.
+
+| `h`
+| Ejecuta todo el código hasta el punto donde está el cursor.
+
+| `i`
+| Instrumenta y entra en la función donde está el cursor.
+
+| `o`
+| Sale de la sexp actual.
 
 |===
