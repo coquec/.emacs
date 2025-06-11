@@ -83,11 +83,21 @@
 (setq x-stretch-cursor 1)
 
 ;; Show line numbers at the left, with width enough space to hold the largest
-;; number.  Highlight current line number with the lazy-highlight face.
+;; number.
 (setopt display-line-numbers-grow-only t)
 (setopt display-line-numbers-width-start 1)
-(set-face-attribute 'line-number-current-line nil :inherit 'lazy-highlight)
 (global-display-line-numbers-mode)
+
+;; Highlight the current line number using the colours from lazy-highlight.  I
+;; don't use `set-face-attribute' with :inherit because the font size of the
+;; line number doesn't change when zomming-in/out.
+(defun my-set-current-line-colour ()
+  (set-face-foreground 'line-number-current-line
+                       (face-foreground 'lazy-highlight))
+  (set-face-background 'line-number-current-line
+                       (face-background 'lazy-highlight)))
+(my-set-current-line-colour)
+(advice-add #'load-theme :after #'my-set-current-line-colour)
 
 ;; Frame of 80 columns wide plus the necessary for line numbers.
 (when (display-graphic-p)
