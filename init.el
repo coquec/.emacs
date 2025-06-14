@@ -72,7 +72,7 @@
 ;; Disable message shown when files are saved.
 (setq save-silently 1)
 
-;; Show the column number at the status bar.
+;; Show the column number in the status bar.
 (column-number-mode)
 
 ;; Use the current buffer name as the frame tittle.
