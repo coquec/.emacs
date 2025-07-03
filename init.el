@@ -159,8 +159,17 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;; Enable fido-mode.
-(fido-mode)
+;; Enable vertical fido-mode for minibuffer autocompletion.
+(fido-vertical-mode)
+
+;; Add details to some of the completions.
+(setq completions-detailed t)
+
+;; Select the completion buffer on the second TAB press.
+(setopt completion-auto-select 'second-tab)
+
+;; Enable in-buffer completion.
+(global-completion-preview-mode)
 
 ;; Default end of line at column 79.
 (setq-default fill-column 79)
@@ -325,13 +334,6 @@ Call `base64-decode-region-into-buffer' to do the job."
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-;; Use corfu for in-buffer completion.  Use it with M-<tab> or with M-/.
-(use-package corfu
-  :init
-  (global-corfu-mode)
-  :custom
-  (corfu-preview-current t))
-
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
   :config
@@ -419,6 +421,9 @@ Call `base64-decode-region-into-buffer' to do the job."
 
 ;; Enable presentations in org-mode with org-tree-slide.
 (use-package org-tree-slide)
+
+;; Enable autocompletion in org-mode buffers.
+(add-to-list 'completion-preview-commands #'org-self-insert-command)
 
 ;; Avoid inheritance of the 'project' tag.  This allows to mark project tasks
 ;; explicitly and to have an agenda view with the current projects by typing
