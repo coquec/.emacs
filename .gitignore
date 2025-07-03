@@ -1,1 +1,4 @@
-*~
+*
+!init.el
+!gitignore
+!readme.adoc
