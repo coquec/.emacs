@@ -1,4 +1,7 @@
 *
 !init.el
 !gitignore
-!readme.adoc
+!README.adoc
+!LICENSE
+!snippets/
+!snippets/*
