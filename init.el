@@ -120,6 +120,9 @@
 
 ;;; Behaviour changes.
 
+;; Set the default coding.  See their description with C-h C.
+(set-default-coding-systems 'utf-8-unix)
+
 ;; Use a temporary file to save configuration changes done via menu, and remove
 ;; it when emacs exits.  This is a way to disable the configuration menu.  All
 ;; the config must be done in the init.el file.
