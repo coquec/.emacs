@@ -371,6 +371,9 @@ Call `base64-decode-region-into-buffer' to do the job."
 ;; AsciiDoc mode.
 (use-package adoc-mode)
 
+;; Markdown mode.
+(use-package markdown-mode)
+
 ;; Diminish.  Allow to use :diminish in use-package to hide minor modes.
 (use-package diminish)
 
