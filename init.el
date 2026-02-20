@@ -454,22 +454,22 @@ Call `base64-decode-region-into-buffer' to do the job."
 ;; Active Babel languages.
 (org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))
 
-;; Copy to the clipboard the Nth header of the current path.
-(defun my-get-org-header (n)
-  "Return the header in the N position of the outline path.
+;; Copy to the clipboard the Nth heading of the current path.
+(defun my-get-org-heading (n)
+  "Return the heading in the N position of the outline path.
 
 If N is not specified, returns the second element, as if N=1."
   (nth (or n 1)
        (org-get-outline-path t)))
 
-(defun my-org-header-to-kill-buffer (n)
-  "Add to the kill ring the header in the N position of the outline path.
+(defun my-org-heading-to-kill-buffer (n)
+  "Add to the kill ring the heading in the N position of the outline path.
 
 If N is not specified, add the second element, as if N=1."
   (interactive "p")
-  (let ((header (my-get-org-header n)))
-    (message header)
-    (kill-new header)))
+  (let ((heading (my-get-org-heading n)))
+    (message heading)
+    (kill-new heading)))
 
 (defun my-org-drawer-contents (drawer-name)
   "Get the content of the drawer DRAWER-NAME inside the current heading."
@@ -563,7 +563,7 @@ format ready to be pasted in an email."
 (defun my-org-keybindings ()
   "Configure my keybindings in `org-mode'."
   (keymap-local-set (my-key "h")
-                    #'my-org-header-to-kill-buffer)
+                    #'my-org-heading-to-kill-buffer)
   (keymap-local-set (my-key "p")
                     #'my-org-copy-participants))
 
