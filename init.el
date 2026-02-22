@@ -24,10 +24,13 @@
 
 ;;; Code:
 
-
-;;; Package archives configuration.
+(require 'cl-lib)
+(require 'edebug)
+(require 'thingatpt)
 (require 'package)
 (require 'use-package)
+
+;;; Package archives configuration.
 
 ;; Add MELPA repositories.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
