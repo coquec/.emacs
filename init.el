@@ -247,89 +247,71 @@ If REGION is non-nil, apply the function to all the paragraphs in it."
 
 ;; Functions for decoding Base64 strings in buffers.
 
-(defun my-base64-decode-string (str &optional charset)
+(defconst my-base64-template "[-_a-zA-Z0-9+/]+=*"
+  "Regular expression for Base64 and Base64 url strings.
+
+We include all the '=' characters at the end of the string, as our
+decode functions ignore them.")
+
+(defun my-bounds-of-base64-string-at-point ()
+  "Return the start and end points of the Base64 string at point, if any.
+
+The result is a paired list of character positions."
+  (if (thing-at-point-looking-at my-base64-template)
+      (cons (match-beginning 0) (match-end 0))))
+
+;; Add Base64 strings to thing-at-point.
+(put 'base64-string
+     'bounds-of-thing-at-point
+     #'my-bounds-of-base64-string-at-point)
+
+(cl-defun my-base64-decode-string (str)
   "Decode a Base64 or Base64url encoded STR string.
 
-Leave the result in UTF-8 by default, although CHARSET can be used to
-choose another one.
- 
 Base64 strings are converted to Base64url format before decoding,
 so there can be any number of '=' characters at the end."
-  (let ((charset (or charset 'utf-8)))
-    (decode-coding-string
-     (base64-decode-string
-      (string-replace "+" "-"
-                      (string-replace "/" "_"
-                                      (string-replace "=" "" str))) t)
-     charset)))
+  (base64-decode-string
+    (string-replace "+" "-"
+                    (string-replace "/" "_"
+                                    (string-replace "=" "" str)))
+    t))
  
-(defun my-base64-decode-region (beg end &optional charset)
-  "Replace a Base64 or Base64url encoded region with its decoded version.
+(cl-defun my-base64-decode-string-into-buffer (str
+                                               &optional
+                                               (encoding 'utf-8))
+  "Decode a Base64 or Base64url encoded STR to a temporary buffer.
 
-Replace the region enclosed by BEG and END with its decoded version.
-Leave the mark at the beginning of the decoded text, and the point at
-the end.
+Append the result to the temporary buffer *Base64 decode*.
 
-Leave the result in UTF-8 by default, although CHARSET can be used to
-choose another one."
-  (interactive "r")
-  (let ((decoded-text
-         (my-base64-decode-string (buffer-substring-no-properties
-                                   beg end) charset)))
-    (delete-region beg end)
-    (goto-char beg)
-    (set-mark beg)
-    (insert decoded-text)))
- 
-(defun my-base64-decode-region-into-buffer (beg end &optional charset)
-  "Decode a Base64 or Base64url encoded region to a temporary buffer.
+Encode both the temporary file and the decoded string with ENCODING.
 
-Decode the region enclosed by BEG and END and append the result to the
-temporary buffer *Base64 decode*.  Leave the mark in that buffer at the
-beginning of the decoded text, and the point at the end.
-
-Leave the result in UTF-8 by default, although CHARSET can be used to
-choose another one."
-  (interactive "r")
-  (let* ((output-buffer (get-buffer-create "*Base64 decode*"))
-         (encoded-text (buffer-substring-no-properties beg end))
-         (decoded-text (my-base64-decode-string encoded-text charset)))
+TODO: it should leave the mark and the point enclosing the inserted text
+in that buffer.  For some reason, the point is not updated properly.  It
+seems a problem with `recode-region'."
+  (let ((output-buffer (get-buffer-create "*Base64 decode*")))
     (with-current-buffer output-buffer
-      (goto-char (point-max))
-      (insert encoded-text "\n")
-      (set-mark (point-max))
-      (insert decoded-text "\n"))
-    (switch-to-buffer-other-window output-buffer)
-    (set-window-point
-     (get-buffer-window output-buffer)
-     (- (point-max) 1))))
- 
-(defun my-base64-find-limits ()
-  "Find the limits of the Base64 or Base64url string under the cursor.
+      (set-buffer-file-coding-system encoding)
+      (set-mark (goto-char (point-max)))
+      (insert (my-base64-decode-string str))
+      (recode-region (mark) (point-max) encoding 'raw-text))
+    (display-buffer output-buffer)))
 
-Return a list with the limits of a Base64 or Base64url string under the
-cursor, with the beginning at the first position and the end at the
-second one."
-  (list (+ 1 (re-search-backward "[^-_a-zA-Z0-9+/]"))
-        ;; We consider all the '=' characters at the end of the string, as our
-        ;; decode functions ignore them.
-        (re-search-forward "[-_a-zA-Z0-9+/]+=*")))
- 
-(defun my-base64-decode-point-in-place ()
-  "Decode in place the Base64 or Base64url string under the cursor.
+(defun my-base64-decode-point-into-buffer (arg)
+  "Decode in a temp buffer the Base64 or Base64url string at point.
 
-Call `base64-decode-region' to do the job."
-  (interactive)
-  (save-excursion
-    (apply 'my-base64-decode-region (my-base64-find-limits))))
- 
-(defun my-base64-decode-point-into-buffer ()
-  "Decode in a temp buffer the Base64 or Base64url string under the cursor.
+It uses 'utf-8 encoding by default.  With an argument, it uses 'raw-text
+encoding instead.
 
-Call `base64-decode-region-into-buffer' to do the job."
-  (interactive)
-  (save-excursion
-    (apply 'my-base64-decode-region-into-buffer (my-base64-find-limits))))
+Call `my-base64-decode-string-into-buffer' to do the job."
+  (interactive "P")
+  (let ((base64-string (thing-at-point 'base64-string)))
+    (if base64-string
+        (progn
+          (my-base64-decode-string-into-buffer base64-string
+                                               (if arg 'raw-text 'utf-8))
+          (goto-char (cdr (my-bounds-of-base64-string-at-point)))
+          (goto-char (+ (point) 1)))
+      (error "No Base64 string at point"))))
 (keymap-global-set
  (my-key "6") 'my-base64-decode-point-into-buffer)
 
