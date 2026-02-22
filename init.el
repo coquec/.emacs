@@ -285,16 +285,14 @@ Append the result to the temporary buffer *Base64 decode*.
 
 Encode both the temporary file and the decoded string with ENCODING.
 
-TODO: it should leave the mark and the point enclosing the inserted text
-in that buffer.  For some reason, the point is not updated properly.  It
-seems a problem with `recode-region'."
+Leave the mark and the point enclosing the inserted text in that buffer."
   (let ((output-buffer (get-buffer-create "*Base64 decode*")))
     (with-current-buffer output-buffer
       (set-buffer-file-coding-system encoding)
       (set-mark (goto-char (point-max)))
-      (insert (my-base64-decode-string str))
-      (recode-region (mark) (point-max) encoding 'raw-text))
-    (display-buffer output-buffer)))
+      (insert (decode-coding-string (my-base64-decode-string str) encoding)))
+    (with-selected-window (display-buffer output-buffer)
+      (goto-char (point-max)))))
 
 (defun my-base64-decode-point-into-buffer (arg)
   "Decode in a temp buffer the Base64 or Base64url string at point.
