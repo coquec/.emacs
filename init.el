@@ -247,18 +247,29 @@ If REGION is non-nil, apply the function to all the paragraphs in it."
 
 ;; Functions for decoding Base64 strings in buffers.
 
-(defconst my-base64-template "[-_a-zA-Z0-9+/]+=*"
-  "Regular expression for Base64 and Base64 url strings.
-
-We include all the '=' characters at the end of the string, as our
-decode functions ignore them.")
-
 (defun my-bounds-of-base64-string-at-point ()
   "Return the start and end points of the Base64 string at point, if any.
 
 The result is a paired list of character positions."
-  (if (thing-at-point-looking-at my-base64-template)
-      (cons (match-beginning 0) (match-end 0))))
+  (save-excursion
+    ;; If the char under the point isn't valid for Base64, we're done.
+    (when (and (< (point) (point-max))
+               ;; '=' chars must be at the end.
+               (or (and (= ?= (char-after))
+                        (re-search-backward "[^=]" nil t)
+                        nil)
+                   (string-match "[-_a-zA-Z0-9+/]"
+                                 (char-to-string (char-after)))))
+      (let* ((start (if (re-search-backward "[^-_a-zA-Z0-9+/]" nil t)
+                        (match-end 0)
+                      (point-min)))
+             (end (and
+                   (goto-char start)
+                   ;; We consider all the '=' characters at the end of the
+                   ;; string, as our decode functions ignore them.
+                   (re-search-forward "[-_a-zA-Z0-9+/]+=*" nil t)
+                   (match-end 0))))
+        (cons start end)))))
 
 ;; Add Base64 strings to thing-at-point.
 (put 'base64-string
@@ -307,8 +318,7 @@ Call `my-base64-decode-string-into-buffer' to do the job."
         (progn
           (my-base64-decode-string-into-buffer base64-string
                                                (if arg 'raw-text 'utf-8))
-          (goto-char (cdr (my-bounds-of-base64-string-at-point)))
-          (goto-char (+ (point) 1)))
+          (goto-char (cdr (my-bounds-of-base64-string-at-point))))
       (error "No Base64 string at point"))))
 (keymap-global-set
  (my-key "6") 'my-base64-decode-point-into-buffer)
