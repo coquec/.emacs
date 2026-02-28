@@ -313,12 +313,16 @@ encoding instead.
 
 Call `my-base64-decode-string-into-buffer' to do the job."
   (interactive "P")
-  (let ((base64-string (thing-at-point 'base64-string)))
+  (let* ((base64-bounds (my-bounds-of-base64-string-at-point))
+         (base64-string (when base64-bounds
+                          (buffer-substring-no-properties
+                           (car base64-bounds)
+                           (cdr base64-bounds)))))
     (if base64-string
         (progn
           (my-base64-decode-string-into-buffer base64-string
                                                (if arg 'raw-text 'utf-8))
-          (goto-char (cdr (my-bounds-of-base64-string-at-point))))
+          (goto-char (cdr base64-bounds)))
       (error "No Base64 string at point"))))
 (keymap-global-set
  (my-key "6") 'my-base64-decode-point-into-buffer)
