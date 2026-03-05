@@ -135,7 +135,7 @@
 
 ;; Enable repeat-mode.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Repeating.html
-(repeat-mode)
+(repeat-mode 1)
 
 ;; Enable winner-mode, allowing to recover previous window layouts with C-c
 ;; <left> and C-c <right>.
@@ -338,6 +338,21 @@ Call `my-base64-decode-string-into-buffer' to do the job."
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+;; expreg uses tree-sitter to expand and contract the region.
+(use-package expreg
+  :init
+  (bind-key (my-key "=") #'expreg-expand)
+  (bind-key (my-key "-") #'expreg-contract))
+;; Support sentences with expreg in text modes.
+(add-hook 'text-mode-hook
+          (lambda ()
+            (add-to-list 'expreg-functions #'expreg--sentence)))
+;; Enable repeat-mode for previous key sequences.
+(defvar-keymap my-expreg-repeat-map
+  :repeat t
+  "=" #'expreg-expand
+  "-" #'expreg-contract)
 
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
