@@ -325,7 +325,7 @@ Call `my-base64-decode-string-into-buffer' to do the job."
           (goto-char (cdr base64-bounds)))
       (error "No Base64 string at point"))))
 (keymap-global-set
- (my-key "6") 'my-base64-decode-point-into-buffer)
+ (my-key "6") #'my-base64-decode-point-into-buffer)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
