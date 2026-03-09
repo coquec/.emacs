@@ -39,9 +39,7 @@
 ;; use-package default options.
 (setopt
  ;; Install packages not yet installed.
- use-package-always-ensure t
- ;; Load non-autoloaded functions only.
- use-package-always-defer t)
+ use-package-always-ensure t)
 
 ;; Update packages automatically.
 ;; https://github.com/rranelli/auto-package-update.el
