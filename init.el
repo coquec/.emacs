@@ -343,16 +343,17 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 (use-package expreg
   :init
   (bind-key (my-key "=") #'expreg-expand)
-  (bind-key (my-key "-") #'expreg-contract))
-;; Support sentences with expreg in text modes.
-(add-hook 'text-mode-hook
-          (lambda ()
-            (add-to-list 'expreg-functions #'expreg--sentence)))
-;; Enable repeat-mode for previous key sequences.
-(defvar-keymap my-expreg-repeat-map
-  :repeat t
-  "=" #'expreg-expand
-  "-" #'expreg-contract)
+  (bind-key (my-key "-") #'expreg-contract)
+  :config
+  ;; Support sentences with expreg in text modes.
+  (add-hook 'text-mode-hook
+            (lambda ()
+              (add-to-list 'expreg-functions #'expreg--sentence)))
+  ;; Enable repeat-mode for previous key sequences.
+  (defvar-keymap my-expreg-repeat-map
+    :repeat t
+    "=" #'expreg-expand
+    "-" #'expreg-contract))
 
 ;; which-key shows the available keybindings while typing a prefix.
 (use-package which-key
