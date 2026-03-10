@@ -329,15 +329,24 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Additional packages
 
-;; Enable tree-sitter automatically for all the languages.
-(use-package treesit-auto
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+;; I don't use the following packages in Windows.
+(when (not (equal system-type 'windows-nt))
+  ;; Enable tree-sitter automatically for all the languages.
+  (use-package treesit-auto
+    :custom
+    (treesit-auto-install 'prompt)
+    :config
+    (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode))
 
-;; expreg uses tree-sitter to expand and contract the region.
+  ;; SLIME, for Common Lisp programming.
+  (use-package slime)
+  (setopt inferior-lisp-program "sbcl")
+
+  ;; Geiser, for Scheme programming, only with guile for now.
+  (use-package geiser-guile))
+
+;; expreg uses tree-sitter (if available) to expand and contract the region.
 (use-package expreg
   :init
   (bind-key (my-key "=") #'expreg-expand)
@@ -424,15 +433,6 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 (use-package ipv4
   :vc
   (:url "https://github.com/coquec/ipv4.git" :branch "main" :rev :newest))
-
-;; I don't use the following packages in Windows.
-(when (not (equal system-type 'windows-nt))
-  ;; SLIME, for Common Lisp programming.
-  (use-package slime)
-  (setopt inferior-lisp-program "sbcl")
-
-  ;; Geiser, for Scheme programming, only with guile for now.
-  (use-package geiser-guile))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
