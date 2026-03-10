@@ -107,6 +107,10 @@
 ;; Don't adjust frame size to row/columns multiples.
 (setq frame-resize-pixelwise t)
 
+;; Use .editorconfig files to set default values for tabs, end of lines, empty
+;; lines...
+(editorconfig-mode 1)
+
 
 ;;; My own key prefixes.
 
@@ -372,12 +376,6 @@ Call `my-base64-decode-string-into-buffer' to do the job."
   :config
   (yas-reload-all)
   (add-hook 'adoc-mode-hook #'yas-minor-mode))
-
-;; EditorConfig package allows to use .editorconfig files to set default
-;; values for tabs, end of lines, emptylines...
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
 
 ;; magit package to use Git from Emacs.
 (use-package magit)
