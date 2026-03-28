@@ -36,6 +36,10 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-refresh-contents)
 
+;; Review changes in packages before installing them.
+(if (>= (string-to-number emacs-version) 31)
+    (setopt package-review-policy t))
+
 ;; use-package default options.
 (setopt
  ;; Install packages not yet installed.
