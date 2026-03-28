@@ -465,7 +465,10 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 (add-hook 'org-cycle-hook 'org-cycle-hide-drawers)
 
 ;; Active Babel languages.
-(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)
+   (emacs-lisp . t)))
 
 ;; Copy to the clipboard the Nth heading of the current path.
 (defun my-get-org-heading (n)
