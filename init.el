@@ -449,9 +449,6 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 ;; Enable autocompletion in org-mode buffers.
 (add-to-list 'completion-preview-commands #'org-self-insert-command)
 
-;; Show only the last star in headings.
-(setopt org-hide-leading-stars t)
-
 ;; Avoid inheritance of the 'project' tag.  This allows to mark project tasks
 ;; explicitly and to have an agenda view with the current projects by typing
 ;; 'M-x org-agenda m project'.
