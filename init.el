@@ -147,6 +147,9 @@
 ;; <left> and C-c <right>.
 (winner-mode)
 
+;; Save clipboard into kill buffer if it has less than 2049 characters.
+(setopt save-interprogram-paste-before-kill 2049)
+
 ;; Use spaces instead of tab characters.
 (setq-default indent-tabs-mode nil)
 
