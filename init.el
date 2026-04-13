@@ -212,6 +212,9 @@
 ;; Switch the focus to help windows when they're opened.
 (setopt help-window-select t)
 
+;; Repeat popping mark position after C-u C-<SPC> by just pressing C-<SPC>.
+(setopt set-mark-command-repeat-pop t)
+
 
 ;;; Spell checking.
 
