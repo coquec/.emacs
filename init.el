@@ -162,6 +162,10 @@
 ;; Highlight the bracket matching the one next to the cursor.
 (show-paren-mode t)
 
+;; Auto-chmod +x if the buffer starts with a shebang.
+(add-hook 'afer-save-hook
+          #'executable-make-buffer-file-executable-if-script-p)
+
 ;; Enable saving last opened files history.
 (recentf-mode 1)
 (setopt recentf-max-menu-items 50)
