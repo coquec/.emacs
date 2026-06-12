@@ -206,6 +206,9 @@
 ;; Rebind C-x C-b to ibuffer Recommended in Mastering Emacs.
 (substitute-key-definition #'list-buffers #'ibuffer (current-global-map))
 
+;; Rebind M-z to zap-up-to-char, avoiding to delete the typed char.
+(substitute-key-definition #'zap-to-char #'zap-up-to-char (current-global-map))
+
 ;; Enable additional movements while searching in Emacs 28.1 and later.
 (setopt isearch-allow-motion t)
 
