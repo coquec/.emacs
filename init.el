@@ -37,8 +37,8 @@
 (package-refresh-contents)
 
 ;; Review changes in packages before installing them.
-(if (>= (string-to-number emacs-version) 31)
-    (setopt package-review-policy t))
+(when (>= (string-to-number emacs-version) 31)
+  (setopt package-review-policy t))
 
 ;; use-package default options.
 (setopt
