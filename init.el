@@ -192,6 +192,12 @@
 ;; Select the completion buffer on the second TAB press.
 (setopt completion-auto-select 'second-tab)
 
+;; Use '<UP>' and '<DOWN>' arrow keys to move point between completion
+;; candidates, leaving '<RIGHT>' and '<LEFT>' arrows to move point in the
+;; minibuffer.
+(when (>= (string-to-number emacs-version) 31)
+  (setopt minibuffer-visible-completions 'up-down))
+
 ;; Enable in-buffer completion.
 (global-completion-preview-mode)
 
