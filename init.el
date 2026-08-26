@@ -249,18 +249,20 @@
  (interactive) (kill-new (file-name-nondirectory buffer-file-name)))
 (keymap-global-set (my-key "w") #'my-kill-buffer-name)
 
-;; Joins all the lines of a paragraph in one.
-(defun my-unfill-paragraph (&optional region)
-  "Take a multi-line paragraph and make it into a single line of text.
+(if (>= (string-to-number emacs-version) 31)
+    (keymap-global-set (my-key "q") #'unfill-paragraph)
+  ;; Joins all the lines of a paragraph in one.
+  (defun my-unfill-paragraph (&optional region)
+    "Take a multi-line paragraph and make it into a single line of text.
 
 If REGION is non-nil, apply the function to all the paragraphs in it."
-  (interactive (progn (barf-if-buffer-read-only) '(t)))
-  (let ((fill-column (point-max))
-        ;; This would override `fill-column' if it's an integer.
-        (emacs-lisp-docstring-fill-column t))
-    (fill-paragraph nil region)))
-(keymap-global-set
- (my-key "q") 'my-unfill-paragraph)
+    (interactive (progn (barf-if-buffer-read-only) '(t)))
+    (let ((fill-column (point-max))
+          ;; This would override `fill-column' if it's an integer.
+          (emacs-lisp-docstring-fill-column t))
+      (fill-paragraph nil region)))
+  (keymap-global-set
+   (my-key "q") #'my-unfill-paragraph))
 
 ;; Opens the directory with Emacs init file.
 (defun my-find-init-directory ()
