@@ -80,6 +80,10 @@
 ;; Show the column number in the status bar.
 (column-number-mode)
 
+;; Integration with system's dock.
+(when (>= (string-to-number emacs-version) 31)
+  system-taskbar-mode)
+
 ;; Use the current buffer name as the frame tittle.
 (setq frame-title-format "%b")
 
