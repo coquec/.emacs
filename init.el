@@ -169,6 +169,8 @@
 ;; Enable saving last opened files history.
 (recentf-mode 1)
 (setopt recentf-max-menu-items 50)
+(when (>= (string-to-number emacs-version) 31)
+  (setopt recentf-show-messages nil))
 (keymap-global-set
  (my-key "r") #'recentf-open-files)
 
