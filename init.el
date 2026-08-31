@@ -361,12 +361,13 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 ;; I don't use the following packages in Windows.
 (when (not (equal system-type 'windows-nt))
   ;; Enable tree-sitter automatically for all the languages.
-  (use-package treesit-auto
-    :custom
-    (treesit-auto-install 'prompt)
-    :config
-    (treesit-auto-add-to-auto-mode-alist 'all)
-    (global-treesit-auto-mode))
+  (when (< (string-to-number emacs-version) 31)
+    (use-package treesit-auto
+      :custom
+      (treesit-auto-install 'prompt)
+      :config
+      (treesit-auto-add-to-auto-mode-alist 'all)
+      (global-treesit-auto-mode)))
 
   ;; SLIME, for Common Lisp programming.
   (use-package slime)
