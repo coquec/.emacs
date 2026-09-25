@@ -432,7 +432,9 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 
 ;; Paredit.  Edit parenthesis like a pro in lisp modes.
 (use-package paredit
-  :init
+  :defer nil
+  :config
+  (show-paren-mode t)
   (add-hook 'clojure-mode-hook #'enable-paredit-mode)
   (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
   (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
@@ -443,8 +445,6 @@ Call `my-base64-decode-string-into-buffer' to do the job."
   (bind-key (my-key "(") #'paredit-wrap-sexp)
   (bind-key (my-key "[") #'paredit-wrap-square)
   (bind-key (my-key "{") #'paredit-wrap-curly)
-  :config
-  (show-paren-mode t)
   :diminish nil)
 
 ;; Macrostep.  Review elisp macros dynamically.
