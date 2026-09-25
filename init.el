@@ -469,9 +469,6 @@ Call `my-base64-decode-string-into-buffer' to do the job."
 (require 'org)
 (require 'outline)
 
-;; Enable presentations in org-mode with org-tree-slide.
-(use-package org-tree-slide)
-
 ;; Enable autocompletion in org-mode buffers.
 (add-to-list 'completion-preview-commands #'org-self-insert-command)
 
