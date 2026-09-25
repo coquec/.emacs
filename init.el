@@ -373,13 +373,11 @@ Call `my-base64-decode-string-into-buffer' to do the job."
       (treesit-auto-install 'prompt)
       :config
       (treesit-auto-add-to-auto-mode-alist 'all)
-      (global-treesit-auto-mode)))
+      (global-treesit-auto-mode))))
 
-  ;; SLIME, for Common Lisp programming.
-  (use-package slime)
-  (setopt inferior-lisp-program "sbcl")
-
-  ;; Geiser, for Scheme programming, only with guile for now.
+;; Packages I only use in Linux.
+(when (equal system-type 'gnu/linux)
+    ;; Geiser, for Scheme programming, only with guile for now.
   (use-package geiser-guile))
 
 ;; expreg uses tree-sitter (if available) to expand and contract the region.
