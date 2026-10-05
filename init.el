@@ -181,7 +181,7 @@
 ;; Save last 5 open files history every 5 minutes.
 (if (>= (string-to-number emacs-version) 31)
     (progn
-      (recentf-autosave-interval 300)
+      (setopt recentf-autosave-interval 300)
       ;; Don't show messages when saving the files history.
       (setopt recentf-show-messages nil))
   (run-at-time nil (* 5 60) #'recentf-save-list))
